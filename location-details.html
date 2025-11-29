@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Details - Snowman Adventures</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            padding: 150px 50px 50px;
+            background: #111;
+            text-align: center;
+        }
+
+        .adventure-list {
+            padding: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .adventure-item {
+            background: #1a1a1a;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .adventure-item:hover {
+            transform: translateX(10px);
+            background: #222;
+        }
+
+        .adventure-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: black;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1 id="location-title">Adventures in ...</h1>
+    </div>
+
+    <div class="adventure-list" id="adventure-list">
+        <!-- Content injected by JS -->
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const locationName = params.get('loc') || 'Kashmir';
+        document.getElementById('location-title').innerText = `Adventures in ${locationName}`;
+
+        const adventures = [
+            { name: "Shankrachariya 360 Trail", difficulty: "Moderate", duration: "4 Hours" },
+            { name: "Frozen Lake Trek", difficulty: "Hard", duration: "2 Days" },
+            { name: "Pine Forest Walk", difficulty: "Easy", duration: "3 Hours" },
+            { name: "Summit Push", difficulty: "Expert", duration: "1 Day" }
+        ];
+
+        const listContainer = document.getElementById('adventure-list');
+        adventures.forEach(adv => {
+            const item = document.createElement('div');
+            item.className = 'adventure-item';
+            item.innerHTML = `
+                <div class="adventure-info">
+                    <h3>${adv.name}</h3>
+                    <p>${adv.difficulty} • ${adv.duration}</p>
+                </div>
+                <a href="adventure-detail.html?name=${encodeURIComponent(adv.name)}" class="btn">View Details</a>
+            `;
+            listContainer.appendChild(item);
+        });
+    </script>
+</body>
+
+</html>

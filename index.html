@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowman Adventures – Kashmir</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="burger-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="assets/trek.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="hero-title">Unleash Your Spirit</h1>
+            <p class="hero-subtitle">Experience the untold beauty of Kashmir</p>
+        </div>
+    </section>
+
+    <!-- Top Activities Header -->
+    <section class="section-header">
+        <h2>Top Activities in Kashmir</h2>
+        <p>Discover the thrill of the mountains</p>
+    </section>
+
+    <!-- Adventure Types Row -->
+    <section class="adventures-row">
+        <div class="adventure-card">
+            <img src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Trekking" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">Trekking</div>
+        </div>
+        <div class="adventure-card">
+            <img src="https://images.pexels.com/photos/2406395/pexels-photo-2406395.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Rafting" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">Rafting</div>
+        </div>
+        <div class="adventure-card">
+            <img src="https://images.pexels.com/photos/220365/pexels-photo-220365.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="MTB" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">MTB</div>
+        </div>
+        <div class="adventure-card">
+            <img src="https://images.pexels.com/photos/10967/pexels-photo-10967.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Paragliding" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">Paragliding</div>
+        </div>
+        <div class="adventure-card">
+            <img src="assets/index/ice_climbing.jpg" alt="Ice Climbing" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">Ice Climbing</div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <h2 class="section-title">What Adventurers Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-text">"The trekking experience was absolutely surreal. Snowman Adventures took
+                        care of everything!"</p>
+                    <p class="testimonial-author">- Sarah Jenkins, UK</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"Paragliding over the valley was the highlight of my life. Highly
+                        recommended!"</p>
+                    <p class="testimonial-author">- Rahul Sharma, India</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"Professional guides and top-notch equipment. I felt safe and
+                        exhilarated."</p>
+                    <p class="testimonial-author">- Elena Rodriguez, Spain</p>
+                </div>
+                <button class="prev-btn">&#10094;</button>
+                <button class="next-btn">&#10095;</button>
+            </div>
+            <div class="dots-container">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Snowman Adventures</h3>
+                <p>Crafting memories in the heart of the Himalayas.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Support</a>
+            </div>
+            <div class="footer-social">
+                <!-- Social Icons Placeholder -->
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div style="text-align: center; font-size: 0.8rem; margin-top: 20px;">
+            &copy; 2024 Snowman Adventures. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+919622494350" class="whatsapp-float" target="_blank">
+        <span>Book Now</span>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

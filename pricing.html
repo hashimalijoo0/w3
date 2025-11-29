@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Snowman Adventures</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            padding: 150px 50px 50px;
+            background: #111;
+            text-align: center;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 40px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .price-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #888;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .features-list {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+
+        .book-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: white;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .pricing-card.featured {
+            background: #222;
+            border-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured .book-btn {
+            background: var(--accent-color);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Choose Your Package</h1>
+    </div>
+
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <div class="price-title">Basic</div>
+            <div class="price-amount">$500</div>
+            <ul class="features-list">
+                <li>Shared Accommodation</li>
+                <li>Basic Meals</li>
+                <li>Guide Support</li>
+                <li>Transport (Bus)</li>
+            </ul>
+            <a href="https://wa.me/1234567890" class="book-btn">Book Now</a>
+        </div>
+
+        <div class="pricing-card featured">
+            <div class="price-title">Deluxe</div>
+            <div class="price-amount">$800</div>
+            <ul class="features-list">
+                <li>Hotel Accommodation</li>
+                <li>All Meals Included</li>
+                <li>Private Guide</li>
+                <li>Transport (SUV)</li>
+                <li>Bonfire Night</li>
+            </ul>
+            <a href="https://wa.me/1234567890" class="book-btn">Book Now</a>
+        </div>
+
+        <div class="pricing-card">
+            <div class="price-title">Premium</div>
+            <div class="price-amount">$1200</div>
+            <ul class="features-list">
+                <li>Luxury Resorts</li>
+                <li>Gourmet Meals</li>
+                <li>Dedicated Support Team</li>
+                <li>Helicopter Transfer (Optional)</li>
+                <li>Photography Service</li>
+            </ul>
+            <a href="https://wa.me/1234567890" class="book-btn">Book Now</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

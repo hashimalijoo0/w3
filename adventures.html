@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventures - Snowman Adventures</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            padding: 150px 50px 50px;
+            text-align: center;
+            background: #111;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px;
+        }
+
+        .location-card {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .location-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .location-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .location-name {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html" class="active">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Select a Location</h1>
+        <p>Choose where your next story begins.</p>
+    </div>
+
+    <div class="locations-grid">
+        <a href="location-details.html?loc=Srinagar" class="location-card">
+            <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Srinagar">
+            <div class="adventure-overlay"></div>
+            <div class="location-name">Srinagar</div>
+        </a>
+        <a href="location-details.html?loc=Pahalgam" class="location-card">
+            <img src="https://images.pexels.com/photos/1183021/pexels-photo-1183021.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Pahalgam">
+            <div class="adventure-overlay"></div>
+            <div class="location-name">Pahalgam</div>
+        </a>
+        <a href="location-details.html?loc=Sonmarg" class="location-card">
+            <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Sonmarg">
+            <div class="adventure-overlay"></div>
+            <div class="location-name">Sonmarg</div>
+        </a>
+        <a href="location-details.html?loc=Gulmarg" class="location-card">
+            <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Gulmarg">
+            <div class="adventure-overlay"></div>
+            <div class="location-name">Gulmarg</div>
+        </a>
+        <a href="location-details.html?loc=Warnwan" class="location-card">
+            <img src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Warnwan">
+            <div class="adventure-overlay"></div>
+            <div class="location-name">Warnwan</div>
+        </a>
+        <a href="location-details.html?loc=Ladakh" class="location-card">
+            <img src="https://images.pexels.com/photos/2356045/pexels-photo-2356045.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Ladakh">
+            <div class="adventure-overlay"></div>
+            <div class="location-name">Ladakh</div>
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Snowman Adventures</h3>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Detail - Snowman Adventures</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <style>
+        .detail-hero {
+            height: 60vh;
+            background: url('https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding: 50px;
+            position: relative;
+        }
+
+        .detail-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #0a0a0a, transparent);
+        }
+
+        .detail-title {
+            position: relative;
+            z-index: 2;
+            font-size: 3rem;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .itinerary-step {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .itinerary-step::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .pricing-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="detail-hero">
+        <h1 class="detail-title" id="adv-title">Adventure Name</h1>
+    </div>
+
+    <div class="content-container">
+        <h2>Itinerary</h2>
+        <br>
+        <div class="itinerary-step">
+            <h3>Start Point</h3>
+            <p>Gather at the base camp at 8:00 AM. Briefing and gear check.</p>
+        </div>
+        <div class="itinerary-step">
+            <h3>Midway Point</h3>
+            <p>Reach the scenic viewpoint. Lunch break with panoramic views.</p>
+        </div>
+        <div class="itinerary-step">
+            <h3>Summit / End Point</h3>
+            <p>Reach the destination. Photography session and descent.</p>
+        </div>
+
+        <a href="pricing.html" class="pricing-btn">Check Pricing</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name') || 'Adventure Detail';
+        document.getElementById('adv-title').innerText = name;
+    </script>
+</body>
+
+</html>
