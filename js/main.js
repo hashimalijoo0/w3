@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Burger Menu Logic ---
     const burger = document.querySelector('.burger-menu');
     const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
+    const navLinks = document.querySelectorAll('.nav-links a'); // Target 'a' tags directly
 
     if (burger && nav) {
         burger.addEventListener('click', () => {
@@ -101,8 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.toggle('nav-active');
             document.body.classList.toggle('no-scroll');
 
-            // Animate Links
-            navLinks.forEach((link, index) => {
+            // Animate Links (parent li)
+            const navItems = document.querySelectorAll('.nav-links li');
+            navItems.forEach((link, index) => {
                 if (link.style.animation) {
                     link.style.animation = '';
                 } else {
@@ -117,12 +118,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close menu when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                nav.classList.remove('nav-active');
-                document.body.classList.remove('no-scroll');
-                burger.classList.remove('toggle');
-                navLinks.forEach((link) => {
-                    link.style.animation = '';
-                });
+                // Only close if menu is active (mobile)
+                if (nav.classList.contains('nav-active')) {
+                    nav.classList.remove('nav-active');
+                    document.body.classList.remove('no-scroll');
+                    burger.classList.remove('toggle');
+
+                    const navItems = document.querySelectorAll('.nav-links li');
+                    navItems.forEach((item) => {
+                        item.style.animation = '';
+                    });
+                }
             });
         });
     }
