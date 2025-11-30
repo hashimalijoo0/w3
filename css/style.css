@@ -106,7 +106,6 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /* Ensure space between brand and nav */
     align-items: center;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
@@ -119,7 +118,6 @@ header {
     align-items: center;
     gap: 15px;
     z-index: 101;
-    /* Above mobile menu overlay */
     position: relative;
 }
 
@@ -142,7 +140,6 @@ header {
     display: none;
     cursor: pointer;
     z-index: 101;
-    /* Above mobile menu overlay */
 }
 
 .burger-menu div {
@@ -237,7 +234,6 @@ video::-webkit-media-controls-enclosure {
     display: flex;
     width: 100%;
     height: 400px;
-    /* Fixed height for the row */
     overflow: hidden;
 }
 
@@ -251,7 +247,6 @@ video::-webkit-media-controls-enclosure {
 
 .adventure-card:hover {
     flex: 1.5;
-    /* Expand on hover */
 }
 
 .adventure-img {
@@ -306,6 +301,13 @@ video::-webkit-media-controls-enclosure {
     font-weight: 300;
 }
 
+/* --- Page Header (for adventures.html) --- */
+.page-header {
+    padding: 150px 50px 50px;
+    text-align: center;
+    background: #111;
+}
+
 /* --- Adventures Page Categories --- */
 .adventure-category {
     padding: 40px 50px;
@@ -319,7 +321,71 @@ video::-webkit-media-controls-enclosure {
     text-transform: uppercase;
 }
 
+/* --- Adventures Grid Layout --- */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 0 40px 0;
+}
+
+.location-card {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #1a1a1a;
+}
+
+.location-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.location-card:hover img {
+    transform: scale(1.1);
+}
+
+.location-name {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 2;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
 /* --- Detail Page Styles --- */
+.detail-hero {
+    position: relative;
+    height: 60vh;
+    background: url('https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+    padding: 50px;
+}
+
+.detail-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0a0a0a, transparent);
+}
+
+.detail-title {
+    position: relative;
+    z-index: 2;
+    font-size: 3rem;
+}
+
 .detail-hero-stats {
     display: flex;
     justify-content: center;
@@ -359,6 +425,55 @@ video::-webkit-media-controls-enclosure {
     max-width: 1200px;
     margin: 50px auto;
     padding: 0 20px;
+}
+
+.itinerary-step {
+    border-left: 2px solid var(--primary-color);
+    padding-left: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.itinerary-step::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.features-list {
+    list-style: none;
+    color: #ccc;
+}
+
+.features-list li {
+    margin-bottom: 10px;
+}
+
+.features-list li::before {
+    content: '✓';
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--accent-color);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
 }
 
 /* Tabs */
@@ -645,12 +760,10 @@ footer {
     header {
         padding: 20px;
         justify-content: space-between;
-        /* Align logo and burger */
     }
 
     .nav-links {
         position: fixed;
-        /* Changed to fixed for full screen overlay */
         right: 0;
         top: 0;
         height: 100vh;
@@ -659,13 +772,10 @@ footer {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /* Center items vertically */
         width: 100%;
-        /* Full width */
         transform: translateX(100%);
         transition: transform 0.4s ease-in-out;
         z-index: 99;
-        /* Below brand and burger */
         padding-top: 0;
     }
 
@@ -722,7 +832,6 @@ footer {
 
     .adventure-card:hover {
         flex: 1;
-        /* Disable flex grow on mobile */
     }
 
     .brand-text {
@@ -743,5 +852,13 @@ footer {
         overflow-x: auto;
         white-space: nowrap;
         padding-bottom: 10px;
+    }
+
+    .adventure-category {
+        padding: 40px 20px;
+    }
+
+    .page-header {
+        padding: 120px 20px 30px;
     }
 }

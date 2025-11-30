@@ -7,46 +7,173 @@
     <title>Adventures - Snowman Adventures</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <style>
-        .page-header {
-            padding: 150px 50px 50px;
-            text-align: center;
-            background: #111;
-        }
-
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 50px;
-        }
-
-        .location-card {
+        .adventures-hero {
             position: relative;
-            height: 300px;
-            overflow: hidden;
+            height: 60vh;
+            background: url('https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .adventures-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+        }
+
+        .adventures-hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .adventures-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .adventures-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .activities-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .activity-section {
+            margin-bottom: 40px;
+        }
+
+        .activity-header {
+            background: #1a1a1a;
+            padding: 20px 30px;
             border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .activity-header:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .activity-header h2 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .dropdown-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .activity-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .activity-dropdown.active {
+            max-height: 1000px;
+        }
+
+        .trek-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px 20px;
+        }
+
+        .trek-card {
+            background: #222;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #333;
+        }
+
+        .trek-card:hover {
+            background: #2a2a2a;
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .trek-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .direct-activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid #333;
             cursor: pointer;
         }
 
-        .location-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
+        .activity-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
         }
 
-        .location-card:hover img {
-            transform: scale(1.1);
+        .activity-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: white;
         }
 
-        .location-name {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            font-size: 2rem;
-            font-weight: bold;
-            z-index: 2;
+        .activity-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .adventures-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .adventures-hero p {
+                font-size: 1.1rem;
+            }
+
+            .trek-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .direct-activities {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -69,12 +196,119 @@
                 <li><a href="adventures.html" class="active">Adventures</a></li>
                 <li><a href="tour-packages.html">Tour Packages</a></li>
                 <li><a href="#">Blog</a></li>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                </div>
-                </div>
-                </footer>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Hero Section -->
+    <div class="adventures-hero">
+        <div class="adventures-hero-content">
+            <h1>Find Your Adventure</h1>
+            <p>Choose from our wide range of activities</p>
+        </div>
+    </div>
+
+    <!-- Activities Container -->
+    <div class="activities-container">
+
+        <!-- Trekking Section with Dropdown -->
+        <div class="activity-section">
+            <div class="activity-header" onclick="toggleDropdown('trekking')">
+                <h2>🥾 Trekking</h2>
+                <span class="dropdown-icon" id="trekking-icon">▼</span>
+            </div>
+            <div class="activity-dropdown" id="trekking-dropdown">
+                <div class="trek-grid">
+                    <a href="adventure-detail.html?name=Gangbal%20Trek" class="trek-card">
+                        <h3>Gangbal Trek</h3>
+                        <p>Explore the pristine Gangbal Lake</p>
+                    </a>
+                    <a href="adventure-detail.html?name=Tullian%20Lake" class="trek-card">
+                        <h3>Tullian Lake</h3>
+                        <p>A scenic alpine lake trek</p>
+                    </a>
+                    <a href="adventure-detail.html?name=Naranag%20Trek" class="trek-card">
+                        <h3>Naranag Trek</h3>
+                        <p>Ancient temples and meadows</p>
+                    </a>
+                    <a href="adventure-detail.html?name=Kashmir%20Great%20Lakes" class="trek-card">
+                        <h3>Kashmir Great Lakes</h3>
+                        <p>The crown jewel of Kashmir treks</p>
+                    </a>
+                    <a href="adventure-detail.html?name=Tarsar%20Marsar" class="trek-card">
+                        <h3>Tarsar Marsar</h3>
+                        <p>Twin alpine lakes adventure</p>
+                    </a>
+                    <a href="adventure-detail.html?name=Kolahoi%20Glacier" class="trek-card">
+                        <h3>Kolahoi Glacier</h3>
+                        <p>Trek to the glacier base</p>
+                    </a>
+                    <a href="adventure-detail.html?name=Marchoi%20Trek" class="trek-card">
+                        <h3>Marchoi Trek</h3>
+                        <p>High altitude mountain pass</p>
+                    </a>
+                    <a href="adventure-detail.html?name=Warwan%20Valley" class="trek-card">
+                        <h3>Warwan Valley</h3>
+                        <p>Remote valley exploration</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Direct Activity Links -->
+        <h2 style="margin: 60px 0 30px 0; font-size: 2rem;">Other Adventures</h2>
+        <div class="direct-activities">
+            <a href="adventure-detail.html?name=Rafting" class="activity-card">
+                <div class="activity-icon">🚣</div>
+                <h3>Rafting</h3>
+                <p>Thrilling river rapids experience</p>
+            </a>
+            <a href="adventure-detail.html?name=Ice%20Climbing" class="activity-card">
+                <div class="activity-icon">🧗</div>
+                <h3>Ice Climbing</h3>
+                <p>Scale frozen waterfalls</p>
+            </a>
+            <a href="adventure-detail.html?name=Paragliding" class="activity-card">
+                <div class="activity-icon">🪂</div>
+                <h3>Paragliding</h3>
+                <p>Soar above the valleys</p>
+            </a>
+            <a href="adventure-detail.html?name=Water%20Skiing" class="activity-card">
+                <div class="activity-icon">🎿</div>
+                <h3>Water Skiing</h3>
+                <p>Glide across Dal Lake</p>
+            </a>
+            <a href="adventure-detail.html?name=Snow%20Skiing" class="activity-card">
+                <div class="activity-icon">⛷️</div>
+                <h3>Snow Skiing</h3>
+                <p>Powder runs in Gulmarg</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Snowman Adventures</h3>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id + '-dropdown');
+            const icon = document.getElementById(id + '-icon');
+
+            dropdown.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>
