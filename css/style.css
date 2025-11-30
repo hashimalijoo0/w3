@@ -22,6 +22,10 @@ body {
     overflow-x: hidden;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -102,6 +106,7 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    /* Ensure space between brand and nav */
     align-items: center;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
@@ -109,9 +114,35 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 101;
+    /* Above mobile menu overlay */
+    position: relative;
+}
+
+.hero-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.brand-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
 .burger-menu {
     display: none;
     cursor: pointer;
+    z-index: 101;
+    /* Above mobile menu overlay */
 }
 
 .burger-menu div {
@@ -170,6 +201,15 @@ header {
     object-fit: cover;
     z-index: -1;
     filter: brightness(0.7);
+}
+
+/* Video Autoplay Fixes */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
 }
 
 .hero-content {
@@ -264,6 +304,134 @@ header {
     font-size: 1.1rem;
     color: #aaa;
     font-weight: 300;
+}
+
+/* --- Adventures Page Categories --- */
+.adventure-category {
+    padding: 40px 50px;
+}
+
+.category-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+
+/* --- Detail Page Styles --- */
+.detail-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.detail-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Tabs */
+.detail-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+}
+
+.detail-tab-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.detail-tab-btn:hover {
+    color: white;
+}
+
+.detail-tab-btn.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.detail-tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.detail-tab-content.active {
+    display: block;
+}
+
+/* Sidebar */
+.detail-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar-widget {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.book-now-widget {
+    text-align: center;
+    position: sticky;
+    top: 100px;
+}
+
+.price-tag {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    display: block;
 }
 
 /* --- Testimonials --- */
@@ -402,6 +570,7 @@ footer {
 .footer-links a {
     display: block;
     margin-bottom: 8px;
+    transition: color 0.3s;
 }
 
 .footer-links a:hover {
@@ -481,6 +650,7 @@ footer {
 
     .nav-links {
         position: fixed;
+        /* Changed to fixed for full screen overlay */
         right: 0;
         top: 0;
         height: 100vh;
@@ -489,10 +659,13 @@ footer {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        /* Center items vertically */
         width: 100%;
+        /* Full width */
         transform: translateX(100%);
         transition: transform 0.4s ease-in-out;
-        z-index: 998;
+        z-index: 99;
+        /* Below brand and burger */
         padding-top: 0;
     }
 
@@ -503,8 +676,6 @@ footer {
 
     .burger-menu {
         display: block;
-        position: relative;
-        z-index: 999;
     }
 
     .nav-active {
@@ -553,17 +724,24 @@ footer {
         flex: 1;
         /* Disable flex grow on mobile */
     }
-}
 
-/* --- Hero Logo --- */
-.hero-logo {
-    width: 100px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+    .brand-text {
+        font-size: 1rem;
+        display: block;
+    }
 
-@media (max-width: 768px) {
-    .hero-logo {
-        width: 60px;
+    .detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-hero-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .detail-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
     }
 }

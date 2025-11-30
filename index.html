@@ -16,7 +16,10 @@
 
     <!-- Header -->
     <header>
-        <img src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+        <a href="index.html" class="brand-container">
+            <img src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+            <span class="brand-text">Snowman Adventures</span>
+        </a>
         <nav>
             <div class="burger-menu">
                 <div class="line1"></div>
@@ -24,6 +27,7 @@
                 <div class="line3"></div>
             </div>
             <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="adventures.html">Adventures</a></li>
                 <li><a href="tour-packages.html">Tour Packages</a></li>
                 <li><a href="#">Blog</a></li>
@@ -35,7 +39,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline webkit-playsinline>
             <source src="assets/trek.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
@@ -44,42 +48,43 @@
         </div>
     </section>
 
-    <!-- Top Activities Header -->
+    <!-- Popular Treks Header -->
     <section class="section-header">
-        <h2>Top Activities in Kashmir</h2>
-        <p>Discover the thrill of the mountains</p>
+        <h2>Popular Treks</h2>
+        <p>Explore the most breathtaking routes in Kashmir</p>
     </section>
 
-    <!-- Adventure Types Row -->
+    <!-- Popular Treks Row -->
     <section class="adventures-row">
-        <div class="adventure-card">
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=KGL'">
+            <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Kashmir Great Lakes" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">Kashmir Great Lakes</div>
+        </div>
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=TarsarMarsar'">
+            <img src="https://images.pexels.com/photos/1183021/pexels-photo-1183021.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Tarsar Marsar" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">Tarsar Marsar</div>
+        </div>
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Tulian'">
+            <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Tulian Lake" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">Tulian Lake</div>
+        </div>
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Kolahoi'">
+            <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Kolahoi Glacier" class="adventure-img">
+            <div class="adventure-overlay"></div>
+            <div class="adventure-label">Kolahoi Glacier</div>
+        </div>
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Gangabal'">
             <img src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Trekking" class="adventure-img">
+                alt="Gangabal Lake" class="adventure-img">
             <div class="adventure-overlay"></div>
-            <div class="adventure-label">Trekking</div>
-        </div>
-        <div class="adventure-card">
-            <img src="https://images.pexels.com/photos/2406395/pexels-photo-2406395.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Rafting" class="adventure-img">
-            <div class="adventure-overlay"></div>
-            <div class="adventure-label">Rafting</div>
-        </div>
-        <div class="adventure-card">
-            <img src="https://images.pexels.com/photos/220365/pexels-photo-220365.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="MTB" class="adventure-img">
-            <div class="adventure-overlay"></div>
-            <div class="adventure-label">MTB</div>
-        </div>
-        <div class="adventure-card">
-            <img src="https://images.pexels.com/photos/10967/pexels-photo-10967.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Paragliding" class="adventure-img">
-            <div class="adventure-overlay"></div>
-            <div class="adventure-label">Paragliding</div>
-        </div>
-        <div class="adventure-card">
-            <img src="assets/index/ice_climbing.jpg" alt="Ice Climbing" class="adventure-img">
-            <div class="adventure-overlay"></div>
-            <div class="adventure-label">Ice Climbing</div>
+            <div class="adventure-label">Gangabal Lake</div>
         </div>
     </section>
 

@@ -8,73 +8,23 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
-    <style>
-        .detail-hero {
-            height: 60vh;
-            background: url('https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
-            display: flex;
-            align-items: flex-end;
-            padding: 50px;
-            position: relative;
-        }
-
-        .detail-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, #0a0a0a, transparent);
-        }
-
-        .detail-title {
-            position: relative;
-            z-index: 2;
-            font-size: 3rem;
-        }
-
-        .content-container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        .itinerary-step {
-            border-left: 2px solid var(--primary-color);
-            padding-left: 20px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .itinerary-step::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            background: var(--primary-color);
-            border-radius: 50%;
-        }
-
-        .pricing-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: var(--accent-color);
-            color: white;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-    </style>
+    <!-- Font Awesome for Icons (Optional, using text for now if not available) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
     <header>
+        <a href="index.html" class="brand-container">
+            <img src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+            <span class="brand-text">Snowman Adventures</span>
+        </a>
         <nav>
+            <div class="burger-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="adventures.html">Adventures</a></li>
@@ -86,30 +36,197 @@
         </nav>
     </header>
 
+    <!-- Hero Section with Stats -->
     <div class="detail-hero">
-        <h1 class="detail-title" id="adv-title">Adventure Name</h1>
+        <div style="width: 100%; max-width: 1200px; margin: 0 auto; z-index: 2;">
+            <h1 class="detail-title" id="adv-title">Adventure Name</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9;">Journey Through the Jewel of Kashmir</p>
+
+            <div class="detail-hero-stats">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-mountain"></i></div>
+                    <div class="stat-label">Difficulty</div>
+                    <div class="stat-value">Moderate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="stat-label">Duration</div>
+                    <div class="stat-value">8 Days</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-arrow-up"></i></div>
+                    <div class="stat-label">Max Altitude</div>
+                    <div class="stat-value">13,800 ft</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-hiking"></i></div>
+                    <div class="stat-label">Distance</div>
+                    <div class="stat-value">72 km</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-sun"></i></div>
+                    <div class="stat-label">Best Time</div>
+                    <div class="stat-value">July - Sept</div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="content-container">
-        <h2>Itinerary</h2>
-        <br>
-        <div class="itinerary-step">
-            <h3>Start Point</h3>
-            <p>Gather at the base camp at 8:00 AM. Briefing and gear check.</p>
-        </div>
-        <div class="itinerary-step">
-            <h3>Midway Point</h3>
-            <p>Reach the scenic viewpoint. Lunch break with panoramic views.</p>
-        </div>
-        <div class="itinerary-step">
-            <h3>Summit / End Point</h3>
-            <p>Reach the destination. Photography session and descent.</p>
+    <!-- Main Content Layout -->
+    <div class="detail-layout">
+        <!-- Left Column: Tabs & Content -->
+        <div class="detail-content">
+            <div class="detail-tabs">
+                <button class="detail-tab-btn active" onclick="openDetailTab('overview')">Overview</button>
+                <button class="detail-tab-btn" onclick="openDetailTab('itinerary')">Itinerary</button>
+                <button class="detail-tab-btn" onclick="openDetailTab('inclusions')">Inclusions</button>
+                <button class="detail-tab-btn" onclick="openDetailTab('booking')">Booking & Dates</button>
+            </div>
+
+            <!-- Tab: Overview -->
+            <div id="overview" class="detail-tab-content active">
+                <h2>About This Adventure</h2>
+                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
+                    Experience the untouched beauty of Kashmir with this trek. From alpine lakes to lush meadows, this
+                    journey takes you through some of the most breathtaking landscapes in the Himalayas. Perfect for
+                    nature lovers and photography enthusiasts.
+                </p>
+                <h3>Highlights</h3>
+                <ul style="list-style: disc; margin-left: 20px; color: #ccc; line-height: 1.8;">
+                    <li>Witness the pristine alpine lakes.</li>
+                    <li>Camp under the starlit Himalayan sky.</li>
+                    <li>Walk through blooming meadows of wildflowers.</li>
+                    <li>Experience the warm hospitality of local shepherds.</li>
+                </ul>
+            </div>
+
+            <!-- Tab: Itinerary -->
+            <div id="itinerary" class="detail-tab-content">
+                <h2>Day-by-Day Itinerary</h2>
+                <br>
+                <div class="itinerary-step">
+                    <h3>Day 1: Arrival in Srinagar</h3>
+                    <p>Pickup from airport, transfer to houseboat. Briefing and gear check.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 2: Drive to Base Camp</h3>
+                    <p>Scenic drive to Sonamarg. Acclimatization walk.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 3: Trek to Nichnai</h3>
+                    <p>First day of trekking through pine forests and meadows.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 4: Nichnai to Vishansar Lake</h3>
+                    <p>Cross the Nichnai Pass and descend to the beautiful lake.</p>
+                </div>
+                <!-- Add more days as needed -->
+            </div>
+
+            <!-- Tab: Inclusions -->
+            <div id="inclusions" class="detail-tab-content">
+                <div style="display: flex; gap: 40px;">
+                    <div style="flex: 1;">
+                        <h3 style="color: #2ecc71;">What's Included</h3>
+                        <ul class="features-list">
+                            <li>All accommodation during the trek.</li>
+                            <li>All meals (Veg/Non-Veg).</li>
+                            <li>Professional Trek Leader & Guide.</li>
+                            <li>First Aid & Oxygen Cylinder.</li>
+                            <li>Permits and Camping Charges.</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1;">
+                        <h3 style="color: #e74c3c;">What's Excluded</h3>
+                        <ul style="list-style: none; color: #ccc;">
+                            <li style="margin-bottom: 10px;">❌ Personal gear and clothing.</li>
+                            <li style="margin-bottom: 10px;">❌ Airfare to/from Srinagar.</li>
+                            <li style="margin-bottom: 10px;">❌ Personal expenses/tips.</li>
+                            <li style="margin-bottom: 10px;">❌ Insurance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Booking -->
+            <div id="booking" class="detail-tab-content">
+                <h2>Upcoming Batches</h2>
+                <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                    <div
+                        style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
+                        <span>July 15 - July 22</span>
+                        <span style="color: #2ecc71;">Available</span>
+                        <a href="#" style="color: var(--accent-color); font-weight: bold;">Book</a>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
+                        <span>Aug 01 - Aug 08</span>
+                        <span style="color: #f1c40f;">Filling Fast</span>
+                        <a href="#" style="color: var(--accent-color); font-weight: bold;">Book</a>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                        <span>Aug 15 - Aug 22</span>
+                        <span style="color: #2ecc71;">Available</span>
+                        <a href="#" style="color: var(--accent-color); font-weight: bold;">Book</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <a href="pricing.html" class="pricing-btn">Check Pricing</a>
+        <!-- Right Column: Sidebar -->
+        <div class="detail-sidebar">
+            <div class="sidebar-widget book-now-widget">
+                <span class="price-tag">$500 <span style="font-size: 1rem; color: #888; font-weight: normal;">/
+                        person</span></span>
+                <a href="https://wa.me/919622494350" class="btn"
+                    style="display: block; background: var(--accent-color); color: white; padding: 15px; border-radius: 5px; text-align: center; font-weight: bold;">Book
+                    Now</a>
+                <p style="font-size: 0.8rem; margin-top: 10px; color: #888;">*Group discounts available</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Why Trek with Us?</h3>
+                <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
+                    <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
+                    <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
+                    <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
+                    <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Route Map</h3>
+                <div
+                    style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888;">
+                    [Map Placeholder]
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Altitude Profile</h3>
+                <div
+                    style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888;">
+                    [Graph Placeholder]
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script src="js/main.js"></script>
     <script>
+        // Tab Switching Logic
+        function openDetailTab(tabName) {
+            const contents = document.querySelectorAll('.detail-tab-content');
+            const btns = document.querySelectorAll('.detail-tab-btn');
+
+            contents.forEach(c => c.classList.remove('active'));
+            btns.forEach(b => b.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Dynamic Title
         const params = new URLSearchParams(window.location.search);
         const name = params.get('name') || 'Adventure Detail';
         document.getElementById('adv-title').innerText = name;

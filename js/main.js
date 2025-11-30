@@ -95,10 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
 
-    if (burger) {
+    if (burger && nav) {
         burger.addEventListener('click', () => {
             // Toggle Nav
             nav.classList.toggle('nav-active');
+            document.body.classList.toggle('no-scroll');
 
             // Animate Links
             navLinks.forEach((link, index) => {
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('nav-active');
+                document.body.classList.remove('no-scroll');
                 burger.classList.remove('toggle');
                 navLinks.forEach((link) => {
                     link.style.animation = '';
