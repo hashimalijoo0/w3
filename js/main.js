@@ -129,7 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         item.style.animation = '';
                     });
                 }
-            });
+            })
+                ;
         });
     }
+
+    // --- Dropdown Toggle for Adventures Page ---
+    window.toggleDropdown = function (id) {
+        const dropdown = document.getElementById(id + '-dropdown');
+        const icon = document.getElementById(id + '-icon');
+
+        if (dropdown && icon) {
+            dropdown.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+    };
 });

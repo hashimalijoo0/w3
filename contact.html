@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Snowman Adventures</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 150px 50px 50px;
+            background: #111;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .contact-form h2 {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+            <span class="brand-text">Snowman Adventures</span>
+        </a>
+        <nav>
+            <div class="burger-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Contact Us</h1>
+        <p>Get in touch with us for your next adventure</p>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Get In Touch</h2>
+
+            <div class="contact-item">
+                <h3>📍 Address</h3>
+                <p>Srinagar, Jammu & Kashmir<br>India - 190001</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>📞 Phone</h3>
+                <p>+91 96224 94350</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>📧 Email</h3>
+                <p>info@snowmanadventures.com</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>⏰ Working Hours</h3>
+                <p>Monday - Sunday: 9:00 AM - 8:00 PM</p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+
+                <script src="js/main.js"></script>
+
+                <!-- Footer -->
+                <footer>
+                    <div class="footer-content">
+                        <!-- Brand Section -->
+                        <div class="footer-logo">
+                            <div class="footer-brand-section">
+                                <img src="assets/logo.jpg" alt="Snowman Adventures" class="footer-logo-img">
+                                <span class="footer-company-name">Snowman Adventures</span>
+                            </div>
+                            <p class="footer-tagline">Experience the untold beauty of Kashmir with expert guides and
+                                premium equipment. Your adventure awaits!</p>
+                        </div>
+
+                        <!-- Quick Links -->
+                        <div class="footer-section">
+                            <h3>Quick Links</h3>
+                            <div class="footer-links">
+                                <a href="index.html">Home</a>
+                                <a href="adventures.html">Adventures</a>
+                                <a href="tour-packages.html">Tour Packages</a>
+                                <a href="about.html">About Us</a>
+                                <a href="contact.html">Contact</a>
+                            </div>
+                        </div>
+
+                        <!-- Connect With Us -->
+                        <div class="footer-section">
+                            <h3>Connect With Us</h3>
+                            <div class="footer-links">
+                                <a href="privacy-policy.html">Privacy Policy</a>
+                                <a href="terms.html">Terms & Conditions</a>
+                            </div>
+                            <div class="social-icons">
+                                <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i
+                                        class="fab fa-whatsapp"></i></a>
+                                <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                                <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2024 Snowman Adventures. All rights reserved.</p>
+                    </div>
+                </footer>
+
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/+919622494350" class="whatsapp-float" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Book Now</span>
+                </a>
+
+</body>
+
+</html>

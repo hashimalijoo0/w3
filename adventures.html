@@ -8,31 +8,21 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .adventures-hero {
-            position: relative;
-            height: 60vh;
-            background: url('https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-        }
-
-        .adventures-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
         }
 
         .adventures-hero-content {
-            position: relative;
-            z-index: 2;
-            color: white;
+            text-align: center;
         }
 
         .adventures-hero h1 {
@@ -42,13 +32,13 @@
 
         .adventures-hero p {
             font-size: 1.3rem;
-            opacity: 0.9;
+            color: #ccc;
         }
 
         .activities-container {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
         }
 
         .activity-section {
@@ -57,19 +47,17 @@
 
         .activity-header {
             background: #1a1a1a;
-            padding: 20px 30px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 8px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s;
-            border: 2px solid transparent;
         }
 
         .activity-header:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
+            background: #222;
         }
 
         .activity-header h2 {
@@ -195,9 +183,9 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="adventures.html" class="active">Adventures</a></li>
                 <li><a href="tour-packages.html">Tour Packages</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -283,32 +271,64 @@
             <a href="adventure-detail.html?name=Snow%20Skiing" class="activity-card">
                 <div class="activity-icon">⛷️</div>
                 <h3>Snow Skiing</h3>
-                <p>Powder runs in Gulmarg</p>
+                <p>Glide down snowy slopes</p>
             </a>
         </div>
     </div>
 
+    <script src="js/main.js"></script>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
+            <!-- Brand Section -->
             <div class="footer-logo">
-                <h3>Snowman Adventures</h3>
+                <div class="footer-brand-section">
+                    <img src="assets/logo.jpg" alt="Snowman Adventures" class="footer-logo-img">
+                    <span class="footer-company-name">Snowman Adventures</span>
+                </div>
+                <p class="footer-tagline">Experience the untold beauty of Kashmir with expert guides and premium
+                    equipment. Your adventure awaits!</p>
             </div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="adventures.html">Adventures</a>
+                    <a href="tour-packages.html">Tour Packages</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
             </div>
+
+            <!-- Connect With Us -->
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Snowman Adventures. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script>
-        function toggleDropdown(id) {
-            const dropdown = document.getElementById(id + '-dropdown');
-            const icon = document.getElementById(id + '-icon');
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+919622494350" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Book Now</span>
+    </a>
 
-            dropdown.classList.toggle('active');
-            icon.classList.toggle('active');
-        }
-    </script>
 </body>
 
 </html>

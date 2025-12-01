@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -30,9 +31,9 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="adventures.html">Adventures</a></li>
                 <li><a href="tour-packages.html">Tour Packages</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -48,43 +49,43 @@
         </div>
     </section>
 
-    <!-- Popular Treks Header -->
+    <!-- Popular Destinations Header -->
     <section class="section-header">
-        <h2>Popular Treks</h2>
-        <p>Explore the most breathtaking routes in Kashmir</p>
+        <h2>Popular Destinations</h2>
+        <p>Explore the most breathtaking places in Kashmir</p>
     </section>
 
-    <!-- Popular Treks Row -->
+    <!-- Popular Destinations Row -->
     <section class="adventures-row">
-        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=KGL'">
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Gulmarg'">
             <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Kashmir Great Lakes" class="adventure-img">
+                alt="Gulmarg" class="adventure-img">
             <div class="adventure-overlay"></div>
-            <div class="adventure-label">Kashmir Great Lakes</div>
+            <div class="adventure-label">Gulmarg</div>
         </div>
-        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=TarsarMarsar'">
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Pahalgam'">
             <img src="https://images.pexels.com/photos/1183021/pexels-photo-1183021.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Tarsar Marsar" class="adventure-img">
+                alt="Pahalgam" class="adventure-img">
             <div class="adventure-overlay"></div>
-            <div class="adventure-label">Tarsar Marsar</div>
+            <div class="adventure-label">Pahalgam</div>
         </div>
-        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Tulian'">
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Sonamarg'">
             <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Tulian Lake" class="adventure-img">
+                alt="Sonamarg" class="adventure-img">
             <div class="adventure-overlay"></div>
-            <div class="adventure-label">Tulian Lake</div>
+            <div class="adventure-label">Sonamarg</div>
         </div>
-        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Kolahoi'">
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Aharbal'">
             <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Kolahoi Glacier" class="adventure-img">
+                alt="Aharbal" class="adventure-img">
             <div class="adventure-overlay"></div>
-            <div class="adventure-label">Kolahoi Glacier</div>
+            <div class="adventure-label">Aharbal</div>
         </div>
-        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Gangabal'">
+        <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Gurez'">
             <img src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Gangabal Lake" class="adventure-img">
+                alt="Gurez" class="adventure-img">
             <div class="adventure-overlay"></div>
-            <div class="adventure-label">Gangabal Lake</div>
+            <div class="adventure-label">Gurez</div>
         </div>
     </section>
 
@@ -119,36 +120,58 @@
         </div>
     </section>
 
+    <script src="js/main.js"></script>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
+            <!-- Brand Section -->
             <div class="footer-logo">
-                <h3>Snowman Adventures</h3>
-                <p>Crafting memories in the heart of the Himalayas.</p>
+                <div class="footer-brand-section">
+                    <img src="assets/logo.jpg" alt="Snowman Adventures" class="footer-logo-img">
+                    <span class="footer-company-name">Snowman Adventures</span>
+                </div>
+                <p class="footer-tagline">Experience the untold beauty of Kashmir with expert guides and premium
+                    equipment. Your adventure awaits!</p>
             </div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact Support</a>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="adventures.html">Adventures</a>
+                    <a href="tour-packages.html">Tour Packages</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
             </div>
-            <div class="footer-social">
-                <!-- Social Icons Placeholder -->
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
+
+            <!-- Connect With Us -->
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-        <div style="text-align: center; font-size: 0.8rem; margin-top: 20px;">
-            &copy; 2024 Snowman Adventures. All rights reserved.
+        <div class="footer-bottom">
+            <p>&copy; 2024 Snowman Adventures. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/+919622494350" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
         <span>Book Now</span>
     </a>
-
-    <script src="js/main.js"></script>
 </body>
 
 </html>

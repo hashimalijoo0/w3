@@ -7,6 +7,8 @@
     <title>Tour Packages - Snowman Adventures</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .page-header {
             padding: 150px 50px 50px;
@@ -32,8 +34,8 @@
         }
 
         .tab-btn.active {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
         }
 
         .tab-content {
@@ -82,75 +84,93 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="adventures.html">Adventures</a></li>
                 <li><a href="tour-packages.html" class="active">Tour Packages</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="page-header">
-        <h1>Explore Kashmir Packages</h1>
+        <h1>Our Tour Packages</h1>
+        <p>Curated itineraries for the perfect Kashmir experience</p>
     </div>
 
-    <div class="tabs">
-        <button class="tab-btn active" onclick="openTab('7days')">7 Days</button>
-        <button class="tab-btn" onclick="openTab('14days')">14 Days</button>
+    <div style="padding: 60px 20px;">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, '7days')">7 Days Kashmir</button>
+            <button class="tab-btn" onclick="openTab(event, '14days')">14 Days Explorer</button>
+        </div>
+
+        <div id="7days" class="tab-content active">
+            <div class="day-row">
+                <div class="day-num">Day 1</div>
+                <div>Arrival in Srinagar, shikara ride on Dal Lake.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 2</div>
+                <div>Srinagar to Gulmarg. Gondola ride.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 3</div>
+                <div>Gulmarg to Pahalgam. Saffron fields visit.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 4</div>
+                <div>Pahalgam exploration. Aru Valley & Betaab Valley.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 5</div>
+                <div>Pahalgam to Sonamarg. Thajiwas Glacier.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 6</div>
+                <div>Sonamarg to Srinagar. Local sightseeing (Mughal Gardens).</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 7</div>
+                <div>Departure.</div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="pricing.html" class="btn"
+                    style="background: var(--accent-color); padding: 15px 30px; color: white; text-decoration: none; border-radius: 5px;">Check
+                    Pricing</a>
+            </div>
+        </div>
+
+        <div id="14days" class="tab-content">
+            <div class="day-row">
+                <div class="day-num">Day 1-3</div>
+                <div>Srinagar & Local Sightseeing. Houseboat stay.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 4-6</div>
+                <div>Gurez Valley Expedition. Offbeat landscapes.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 7-10</div>
+                <div>Ladakh Road Trip via Sonmarg. High altitude passes.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 11-13</div>
+                <div>Leh exploration and Pangong Lake.</div>
+            </div>
+            <div class="day-row">
+                <div class="day-num">Day 14</div>
+                <div>Fly out from Leh or Srinagar.</div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="pricing.html" class="btn"
+                    style="background: var(--accent-color); padding: 15px 30px; color: white; text-decoration: none; border-radius: 5px;">Check
+                    Pricing</a>
+            </div>
+        </div>
     </div>
 
-    <div id="7days" class="tab-content active">
-        <div class="day-row">
-            <div class="day-num">Day 1</div>
-            <div>Arrival in Srinagar, shikara ride on Dal Lake.</div>
-        </div>
-        <div class="day-row">
-            <div class="day-num">Day 2</div>
-            <div>Srinagar to Gulmarg. Gondola ride.</div>
-        </div>
-        <div class="day-row">
-            <div class="day-num">Day 3</div>
-            <div>Gulmarg to Pahalgam. Saffron fields visit.</div>
-        </div>
-        <div class="day-row">
-            <div class="day-num">Day 4</div>
-            <div>Pahalgam to Gulmarg. Saffron fields visit.</div>
-        </div>
-        <!-- ... more days ... -->
-        <div class="day-row">
-            <div class="day-num">Day 7</div>
-            <div>Departure.</div>
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="pricing.html" class="btn"
-                style="background: var(--accent-color); padding: 15px 30px; color: white;">Check Pricing</a>
-        </div>
-    </div>
-
-    <div id="14days" class="tab-content">
-        <div class="day-row">
-            <div class="day-num">Day 1-3</div>
-            <div>Srinagar & Local Sightseeing.</div>
-        </div>
-        <div class="day-row">
-            <div class="day-num">Day 4-6</div>
-            <div>Gurez Valley Expedition.</div>
-        </div>
-        <div class="day-row">
-            <div class="day-num">Day 7-10</div>
-            <div>Ladakh Road Trip via Sonmarg.</div>
-        </div>
-        <div class="day-row">
-            <div class="day-num">Day 14</div>
-            <div>Fly out from Leh or Srinagar.</div>
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="pricing.html" class="btn"
-                style="background: var(--accent-color); padding: 15px 30px; color: white;">Check Pricing</a>
-        </div>
-    </div>
+    <script src="js/main.js"></script>
 
     <script>
-        function openTab(tabName) {
+        function openTab(event, tabName) {
             const contents = document.querySelectorAll('.tab-content');
             const btns = document.querySelectorAll('.tab-btn');
 
@@ -158,10 +178,61 @@
             btns.forEach(b => b.classList.remove('active'));
 
             document.getElementById(tabName).classList.add('active');
-            // Find the button that was clicked - simple hack for this demo
             event.target.classList.add('active');
         }
     </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Brand Section -->
+            <div class="footer-logo">
+                <div class="footer-brand-section">
+                    <img src="assets/logo.jpg" alt="Snowman Adventures" class="footer-logo-img">
+                    <span class="footer-company-name">Snowman Adventures</span>
+                </div>
+                <p class="footer-tagline">Experience the untold beauty of Kashmir with expert guides and premium
+                    equipment. Your adventure awaits!</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="adventures.html">Adventures</a>
+                    <a href="tour-packages.html">Tour Packages</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+
+            <!-- Connect With Us -->
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Snowman Adventures. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+919622494350" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Book Now</span>
+    </a>
+
 </body>
 
 </html>

@@ -4,58 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location Details - Snowman Adventures</title>
+    <title>Terms & Conditions - Snowman Adventures</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .page-header {
-            padding: 150px 50px 50px;
-            background: #111;
-            text-align: center;
-        }
-
-        .adventure-list {
-            padding: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .adventure-item {
-            background: #1a1a1a;
-            margin-bottom: 20px;
-            padding: 30px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: transform 0.3s;
-        }
-
-        .adventure-item:hover {
-            transform: translateX(10px);
-            background: #222;
-        }
-
-        .adventure-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background: var(--accent-color);
-            color: white;
-            font-weight: bold;
-            border-radius: 4px;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background: #c0392b;
-        }
-    </style>
 </head>
 
 <body>
@@ -83,39 +36,52 @@
     </header>
 
     <div class="page-header">
-        <h1 id="location-title">Location Details</h1>
-        <p>Explore adventures in this region</p>
+        <h1>Terms & Conditions</h1>
+        <p>Last updated: November 2024</p>
     </div>
 
-    <div class="adventure-list">
-        <!-- Example Adventure Item -->
-        <div class="adventure-item">
-            <div class="adventure-info">
-                <h3>Great Lakes Trek</h3>
-                <p>7 Days | Moderate | 13,000ft</p>
-            </div>
-            <a href="adventure-detail.html?name=Great Lakes Trek" class="btn">View Details</a>
-        </div>
+    <div style="max-width: 900px; margin: 60px auto; padding: 0 20px; line-height: 1.8; min-height: 50vh;">
+        <h2 style="margin-bottom: 20px;">1. Booking and Payment</h2>
+        <p style="color: #ccc; margin-bottom: 30px;">
+            All bookings must be confirmed with a deposit. Full payment is required at least 15 days before the trip
+            start date. Failure to make full payment may result in cancellation of your booking.
+        </p>
 
-        <div class="adventure-item">
-            <div class="adventure-info">
-                <h3>Tarsar Marsar Trek</h3>
-                <p>6 Days | Moderate | 12,500ft</p>
-            </div>
-            <a href="adventure-detail.html?name=Tarsar Marsar Trek" class="btn">View Details</a>
-        </div>
+        <h2 style="margin-bottom: 20px;">2. Cancellation Policy</h2>
+        <ul style="color: #ccc; margin-left: 20px; margin-bottom: 30px;">
+            <li style="margin-bottom: 10px;">30+ days before trip: 90% refund</li>
+            <li style="margin-bottom: 10px;">15-30 days before trip: 50% refund</li>
+            <li style="margin-bottom: 10px;">Less than 15 days: No refund</li>
+        </ul>
+
+        <h2 style="margin-bottom: 20px;">3. Health and Fitness</h2>
+        <p style="color: #ccc; margin-bottom: 30px;">
+            Participants must be in good health and physical condition suitable for the chosen activity. You must inform
+            us of any medical conditions, allergies, or dietary requirements at the time of booking.
+        </p>
+
+        <h2 style="margin-bottom: 20px;">4. Safety and Liability</h2>
+        <p style="color: #ccc; margin-bottom: 30px;">
+            While we take all reasonable precautions to ensure your safety, adventure activities carry inherent risks.
+            Participants are required to follow all safety instructions provided by our guides. We recommend purchasing
+            comprehensive travel insurance.
+        </p>
+
+        <h2 style="margin-bottom: 20px;">5. Weather and Itinerary Changes</h2>
+        <p style="color: #ccc; margin-bottom: 30px;">
+            We reserve the right to modify itineraries due to weather conditions, safety concerns, or unforeseen
+            circumstances. In such cases, we will provide the best possible alternative.
+        </p>
+
+        <h2 style="margin-bottom: 20px;">6. Contact Information</h2>
+        <p style="color: #ccc; margin-bottom: 30px;">
+            For questions about these terms, please contact us at:<br>
+            Email: info@snowmanadventures.com<br>
+            Phone: +91 96224 94350
+        </p>
     </div>
 
     <script src="js/main.js"></script>
-    <script>
-        // Dynamic Title from URL parameter
-        const params = new URLSearchParams(window.location.search);
-        const locationName = params.get('location');
-        if (locationName) {
-            document.getElementById('location-title').innerText = locationName;
-            document.title = locationName + " - Snowman Adventures";
-        }
-    </script>
 
     <!-- Footer -->
     <footer>

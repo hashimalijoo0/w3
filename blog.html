@@ -4,58 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location Details - Snowman Adventures</title>
+    <title>Blog - Snowman Adventures</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .page-header {
-            padding: 150px 50px 50px;
-            background: #111;
-            text-align: center;
-        }
-
-        .adventure-list {
-            padding: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .adventure-item {
-            background: #1a1a1a;
-            margin-bottom: 20px;
-            padding: 30px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: transform 0.3s;
-        }
-
-        .adventure-item:hover {
-            transform: translateX(10px);
-            background: #222;
-        }
-
-        .adventure-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background: var(--accent-color);
-            color: white;
-            font-weight: bold;
-            border-radius: 4px;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background: #c0392b;
-        }
-    </style>
 </head>
 
 <body>
@@ -75,7 +28,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="adventures.html">Adventures</a></li>
                 <li><a href="tour-packages.html">Tour Packages</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -83,39 +36,18 @@
     </header>
 
     <div class="page-header">
-        <h1 id="location-title">Location Details</h1>
-        <p>Explore adventures in this region</p>
+        <h1>Our Blog</h1>
+        <p>Stories, tips, and adventures from the mountains</p>
     </div>
 
-    <div class="adventure-list">
-        <!-- Example Adventure Item -->
-        <div class="adventure-item">
-            <div class="adventure-info">
-                <h3>Great Lakes Trek</h3>
-                <p>7 Days | Moderate | 13,000ft</p>
-            </div>
-            <a href="adventure-detail.html?name=Great Lakes Trek" class="btn">View Details</a>
-        </div>
-
-        <div class="adventure-item">
-            <div class="adventure-info">
-                <h3>Tarsar Marsar Trek</h3>
-                <p>6 Days | Moderate | 12,500ft</p>
-            </div>
-            <a href="adventure-detail.html?name=Tarsar Marsar Trek" class="btn">View Details</a>
-        </div>
+    <div style="max-width: 1200px; margin: 60px auto; padding: 0 20px; min-height: 50vh;">
+        <h2 style="text-align: center; color: #888;">Coming Soon</h2>
+        <p style="text-align: center; color: #666; margin-top: 20px;">
+            We're working on bringing you amazing stories and tips from our adventures. Stay tuned!
+        </p>
     </div>
 
     <script src="js/main.js"></script>
-    <script>
-        // Dynamic Title from URL parameter
-        const params = new URLSearchParams(window.location.search);
-        const locationName = params.get('location');
-        if (locationName) {
-            document.getElementById('location-title').innerText = locationName;
-            document.title = locationName + " - Snowman Adventures";
-        }
-    </script>
 
     <!-- Footer -->
     <footer>
