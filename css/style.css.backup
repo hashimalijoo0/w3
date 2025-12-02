@@ -1,0 +1,898 @@
+/* ===================================
+   Snowman Adventures - Main Stylesheet
+   =================================== */
+
+/* --- CSS Variables --- */
+:root {
+    --primary-color: #0a0a0a;
+    --accent-color: #e74c3c;
+    --text-color: #ffffff;
+    --secondary-text: #ccc;
+}
+
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Header & Navigation --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(10, 10, 10, 0.95);
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.hero-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.brand-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li a {
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--accent-color);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Burger Menu */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.burger-menu div {
+    width: 25px;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Section Headers --- */
+.section-header {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+}
+
+.page-header {
+    padding: 150px 50px 50px;
+    background: #111;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+}
+
+/* --- Adventures Row --- */
+.adventures-row {
+    display: flex;
+    height: 400px;
+    gap: 10px;
+    padding: 0 20px 60px;
+}
+
+.adventure-card {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex 0.5s ease;
+    border-radius: 10px;
+}
+
+.adventure-card:hover {
+    flex: 2;
+}
+
+.adventure-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.adventure-card:hover .adventure-img {
+    transform: scale(1.1);
+}
+
+.adventure-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.adventure-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --- Adventure Categories --- */
+.adventure-category {
+    padding: 60px 40px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #333;
+}
+
+.category-title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dropdown-toggle {
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.dropdown-toggle:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.adventure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.adventure-item {
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.adventure-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+}
+
+.adventure-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.adventure-info {
+    padding: 20px;
+}
+
+.adventure-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.adventure-info p {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+/* --- Detail Pages --- */
+.detail-layout {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.detail-content {
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.itinerary-step {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 2px solid #333;
+    position: relative;
+}
+
+.itinerary-step h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.itinerary-step p {
+    color: var(--secondary-text);
+    line-height: 1.8;
+}
+
+.itinerary-step::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+.features-list {
+    list-style: none;
+    color: #ccc;
+}
+
+.features-list li {
+    margin-bottom: 10px;
+}
+
+.features-list li::before {
+    content: '✓';
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--accent-color);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* --- Tabs --- */
+.detail-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+}
+
+.detail-tab-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.detail-tab-btn:hover {
+    color: white;
+}
+
+.detail-tab-btn.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.detail-tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.detail-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Sidebar --- */
+.detail-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar-widget {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.price-tag {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* --- Testimonials --- */
+.testimonials {
+    padding: 80px 20px;
+    background-color: #1a1a1a;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.testimonial-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+}
+
+.testimonial-slide {
+    display: none;
+    animation: fadeEffect 1s;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+.testimonial-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.prev-btn,
+.next-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.next-btn {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev-btn {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dots-container {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active,
+.dot:hover {
+    background-color: var(--accent-color);
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0.4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* ===================================
+   FOOTER - Modern & Attractive Design
+   =================================== */
+footer {
+    background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+    padding: 50px 0 20px;
+    border-top: 2px solid #1a1a1a;
+    margin-top: 60px;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    padding: 0 40px 40px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-brand-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.footer-logo-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.footer-company-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-tagline {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: #aaa;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a::before {
+    content: '→';
+    color: var(--accent-color);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 10px;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+    border-radius: 8px;
+    color: #ccc;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 1px solid #222;
+}
+
+.social-icon:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+    border-color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #1a1a1a;
+    color: #666;
+    font-size: 0.9rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* --- WhatsApp Float Button --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px);
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.hero-title {
+    font-size: 2.5rem;
+}
+
+.adventures-row {
+    flex-direction: column;
+    height: auto;
+}
+
+.adventure-card {
+    height: 200px;
+    width: 100%;
+}
+
+.adventure-card:hover {
+    flex: 1;
+}
+
+.brand-text {
+    font-size: 1rem;
+    display: block;
+}
+
+.detail-layout {
+    grid-template-columns: 1fr;
+}
+
+.detail-hero-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.detail-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+}
+
+.adventure-category {
+    padding: 40px 20px;
+}
+
+.page-header {
+    padding: 120px 20px 30px;
+}
+}
+
+@media (max-width: 640px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 0 20px 30px;
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 40px 0 15px;
+    }
+}
+
+   / *   M o b i l e   V i e w p o r t   a n d   S c r o l l   F i x e s   * /   h t m l    {
+               o v e r f l o w - x :    h i d d e n ;
+               w i d t h :    1 0 0 % % ;
+               - w e b k i t - t e x t - s i z e - a d j u s t :    1 0 0 % % ;
+               - m s - t e x t - s i z e - a d j u s t :    1 0 0 % % ;
+       
+}
+
+     b o d y    {
+               w i d t h :    1 0 0 % % ;
+               m a x - w i d t h :    1 0 0 v w ;
+       
+}
+
+     / *   P r e v e n t   s c r o l l i n g   w h e n   m o b i l e   m e n u   i s   o p e n   * /   b o d y . n o - s c r o l l    {
+               o v e r f l o w :    h i d d e n ;
+               p o s i t i o n :    f i x e d ;
+               w i d t h :    1 0 0 % % ;
+               h e i g h t :    1 0 0 % % ;
+       
+}
+
+     / *   E n h a n c e d   m o b i l e   n a v   m e n u   * /   @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )    {
+               . n a v - l i n k s    {
+                           h e i g h t :    1 0 0 d v h    ! i m p o r t a n t ;
+           / *   D y n a m i c   v i e w p o r t   h e i g h t   f o r   m o b i l e   b r o w s e r s   * /                   m a x - w i d t h :    1 0 0 v w ;
+                           o v e r f l o w - y :    a u t o ;
+                           - w e b k i t - o v e r f l o w - s c r o l l i n g :    t o u c h ;
+                   
+    }
+
+                         h e a d e r    {
+                           p a d d i n g :    2 0 p x ;
+                           j u s t i f y - c o n t e n t :    s p a c e - b e t w e e n ;
+                   
+    }
+
+                         . n a v - l i n k s   l i    {
+                           o p a c i t y :    0 ;
+                           m a r g i n :    2 0 p x   0 ;
+                   
+    }
+
+       
+}
+
+     

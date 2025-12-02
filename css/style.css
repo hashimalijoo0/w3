@@ -921,45 +921,102 @@ footer::before {
         padding: 40px 0 15px;
     }
 }
- 
- / *   M o b i l e   V i e w p o r t   a n d   S c r o l l   F i x e s   * / 
- h t m l   { 
-         o v e r f l o w - x :   h i d d e n ; 
-         w i d t h :   1 0 0 % % ; 
-         - w e b k i t - t e x t - s i z e - a d j u s t :   1 0 0 % % ; 
-         - m s - t e x t - s i z e - a d j u s t :   1 0 0 % % ; 
- } 
- 
- b o d y   { 
-         w i d t h :   1 0 0 % % ; 
-         m a x - w i d t h :   1 0 0 v w ; 
- } 
- 
- / *   P r e v e n t   s c r o l l i n g   w h e n   m o b i l e   m e n u   i s   o p e n   * / 
- b o d y . n o - s c r o l l   { 
-         o v e r f l o w :   h i d d e n ; 
-         p o s i t i o n :   f i x e d ; 
-         w i d t h :   1 0 0 % % ; 
-         h e i g h t :   1 0 0 % % ; 
- } 
- 
- / *   E n h a n c e d   m o b i l e   n a v   m e n u   * / 
- @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )   { 
-         . n a v - l i n k s   { 
-                 h e i g h t :   1 0 0 d v h   ! i m p o r t a n t ;   / *   D y n a m i c   v i e w p o r t   h e i g h t   f o r   m o b i l e   b r o w s e r s   * / 
-                 m a x - w i d t h :   1 0 0 v w ; 
-                 o v e r f l o w - y :   a u t o ; 
-                 - w e b k i t - o v e r f l o w - s c r o l l i n g :   t o u c h ; 
-         } 
-         
-         h e a d e r   { 
-                 p a d d i n g :   2 0 p x ; 
-                 j u s t i f y - c o n t e n t :   s p a c e - b e t w e e n ; 
-         } 
-         
-         . n a v - l i n k s   l i   { 
-                 o p a c i t y :   0 ; 
-                 m a r g i n :   2 0 p x   0 ; 
-         } 
- }  
- 
+
+/* ===================================
+   MOBILE VIEWPORT AND SCROLL FIXES
+   =================================== */
+
+/* Mobile Viewport Fixes */
+html {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* Prevent scrolling when mobile menu is open */
+body.no-scroll {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+/* Enhanced mobile nav menu */
+@media (max-width: 768px) {
+    .nav-links {
+        height: 100dvh !important;
+        /* Dynamic viewport height for mobile browsers */
+        max-width: 100vw;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin: 20px 0;
+    }
+}
+
+/* ===================================
+   ADVENTURE DETAIL PAGE MOBILE FIXES
+   =================================== */
+
+@media (max-width: 768px) {
+
+    /* Hero section mobile fixes */
+    .detail-hero {
+        padding: 120px 20px 40px;
+    }
+
+    .detail-hero h1 {
+        font-size: 2rem !important;
+        margin-bottom: 20px;
+    }
+
+    .detail-hero-stats {
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+
+    .stat-item i {
+        font-size: 0.8rem;
+    }
+
+    /* Detail layout mobile fixes */
+    .detail-layout {
+        padding: 0 20px;
+        margin: 20px auto;
+    }
+
+    .detail-content {
+        padding: 25px 20px;
+    }
+
+    /* Inclusions tab - stack columns vertically on mobile */
+    #inclusions>div {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    /* Booking tab - make responsive */
+    #booking>div {
+        padding: 15px !important;
+    }
+
+    #booking>div>div {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+}
