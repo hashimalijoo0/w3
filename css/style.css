@@ -902,6 +902,10 @@ footer::before {
         padding-bottom: 10px;
     }
 
+    .detail-sidebar {
+        display: none;
+    }
+
     .adventure-category {
         padding: 40px 20px;
     }
