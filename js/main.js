@@ -1,16 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Video Autoplay Fix for Mobile
+    // Video Autoplay Fix for Mobile and Desktop
     const heroVideo = document.querySelector('.hero-video');
     if (heroVideo) {
-        // Attempt to play immediately
+        // Force video to load
+        heroVideo.load();
+
+        // Set video properties programmatically
+        heroVideo.muted = true;
+        heroVideo.playsInline = true;
+        heroVideo.autoplay = true;
+
+        // Try to play when video is loaded
+        heroVideo.addEventListener('loadeddata', () => {
+            const playPromise = heroVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.catch((error) => {
+                    console.log('Autoplay prevented:', error);
+                    // Auto-play was prevented, try again on user interaction
+                    document.addEventListener('click', function playOnClick() {
+                        heroVideo.play();
+                        document.removeEventListener('click', playOnClick);
+                    }, { once: true });
+
+                    document.addEventListener('touchstart', function playOnTouch() {
+                        heroVideo.play();
+                        document.removeEventListener('touchstart', playOnTouch);
+                    }, { once: true });
+                });
+            }
+        });
+
+        // Attempt to play immediately as well
         const playPromise = heroVideo.play();
         if (playPromise !== undefined) {
             playPromise.catch(() => {
-                // Auto-play was prevented, try again on user interaction
-                document.addEventListener('touchstart', function playOnTouch() {
-                    heroVideo.play();
-                    document.removeEventListener('touchstart', playOnTouch);
-                }, { once: true });
+                // Will be handled by loadeddata event
             });
         }
     }
