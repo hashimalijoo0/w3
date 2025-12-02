@@ -1019,4 +1019,17 @@ body.no-scroll {
         flex-direction: column !important;
         gap: 10px !important;
     }
+
+    /* Fix for mobile scrolling cutoff */
+    .detail-layout,
+    .detail-content {
+        height: auto !important;
+        overflow: visible !important;
+        padding-bottom: 80px !important;
+        display: block !important;
+    }
+
+    body {
+        overflow-y: auto !important;
+    }
 }
