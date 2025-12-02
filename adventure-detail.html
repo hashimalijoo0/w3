@@ -57,6 +57,27 @@
             color: white;
             margin-right: 4px;
         }
+
+        /* Mobile-only content */
+        .mobile-only-content {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-only-content {
+                display: block;
+            }
+
+            /* Reduce tab spacing to hint at scrolling */
+            .detail-tabs {
+                gap: 3px !important;
+            }
+
+            .detail-tab-btn {
+                padding: 12px 18px !important;
+                font-size: 0.9rem !important;
+            }
+        }
     </style>
 </head>
 
@@ -133,6 +154,24 @@
                     <li>Walk through blooming meadows of wildflowers.</li>
                     <li>Experience the warm hospitality of local shepherds.</li>
                 </ul>
+
+                <!-- Route Map (Mobile Only) -->
+                <div class="mobile-only-content">
+                    <h3 style="margin-top: 30px;">Route Map</h3>
+                    <div
+                        style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 8px; margin-top: 15px;">
+                        [Map Placeholder]
+                    </div>
+                </div>
+
+                <!-- Altitude Profile (Mobile Only) -->
+                <div class="mobile-only-content">
+                    <h3 style="margin-top: 30px;">Altitude Profile</h3>
+                    <div
+                        style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 8px; margin-top: 15px;">
+                        [Altitude Chart Placeholder]
+                    </div>
+                </div>
             </div>
 
             <!-- Tab: Itinerary -->
@@ -171,7 +210,7 @@
                         </ul>
                     </div>
                     <div style="flex: 1;">
-                        <h3 style="color: #e74c3c;">What's Excluded</h3>
+                        <h3 style="color: #e74c3c;">What's Not Included</h3>
                         <ul style="list-style: none; color: #ccc;">
                             <li style="margin-bottom: 10px;">❌ Personal gear and clothing.</li>
                             <li style="margin-bottom: 10px;">❌ Airfare to/from Srinagar.</li>
@@ -179,6 +218,17 @@
                             <li style="margin-bottom: 10px;">❌ Insurance.</li>
                         </ul>
                     </div>
+                </div>
+
+                <!-- Why Trek With Us (Mobile Only) -->
+                <div class="mobile-only-content" style="margin-top: 40px;">
+                    <h3>Why Trek with Us?</h3>
+                    <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6; list-style: none;">
+                        <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
+                        <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
+                        <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
+                        <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                    </ul>
                 </div>
             </div>
 
@@ -204,10 +254,22 @@
                         <a href="#" style="color: var(--accent-color); font-weight: bold;">Book</a>
                     </div>
                 </div>
+
+                <!-- Book Now Button (Mobile Only) -->
+                <div class="mobile-only-content" style="margin-top: 30px;">
+                    <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; text-align: center;">
+                        <span style="font-size: 2rem; color: var(--accent-color); font-weight: bold;">$500 <span
+                                style="font-size: 1rem; color: #888; font-weight: normal;">/ person</span></span>
+                        <a href="https://wa.me/919622494350"
+                            style="display: block; background: var(--accent-color); color: white; padding: 15px; border-radius: 5px; text-align: center; font-weight: bold; margin-top: 15px; text-decoration: none;">Book
+                            Now</a>
+                        <p style="font-size: 0.8rem; margin-top: 10px; color: #888;">*Group discounts available</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Right Column: Sidebar -->
+        <!-- Right Column: Sidebar (Desktop Only) -->
         <div class="detail-sidebar">
             <div class="sidebar-widget book-now-widget">
                 <span class="price-tag">$500 <span style="font-size: 1rem; color: #888; font-weight: normal;">/
