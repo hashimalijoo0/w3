@@ -144,4 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.classList.toggle('active');
         }
     };
+
+    // Auto-close dropdown when scrolling past it
+    window.addEventListener('scroll', () => {
+        const activeDropdowns = document.querySelectorAll('.activity-dropdown.active');
+        activeDropdowns.forEach(dropdown => {
+            const rect = dropdown.getBoundingClientRect();
+            // Close if scrolled past the bottom of the dropdown
+            if (rect.bottom < 0) {
+                dropdown.classList.remove('active');
+                const id = dropdown.id.replace('-dropdown', '');
+                const icon = document.getElementById(id + '-icon');
+                if (icon) icon.classList.remove('active');
+            }
+        });
+    });
 });
