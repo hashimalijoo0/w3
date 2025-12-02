@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Video Autoplay Fix for Mobile
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+        // Attempt to play immediately
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // Auto-play was prevented, try again on user interaction
+                document.addEventListener('touchstart', function playOnTouch() {
+                    heroVideo.play();
+                    document.removeEventListener('touchstart', playOnTouch);
+                }, { once: true });
+            });
+        }
+    }
+
     // Intro Overlay Logic
     const introOverlay = document.getElementById('intro-overlay');
     const hasVisited = localStorage.getItem('snowman_visited');

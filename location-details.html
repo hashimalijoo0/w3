@@ -16,44 +16,74 @@
             text-align: center;
         }
 
-        .adventure-list {
-            padding: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .adventure-item {
-            background: #1a1a1a;
-            margin-bottom: 20px;
-            padding: 30px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: transform 0.3s;
-        }
-
-        .adventure-item:hover {
-            transform: translateX(10px);
-            background: #222;
-        }
-
-        .adventure-info h3 {
-            font-size: 1.5rem;
+        .page-header h1 {
+            font-size: 3rem;
             margin-bottom: 10px;
         }
 
-        .btn {
-            padding: 10px 20px;
-            background: var(--accent-color);
-            color: white;
-            font-weight: bold;
-            border-radius: 4px;
-            text-decoration: none;
+        .page-header p {
+            font-size: 1.2rem;
+            color: #999;
         }
 
-        .btn:hover {
-            background: #c0392b;
+        .location-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .history-section {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            line-height: 1.8;
+        }
+
+        .history-section h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .history-section h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .history-section p {
+            color: #ccc;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 20px 30px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .location-content {
+                padding: 40px 20px;
+            }
+
+            .history-section {
+                padding: 25px 20px;
+            }
+
+            .history-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .history-section h3 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -84,35 +114,100 @@
 
     <div class="page-header">
         <h1 id="location-title">Location Details</h1>
-        <p>Explore adventures in this region</p>
+        <p id="location-subtitle">Discover the rich history and beauty</p>
     </div>
 
-    <div class="adventure-list">
-        <!-- Example Adventure Item -->
-        <div class="adventure-item">
-            <div class="adventure-info">
-                <h3>Great Lakes Trek</h3>
-                <p>7 Days | Moderate | 13,000ft</p>
-            </div>
-            <a href="adventure-detail.html?name=Great Lakes Trek" class="btn">View Details</a>
-        </div>
-
-        <div class="adventure-item">
-            <div class="adventure-info">
-                <h3>Tarsar Marsar Trek</h3>
-                <p>6 Days | Moderate | 12,500ft</p>
-            </div>
-            <a href="adventure-detail.html?name=Tarsar Marsar Trek" class="btn">View Details</a>
+    <div class="location-content">
+        <div class="history-section" id="history-content">
+            <!-- Dynamic content will be loaded here -->
         </div>
     </div>
 
     <script src="js/main.js"></script>
     <script>
-        // Dynamic Title from URL parameter
+        // Location data with history
+        const locationData = {
+            'Gulmarg': {
+                subtitle: 'The Meadow of Flowers',
+                history: `<h2>History of Gulmarg</h2>
+                <p>Gulmarg, meaning "Meadow of Flowers," is a town and hill station in the Baramulla district of Jammu and Kashmir. Originally called 'Gaurimarg' by shepherds, it was renamed by Sultan Yusuf Shah in the 16th century.</p>
+                
+                <h3>British Era</h3>
+                <p>During the British Raj, Gulmarg became a popular summer resort for British officers and their families. The British developed it as a hill station, building churches, clubs, and establishing it as a premier golf destination. The Gulmarg Golf Course, established in 1891, is one of the highest golf courses in the world.</p>
+                
+                <h3>Modern Era</h3>
+                <p>Today, Gulmarg is renowned as India's premier ski resort. The Gulmarg Gondola, one of the highest cable cars in the world, was installed in 1998-2005 and has transformed the region into a world-class skiing destination. The area reaches heights of 13,780 feet (4,200 m) and offers spectacular views of the Himalayan peaks.</p>
+                
+                <h3>Cultural Significance</h3>
+                <p>Gulmarg has been featured in numerous Bollywood films and remains a symbol of Kashmir's natural beauty. The meadows bloom with wildflowers in spring and summer, while winter transforms it into a snow-covered wonderland.</p>`
+            },
+            'Pahalgam': {
+                subtitle: 'Valley of Shepherds',
+                history: `<h2>History of Pahalgam</h2>
+                <p>Pahalgam, meaning "Village of Shepherds," is a town in the Anantnag district situated at the confluence of the streams flowing from the Sheshnag Lake and the Lidder River. At an altitude of 7,200 feet, it has been a favorite destination for centuries.</p>
+                
+                <h3>Ancient Significance</h3>
+                <p>Pahalgam has been an important stopover for pilgrims on their way to the holy Amarnath Cave. The town's history is deeply intertwined with the annual Amarnath Yatra, one of Hinduism's most revered pilgrimages. Thousands of devotees pass through Pahalgam each year on their journey to the sacred ice lingam.</p>
+                
+                <h3>Bollywood Connection</h3>
+                <p>Since the 1960s, Pahalgam has been a favorite filming location for Indian cinema. Its pristine valleys, pine forests, and meadows have provided the backdrop for countless romantic sequences in Bollywood films, earning it the nickname "Mini Switzerland of India."</p>
+                
+                <h3>Natural Beauty</h3>
+                <p>The Lidder River, flowing through Pahalgam, offers excellent opportunities for trout fishing and river rafting. The surrounding pine and deodar forests, along with meadows like Baisaran (known as "Mini Switzerland"), make it a paradise for nature lovers and trekkers.</p>`
+            },
+            'Sonamarg': {
+                subtitle: 'Meadow of Gold',
+                history: `<h2>History of Sonamarg</h2>
+                <p>Sonamarg, literally meaning "Meadow of Gold," is a hill station located in the Ganderbal district at an altitude of 9,000 feet. The name derives from the golden flowers that carpet the meadows in spring, creating a breathtaking golden landscape.</p>
+                
+                <h3>Strategic Location</h3>
+                <p>Historically, Sonamarg has been an important stop on the ancient Silk Road. It served as a gateway to Ladakh and was a crucial trading post connecting Kashmir with Central Asia and Tibet. Merchants and traders would rest here before crossing the treacherous Zoji La pass.</p>
+                
+                <h3>Gateway to Ladakh</h3>
+                <p>The town sits at the entrance to the Zoji La Pass, which connects Kashmir Valley with Ladakh. This strategic position made it militarily significant throughout history. Today, it remains the primary route for travelers heading to Ladakh, though the pass is only open from May to November due to heavy snowfall.</p>
+                
+                <h3>Natural Wonders</h3>
+                <p>Sonamarg is surrounded by majestic glaciers and serene alpine lakes. The Thajiwas Glacier, accessible via a short trek or pony ride, is a major attraction. The area is also the base for several high-altitude treks, including routes to the pristine Gangabal and Vishansar lakes.</p>`
+            },
+            'Aharbal': {
+                subtitle: 'Niagara Falls of Kashmir',
+                history: `<h2>History of Aharbal</h2>
+                <p>Aharbal is a hill station in the southwestern part of Kashmir Valley, famous for its magnificent waterfall formed by the Veshu stream. Located about 70 km from Srinagar, it sits at an altitude of 7,800 feet and is often called the "Niagara Falls of Kashmir."</p>
+                
+                <h3>The Waterfall</h3>
+                <p>The Aharbal waterfall is formed where the Veshu stream, a tributary of the Jhelum River, cascades down from a height of about 25 meters. The thunderous sound of the falling water can be heard from a considerable distance, and the mist created by the waterfall creates rainbows on sunny days.</p>
+                
+                <h3>Unexplored Paradise</h3>
+                <p>Unlike other tourist destinations in Kashmir, Aharbal has remained relatively unexplored and retains its pristine natural beauty. The area is covered with dense coniferous forests and offers spectacular views of snow-capped peaks. This relative isolation has helped preserve its ecological diversity.</p>
+                
+                <h3>Adventure Hub</h3>
+                <p>Aharbal serves as a base for several trekking routes, including the trek to Kounsarnag Lake, considered one of the most beautiful alpine lakes in Kashmir. The area is also popular for trout fishing, with the Veshu stream being home to brown and rainbow trout.</p>`
+            },
+            'Gurez': {
+                subtitle: 'The Hidden Valley',
+                history: `<h2>History of Gurez</h2>
+                <p>Gurez Valley is one of the most remote and pristine valleys in Kashmir, located about 123 km from Srinagar near the Line of Control. Situated at an altitude of 8,000 feet, it remained cut off from the rest of Kashmir for much of the year until recent road improvements.</p>
+                
+                <h3>Ancient Heritage</h3>
+                <p>The valley is inhabited by the Dard-Shin tribe, believed to be descendants of Aryan settlers who came to the region thousands of years ago. They speak Shina, a Dardic language, and maintain unique cultural traditions distinct from the rest of Kashmir. Their wooden architecture and lifestyle have remained largely unchanged for centuries.</p>
+                
+                <h3>Strategic Importance</h3>
+                <p>Gurez has historically been strategically important due to its proximity to the Burzil Pass, which once connected Kashmir with Gilgit-Baltistan. The ancient Silk Route passed through this valley, making it a crucial link in trade between Central Asia and the Indian subcontinent.</p>
+                
+                <h3>Natural Beauty</h3>
+                <p>The Kishanganga River (called Neelum in Pakistan) flows through the valley, creating a stunning landscape of meadows, forests, and snow-capped peaks. The valley is surrounded by high mountains, including the majestic Habba Khatoon peak, named after a legendary Kashmiri poetess. The isolation has preserved its natural beauty and traditional way of life.</p>`
+            }
+        };
+
+        // Get location from URL parameter
         const params = new URLSearchParams(window.location.search);
-        const locationName = params.get('location');
-        if (locationName) {
+        const locationName = params.get('loc') || 'Gulmarg';
+
+        // Update page content
+        if (locationData[locationName]) {
             document.getElementById('location-title').innerText = locationName;
+            document.getElementById('location-subtitle').innerText = locationData[locationName].subtitle;
+            document.getElementById('history-content').innerHTML = locationData[locationName].history;
             document.title = locationName + " - Snowman Adventures";
         }
     </script>
