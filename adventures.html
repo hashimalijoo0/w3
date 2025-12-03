@@ -92,6 +92,45 @@
             padding: 30px 20px;
         }
 
+        .trek-list {
+            padding: 20px;
+        }
+
+        .trek-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .trek-list-item:hover {
+            background: #252525;
+            border-color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .trek-list-item span:first-child {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .trek-arrow {
+            color: var(--accent-color);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .trek-list-item:hover .trek-arrow {
+            opacity: 1;
+        }
+
         .trek-card {
             background: #222;
             padding: 20px;
@@ -99,18 +138,54 @@
             text-align: center;
             transition: all 0.3s;
             border: 1px solid #333;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .trek-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .trek-card:hover::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
         }
 
         .trek-card:hover {
-            background: #2a2a2a;
-            border-color: var(--accent-color);
             transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        .trek-card h3,
+        .trek-card p {
+            position: relative;
+            z-index: 2;
         }
 
         .trek-card h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--accent-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .trek-card p {
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         .direct-activities {
@@ -127,6 +202,31 @@
             transition: all 0.3s;
             border: 2px solid #333;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%);
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .activity-card:hover::before {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
         }
 
         .activity-card:hover {
@@ -135,10 +235,23 @@
             box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
         }
 
+        .activity-card h3,
+        .activity-card p,
+        .activity-icon {
+            position: relative;
+            z-index: 2;
+        }
+
         .activity-card h3 {
             font-size: 1.6rem;
             margin-bottom: 15px;
             color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .activity-card p {
+            color: #ddd;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         .activity-icon {
@@ -209,38 +322,70 @@
                 <span class="dropdown-icon" id="trekking-icon">▼</span>
             </div>
             <div class="activity-dropdown" id="trekking-dropdown">
-                <div class="trek-grid">
-                    <a href="adventure-detail.html?name=Gangbal%20Trek" class="trek-card">
-                        <h3>Gangbal Trek</h3>
-                        <p>Explore the pristine Gangbal Lake</p>
+                <div class="trek-list">
+                    <a href="adventure-detail.html?name=Gangbal%20Trek" class="trek-list-item">
+                        <span>Gangbal Trek</span>
+                        <span class="trek-arrow">→</span>
                     </a>
-                    <a href="adventure-detail.html?name=Tullian%20Lake" class="trek-card">
-                        <h3>Tullian Lake</h3>
-                        <p>A scenic alpine lake trek</p>
+                    <a href="adventure-detail.html?name=Tullian%20Lake" class="trek-list-item">
+                        <span>Tullian Lake Trek</span>
+                        <span class="trek-arrow">→</span>
                     </a>
-                    <a href="adventure-detail.html?name=Naranag%20Trek" class="trek-card">
-                        <h3>Naranag Trek</h3>
-                        <p>Ancient temples and meadows</p>
+                    <a href="adventure-detail.html?name=Naranag%20Trek" class="trek-list-item">
+                        <span>Naranag Trek</span>
+                        <span class="trek-arrow">→</span>
                     </a>
-                    <a href="adventure-detail.html?name=Kashmir%20Great%20Lakes" class="trek-card">
-                        <h3>Kashmir Great Lakes</h3>
-                        <p>The crown jewel of Kashmir treks</p>
+                    <a href="adventure-detail.html?name=Kashmir%20Great%20Lakes" class="trek-list-item">
+                        <span>Kashmir Great Lakes Trek</span>
+                        <span class="trek-arrow">→</span>
                     </a>
-                    <a href="adventure-detail.html?name=Tarsar%20Marsar" class="trek-card">
-                        <h3>Tarsar Marsar</h3>
-                        <p>Twin alpine lakes adventure</p>
+                    <a href="adventure-detail.html?name=Tarsar%20Marsar" class="trek-list-item">
+                        <span>Tarsar Marsar Trek</span>
+                        <span class="trek-arrow">→</span>
                     </a>
-                    <a href="adventure-detail.html?name=Kolahoi%20Glacier" class="trek-card">
-                        <h3>Kolahoi Glacier</h3>
-                        <p>Trek to the glacier base</p>
+                    <a href="adventure-detail.html?name=Kolahoi%20Glacier" class="trek-list-item">
+                        <span>Kolahoi Glacier Trek</span>
+                        <span class="trek-arrow">→</span>
                     </a>
-                    <a href="adventure-detail.html?name=Marchoi%20Trek" class="trek-card">
-                        <h3>Marchoi Trek</h3>
-                        <p>High altitude mountain pass</p>
+                    <a href="adventure-detail.html?name=Marchoi%20Trek" class="trek-list-item">
+                        <span>Marchoi Trek</span>
+                        <span class="trek-arrow">→</span>
                     </a>
-                    <a href="adventure-detail.html?name=Warwan%20Valley" class="trek-card">
-                        <h3>Warwan Valley</h3>
-                        <p>Remote valley exploration</p>
+                    <a href="adventure-detail.html?name=Warwan%20Valley" class="trek-list-item">
+                        <span>Warwan Valley Trek</span>
+                        <span class="trek-arrow">→</span>
+                    </a>
+                    <a href="adventure-detail.html?name=Aru%20Valley" class="trek-list-item">
+                        <span>Aru Valley Trek</span>
+                        <span class="trek-arrow">→</span>
+                    </a>
+                    <a href="adventure-detail.html?name=Sinthan%20Top" class="trek-list-item">
+                        <span>Sinthan Top Trek</span>
+                        <span class="trek-arrow">→</span>
+                    </a>
+                    <a href="adventure-detail.html?name=Yusmarg%20Meadows" class="trek-list-item">
+                        <span>Yusmarg Meadows Trek</span>
+                        <span class="trek-arrow">→</span>
+                    </a>
+                    <a href="adventure-detail.html?name=Konsarnag%20Lake" class="trek-list-item">
+                        <span>Konsarnag Lake Trek</span>
+                        <span class="trek-arrow">→</span>
+                    </a>
+                    <a href="adventure-detail.html?name=Gadsar%20Lake" class="trek-list-item">
+                        <span>Gadsar Lake Trek</span>
+                        <span class="trek-arrow">→</span>
+                    </a>
+                    <a href="adventure-detail.html?name=Vishansar%20Lake" class="trek-list-item">
+                        <span>Vishansar Lake Trek</span>
+                        <span class="trek-arrow">→</span>
+                    </a>
+                    <a href="adventure-detail.html?name=Krishansar%20Lake" class="trek-list-item">
+                        <span>Krishansar Lake Trek</span>
+                        <span class="trek-arrow">→</span>
+                    </a>
+                    <a href="adventure-detail.html?name=Satsar%20Lakes" class="trek-list-item">
+                        <span>Satsar Lakes Trek</span>
+                        <span class="trek-arrow">→</span>
                     </a>
                 </div>
             </div>
@@ -249,28 +394,33 @@
         <!-- Direct Activity Links -->
         <h2 style="margin: 60px 0 30px 0; font-size: 2rem;">Other Adventures</h2>
         <div class="direct-activities">
-            <a href="adventure-detail.html?name=Rafting" class="activity-card">
-                <div class="activity-icon">🚣</div>
+            <a href="adventure-detail.html?name=Rafting" class="activity-card"
+                style="background-image: url('https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=800');">
+
                 <h3>Rafting</h3>
                 <p>Thrilling river rapids experience</p>
             </a>
-            <a href="adventure-detail.html?name=Ice%20Climbing" class="activity-card">
-                <div class="activity-icon">🧗</div>
+            <a href="adventure-detail.html?name=Ice%20Climbing" class="activity-card"
+                style="background-image: url('https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&w=800');">
+
                 <h3>Ice Climbing</h3>
                 <p>Scale frozen waterfalls</p>
             </a>
-            <a href="adventure-detail.html?name=Paragliding" class="activity-card">
-                <div class="activity-icon">🪂</div>
+            <a href="adventure-detail.html?name=Paragliding" class="activity-card"
+                style="background-image: url('https://images.pexels.com/photos/1666021/pexels-photo-1666021.jpeg?auto=compress&cs=tinysrgb&w=800');">
+
                 <h3>Paragliding</h3>
                 <p>Soar above the valleys</p>
             </a>
-            <a href="adventure-detail.html?name=Water%20Skiing" class="activity-card">
-                <div class="activity-icon">🎿</div>
+            <a href="adventure-detail.html?name=Water%20Skiing" class="activity-card"
+                style="background-image: url('https://images.pexels.com/photos/416676/pexels-photo-416676.jpeg?auto=compress&cs=tinysrgb&w=800');">
+
                 <h3>Water Skiing</h3>
                 <p>Glide across Dal Lake</p>
             </a>
-            <a href="adventure-detail.html?name=Snow%20Skiing" class="activity-card">
-                <div class="activity-icon">⛷️</div>
+            <a href="adventure-detail.html?name=Snow%20Skiing" class="activity-card"
+                style="background-image: url('https://images.pexels.com/photos/848618/pexels-photo-848618.jpeg?auto=compress&cs=tinysrgb&w=800');">
+
                 <h3>Snow Skiing</h3>
                 <p>Glide down snowy slopes</p>
             </a>

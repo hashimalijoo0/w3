@@ -10,23 +10,116 @@
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .detail-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-                url('https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600');
-            background-size: cover;
-            background-position: center;
-            padding: 100px 20px 50px;
-            text-align: center;
+        /* Slideshow Styles */
+        .detail-slideshow {
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .slideshow-container {
+            width: 100%;
+            height: 100%;
             position: relative;
         }
 
-        .detail-hero h1 {
-            font-size: 3.5rem;
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* Navigation Arrows */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(231, 76, 60, 0.8);
+        }
+
+        /* Slideshow Overlay */
+        .slideshow-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);
+            padding: 40px 20px;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .slideshow-overlay h1 {
+            font-size: 3rem;
             margin-bottom: 25px;
             color: #ffffff;
-            text-shadow: 0 0 20px rgba(0, 0, 0, 1),
-                0 0 40px rgba(0, 0, 0, 0.8),
-                3px 3px 15px rgba(0, 0, 0, 1);
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Trek Info Section */
+        .detail-info-section {
+            background: #1a1a1a;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .detail-info-section h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: #ffffff;
             font-weight: 800;
             letter-spacing: 1px;
         }
@@ -68,6 +161,51 @@
                 display: block;
             }
 
+            /* Slideshow mobile adjustments */
+            .detail-slideshow {
+                height: 50vh;
+            }
+
+            .slideshow-overlay {
+                padding: 30px 15px;
+            }
+
+            .slideshow-overlay h1 {
+                font-size: 2rem;
+            }
+
+            .detail-hero-stats {
+                gap: 10px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 5px;
+                -webkit-overflow-scrolling: touch;
+                /* Hide scrollbar for cleaner look */
+                scrollbar-width: none;
+                /* Firefox */
+                -ms-overflow-style: none;
+                /* IE/Edge */
+            }
+
+            .detail-hero-stats::-webkit-scrollbar {
+                display: none;
+                /* Chrome/Safari */
+            }
+
+            .stat-item {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+
+            .prev,
+            .next {
+                padding: 12px 16px;
+                font-size: 18px;
+            }
+
             /* Reduce tab spacing to hint at scrolling */
             .detail-tabs {
                 gap: 3px !important;
@@ -105,28 +243,55 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <div class="detail-hero">
-        <h1 id="adv-title">Adventure Detail</h1>
-        <div class="detail-hero-stats">
-            <div class="stat-item">
-                <i class="fas fa-calendar-alt"></i>
-                <strong>Duration:</strong> 7 Days
+    <!-- Image Slideshow -->
+    <div class="detail-slideshow" id="slideshow">
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Trek Image 1">
             </div>
-            <div class="stat-item">
-                <i class="fas fa-mountain"></i>
-                <strong>Difficulty:</strong> Moderate
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1183021/pexels-photo-1183021.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Trek Image 2">
             </div>
-            <div class="stat-item">
-                <i class="fas fa-arrow-up"></i>
-                <strong>Max Altitude:</strong> 4,200m
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Trek Image 3">
             </div>
-            <div class="stat-item">
-                <i class="fas fa-sun"></i>
-                <strong>Best Season:</strong> Jun-Sep
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Trek Image 4">
+            </div>
+
+            <!-- Navigation Arrows -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <!-- Trek Info Overlay -->
+        <div class="slideshow-overlay">
+            <h1 id="adv-title">Adventure Detail</h1>
+            <div class="detail-hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <strong>Duration:</strong> 7 Days
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-mountain"></i>
+                    <strong>Difficulty:</strong> Moderate
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-arrow-up"></i>
+                    <strong>Max Altitude:</strong> 4,200m
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-sun"></i>
+                    <strong>Best Season:</strong> Jun-Sep
+                </div>
             </div>
         </div>
     </div>
+
 
     <!-- Main Content Layout -->
     <div class="detail-layout">
@@ -261,6 +426,35 @@
             </div>
         </div>
 
+        <!-- Right Column: Sidebar (Desktop Only) -->
+        <div class="detail-sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Why Trek with Us?</h3>
+                <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
+                    <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
+                    <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
+                    <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
+                    <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Route Map</h3>
+                <div
+                    style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 8px;">
+                    [Map Placeholder]
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Altitude Profile</h3>
+                <div
+                    style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 8px;">
+                    [Altitude Chart Placeholder]
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
@@ -283,6 +477,52 @@
         const params = new URLSearchParams(window.location.search);
         const name = params.get('name') || 'Adventure Detail';
         document.getElementById('adv-title').innerText = name;
+
+        // Slideshow functionality
+        let slideIndex = 1;
+        let slideTimer;
+        const slideshowContainer = document.getElementById('slideshow');
+
+        showSlides(slideIndex);
+        startSlideshow();
+
+        // Next/previous controls
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Main function to display slides
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+
+            slides[slideIndex - 1].classList.add("active");
+        }
+
+        // Auto-rotation
+        function startSlideshow() {
+            slideTimer = setInterval(function () {
+                changeSlide(1);
+            }, 3000);
+        }
+
+        // Pause auto-rotation
+        function stopSlideshow() {
+            clearInterval(slideTimer);
+        }
+
+        // Event listeners for pause on hover
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('mouseenter', stopSlideshow);
+            slideshowContainer.addEventListener('mouseleave', startSlideshow);
+        }
     </script>
 
     <!-- Footer -->
