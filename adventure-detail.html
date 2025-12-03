@@ -151,6 +151,51 @@
             margin-right: 4px;
         }
 
+        /* Tablet / iPad Pro Styles */
+        @media (min-width: 769px) and (max-width: 1366px) {
+            .detail-slideshow {
+                height: 50vh;
+            }
+
+            .slideshow-overlay h1 {
+                font-size: 2.5rem;
+            }
+
+            .detail-hero-stats {
+                gap: 15px;
+            }
+
+            .stat-item {
+                font-size: 0.8rem;
+                padding: 8px 14px;
+            }
+
+            /* Ensure sidebar is visible and layout is good */
+            .detail-layout {
+                grid-template-columns: 2fr 1fr;
+                /* Keep side-by-side for larger tablets */
+                gap: 30px;
+            }
+
+            /* Adjust for portrait mode if needed */
+            @media (max-width: 1024px) and (orientation: portrait) {
+                .detail-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .detail-sidebar {
+                    display: none;
+                    /* Optional: hide sidebar on portrait tablet if it's too squeezed, or move to bottom */
+                }
+
+                /* Actually let's keep sidebar but maybe stack it? */
+                .detail-sidebar {
+                    display: block;
+                    margin-top: 30px;
+                }
+            }
+        }
+
         /* Mobile-only content */
         .mobile-only-content {
             display: none;

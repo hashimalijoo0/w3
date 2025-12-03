@@ -898,26 +898,6 @@ footer::before {
 
     .detail-tabs {
         overflow-x: auto;
-        white-space: nowrap;
-        padding-bottom: 10px;
-    }
-
-    .detail-sidebar {
-        display: none;
-    }
-
-    .adventure-category {
-        padding: 40px 20px;
-    }
-
-    .page-header {
-        padding: 120px 20px 30px;
-    }
-}
-
-@media (max-width: 640px) {
-    .footer-content {
-        grid-template-columns: 1fr;
         gap: 35px;
         padding: 0 20px 30px;
     }
