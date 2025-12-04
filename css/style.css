@@ -1019,3 +1019,13 @@ body.no-scroll {
         overflow-y: auto !important;
     }
 }
+/* MOBILE FOOTER LAYOUT FIX */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    footer {
+        padding-bottom: 60px !important;
+    }
+}
