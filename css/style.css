@@ -902,6 +902,9 @@ footer::before {
         padding: 0 20px 30px;
     }
 
+    .detail-sidebar {
+        display: none !important;
+    }
     footer {
         margin-top: 40px;
         padding: 40px 0 15px;
@@ -1024,6 +1027,9 @@ body.no-scroll {
     .footer-content {
         grid-template-columns: 1fr !important;
         gap: 30px !important;
+    }
+    .detail-sidebar {
+        display: none !important;
     }
     footer {
         padding-bottom: 60px !important;
