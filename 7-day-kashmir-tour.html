@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Days Kashmir Tour - Snowman Adventures</title>
+    <meta name="description"
+        content="Experience the best of Kashmir in 7 days. Visit Srinagar, Gulmarg, Pahalgam, and Sonamarg with our curated tour package.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+            <span class="brand-text">Snowman Adventures</span>
+        </a>
+        <nav>
+            <div class="burger-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Image Slideshow -->
+    <div class="detail-slideshow" id="slideshow">
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Dal Lake Srinagar">
+            </div>
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Gulmarg Gondola">
+            </div>
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1183021/pexels-photo-1183021.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Pahalgam Valley">
+            </div>
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Sonamarg Glacier">
+            </div>
+
+            <!-- Navigation Arrows -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <!-- Trek Info Overlay -->
+        <div class="slideshow-overlay">
+            <h1>7 Days Kashmir Tour</h1>
+            <div class="detail-hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <strong>Duration:</strong> 7 Days
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-mountain"></i>
+                    <strong>Theme:</strong> Leisure & Nature
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-car-side"></i>
+                    <strong>Transport:</strong> Private Cab
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-sun"></i>
+                    <strong>Best Season:</strong> All Year
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content Layout -->
+    <div class="detail-layout">
+        <!-- Left Column: Tabs & Content -->
+        <div class="detail-content">
+            <div class="detail-tabs">
+                <button class="detail-tab-btn active" onclick="openDetailTab(event, 'overview')">Overview</button>
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'itinerary')">Itinerary</button>
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'inclusions')">Inclusions</button>
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'pricing')">Pricing</button>
+            </div>
+            <!-- Tab: Overview -->
+            <div id="overview" class="detail-tab-content active">
+                <h2>Experience Paradise on Earth</h2>
+                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
+                    This comprehensive 7-day tour takes you through the most iconic destinations of Kashmir. Starting
+                    from the floating gardens of Srinagar, you'll travel to the "Meadow of Flowers" in Gulmarg, explore
+                    the pristine valleys of Pahalgam, and witness the golden peaks of Sonamarg. This itinerary is
+                    designed to give you a perfect blend of leisure, adventure, and cultural immersion. Only Snowman
+                    Adventures offers this curated experience with premium hospitality.
+                </p>
+                <h3>Brief History & Significance</h3>
+                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
+                    <strong>Srinagar:</strong> The summer capital, founded by Emperor Ashoka, is famous for its historic
+                    Mughal Gardens and the Dal Lake.
+                    <strong>Gulmarg:</strong> Originally called 'Gaurimarg' by shepherds, it's a world-renowned ski
+                    resort and home to the world's highest golf course.
+                    <strong>Pahalgam:</strong> The 'Valley of Shepherds' serves as the base for the Amarnath Yatra and
+                    offers breathtaking scenery.
+                </p>
+                <h3>Tour Highlights</h3>
+                <ul style="list-style: disc; margin-left: 20px; color: #ccc; line-height: 1.8;">
+                    <li>Shikara Ride on the iconic Dal Lake during sunset</li>
+                    <li>Gondola Ride in Gulmarg - one of the highest cable cars in the world</li>
+                    <li>Saffron fields of Pampore (in season)</li>
+                    <li>Pony ride to Baisaran Valley ("Mini Switzerland")</li>
+                    <li>Thajiwas Glacier visit in Sonamarg</li>
+                    <li>Stay in a traditional Kashmiri Houseboat</li>
+                </ul>
+            </div>
+
+
+
+            <!-- Tab: Itinerary -->
+            <div id="itinerary" class="detail-tab-content">
+                <h2>Day-by-Day Itinerary</h2>
+                <br>
+
+                <div class="itinerary-step">
+                    <h3>Day 1: Arrival in Srinagar & Shikara Ride</h3>
+                    <p>Arrive at Srinagar Airport. Meet our representative and transfer to your houseboat. In the
+                        evening, enjoy a relaxing 1-hour Shikara ride on Dal Lake. Dinner and overnight stay in
+                        Houseboat.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 2: Srinagar to Gulmarg (Day Trip)</h3>
+                    <p>Drive to Gulmarg (52 km). Enjoy the scenic drive through pine forests. Take the famous Gondola
+                        ride (Phase 1 & 2). Visit the golf course and the historic church. Return to Srinagar for
+                        overnight stay.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 3: Srinagar to Pahalgam</h3>
+                    <p>Drive to Pahalgam (90 km). En route, visit the Saffron fields of Pampore and the Avantipur ruins.
+                        Check-in at your hotel in Pahalgam. Evening at leisure by the Lidder River.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 4: Pahalgam Exploration</h3>
+                    <p>Full day in Pahalgam. Visit Aru Valley, Betaab Valley, and Chandanwari. You can also take a pony
+                        ride to Baisaran meadows. Overnight stay in Pahalgam.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 5: Pahalgam to Srinagar (Local Sightseeing)</h3>
+                    <p>Drive back to Srinagar. Visit the famous Mughal Gardens: Nishat Bagh (Garden of Pleasure),
+                        Shalimar Bagh (Abode of Love), and Chashme Shahi (Royal Spring). Visit the Shankaracharya
+                        Temple. Overnight in Srinagar.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 6: Srinagar to Sonamarg (Day Trip)</h3>
+                    <p>Full day excursion to Sonamarg ("Meadow of Gold"). Visit Thajiwas Glacier where snow remains
+                        round the year. You can enjoy snow activities. Return to Srinagar in the evening.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 7: Departure</h3>
+                    <p>After breakfast, transfer to Srinagar Airport for your onward journey with beautiful memories of
+                        Kashmir.</p>
+                </div>
+
+            </div>
+
+            <!-- Tab: Inclusions -->
+            <div id="inclusions" class="detail-tab-content">
+                <div style="display: flex; gap: 40px;">
+                    <div style="flex: 1;">
+                        <h3 style="color: #2ecc71;">What's Included</h3>
+                        <ul class="features-list">
+                            <li>Accommodation (Hotels/Houseboat) on twin sharing</li>
+                            <li>Breakfast and Dinner</li>
+                            <li>Private cab for all transfers and sightseeing</li>
+                            <li>1 Hour Shikara Ride</li>
+                            <li>Toll taxes, parking, and driver allowances</li>
+                            <li>Welcome drink on arrival</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1;">
+                        <h3 style="color: #e74c3c;">What's Not Included</h3>
+                        <ul style="list-style: none; color: #ccc;">
+                            <li style="margin-bottom: 10px;">❌ Airfare/Train fare</li>
+                            <li style="margin-bottom: 10px;">❌ Lunch</li>
+                            <li style="margin-bottom: 10px;">❌ Gondola Tickets / Entry Fees</li>
+                            <li style="margin-bottom: 10px;">❌ Pony Rides / Sledging</li>
+                            <li style="margin-bottom: 10px;">❌ Personal expenses</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Why Trek With Us (Mobile Only) -->
+                <div class="mobile-only-content" style="margin-top: 40px;">
+                    <h3>Why Travel with Us?</h3>
+                    <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6; list-style: none;">
+                        <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
+                        <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
+                        <li style="margin-bottom: 10px;">✅ Premium Support</li>
+                        <li style="margin-bottom: 10px;">✅ Verified Hotels</li>
+                        <li style="margin-bottom: 10px;">✅ No Hidden Costs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tab: Pricing -->
+            <div id="pricing" class="detail-tab-content">
+                <h2>Package Pricing</h2>
+                <p style="color: #ccc; margin-bottom: 20px;">We offer transparent pricing based on the category of
+                    hotels you choose.</p>
+
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: #222; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid #333;">
+                        <h3>Standard</h3>
+                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
+                            $350 <span style="font-size: 1rem; color: #888;">/ person</span></div>
+                        <p style="font-size: 0.9rem; color: #ccc;">3-Star Hotels + Standard Houseboat</p>
+                        <a href="https://wa.me/919622494350?text=Interested in 7 Days Standard Package" class="btn"
+                            style="width: 100%; margin-top: 15px; text-align: center;">Book Standard</a>
+                    </div>
+
+                    <div
+                        style="background: #2a2a2a; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid var(--accent-color);">
+                        <h3>Premium</h3>
+                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
+                            $550 <span style="font-size: 1rem; color: #888;">/ person</span></div>
+                        <p style="font-size: 0.9rem; color: #ccc;">4-Star Hotels + Luxury Houseboat</p>
+                        <a href="https://wa.me/919622494350?text=Interested in 7 Days Premium Package" class="btn"
+                            style="width: 100%; margin-top: 15px; text-align: center;">Book Premium</a>
+                    </div>
+
+                    <div
+                        style="background: #222; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid #333;">
+                        <h3>Luxury</h3>
+                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
+                            $800 <span style="font-size: 1rem; color: #888;">/ person</span></div>
+                        <p style="font-size: 0.9rem; color: #ccc;">5-Star Properties</p>
+                        <a href="https://wa.me/919622494350?text=Interested in 7 Days Luxury Package" class="btn"
+                            style="width: 100%; margin-top: 15px; text-align: center;">Book Luxury</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <p style="color: #888;">* Prices are per person for a minimum of 2 pax.</p>
+                    <a href="pricing.html#7day" style="color: var(--accent-color); text-decoration: underline;">View
+                        Full Pricing Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Sidebar (Desktop Only) -->
+        <div class="detail-sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Why Travel with Us?</h3>
+                <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
+                    <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
+                    <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
+                    <li style="margin-bottom: 10px;">✅ Premium Consierge</li>
+                    <li style="margin-bottom: 10px;">✅ Verified Hotels</li>
+                    <li style="margin-bottom: 10px;">✅ No Hidden Costs</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Route Map</h3>
+                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
+                    <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="js/main.js"></script>
+
+
+    <script>
+        // Tab switching function
+        function openDetailTab(event, tabName) {
+            const contents = document.querySelectorAll('.detail-tab-content');
+            const btns = document.querySelectorAll('.detail-tab-btn');
+
+            contents.forEach(c => c.classList.remove('active'));
+            btns.forEach(b => b.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Slideshow functionality
+        let slideIndex = 1;
+        let slideTimer;
+        const slideshowContainer = document.getElementById('slideshow');
+
+        showSlides(slideIndex);
+        startSlideshow();
+
+        // Next/previous controls
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Main function to display slides
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+
+            slides[slideIndex - 1].classList.add("active");
+        }
+
+        // Auto-rotation
+        function startSlideshow() {
+            slideTimer = setInterval(function () {
+                changeSlide(1);
+            }, 3000);
+        }
+
+        // Pause auto-rotation
+        function stopSlideshow() {
+            clearInterval(slideTimer);
+        }
+
+        // Event listeners for pause on hover
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('mouseenter', stopSlideshow);
+            slideshowContainer.addEventListener('mouseleave', startSlideshow);
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Brand Section -->
+            <div class="footer-logo">
+                <div class="footer-brand-section">
+                    <img src="assets/logo.jpg" alt="Snowman Adventures" class="footer-logo-img">
+                    <span class="footer-company-name">Snowman Adventures</span>
+                </div>
+                <p class="footer-tagline">Experience the untold beauty of Kashmir with expert guides and premium
+                    equipment. Your adventure awaits!</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="adventures.html">Adventures</a>
+                    <a href="tour-packages.html">Tour Packages</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+
+            <!-- Connect With Us -->
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Snowman Adventures. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+919622494350?text=I'm interested in 7 Days Kashmir Tour" class="whatsapp-float"
+        target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Book Now</span>
+    </a>
+
+</body>
+
+</html>

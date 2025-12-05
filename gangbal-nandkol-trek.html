@@ -347,19 +347,19 @@
                 <!-- Route Map (Mobile Only) -->
                 <div class="mobile-only-content">
                     <h3 style="margin-top: 30px;">Route Map</h3>
-                    <div
-                        style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 8px; margin-top: 15px;">
-                        [Map Placeholder]
-                    </div>
+                    <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
+                    <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                </div>
                 </div>
 
                 <!-- Altitude Profile (Mobile Only) -->
                 <div class="mobile-only-content">
                     <h3 style="margin-top: 30px;">Altitude Profile</h3>
-                    <div
-                        style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 8px; margin-top: 15px;">
-                        [Altitude Chart Placeholder]
-                    </div>
+                    <div class="map-container" onclick="openLightbox('assets/maps/placeholder-altitude.png')">
+                    <img src="assets/maps/placeholder-altitude.png" alt="Altitude Profile" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                </div>
                 </div>
             </div>
 
@@ -483,24 +483,32 @@
 
             <div class="sidebar-widget">
                 <h3 class="sidebar-title">Route Map</h3>
-                <div
-                    style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 8px;">
-                    [Map Placeholder]
+                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
+                    <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
                 </div>
             </div>
 
             <div class="sidebar-widget">
                 <h3 class="sidebar-title">Altitude Profile</h3>
-                <div
-                    style="background: #333; height: 150px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 8px;">
-                    [Altitude Chart Placeholder]
+                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-altitude.png')">
+                    <img src="assets/maps/placeholder-altitude.png" alt="Altitude Profile" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
                 </div>
             </div>
         </div>
 
     </div>
 
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
     <script src="js/main.js"></script>
+
 
     <script>
         // Tab switching function

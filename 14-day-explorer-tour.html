@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 Days Explorer Tour - Snowman Adventures</title>
+    <meta name="description"
+        content="The ultimate 14-day adventure through Kashmir and Ladakh. Explore Gurez Valley, Srinagar, Leh, Pangong Lake, and high altitude passes.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+            <span class="brand-text">Snowman Adventures</span>
+        </a>
+        <nav>
+            <div class="burger-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Image Slideshow -->
+    <div class="detail-slideshow" id="slideshow">
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/2104882/pexels-photo-2104882.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Ladakh Landscapes">
+            </div>
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Gurez Valley">
+            </div>
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/2350366/pexels-photo-2350366.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Pangong Lake">
+            </div>
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Kashmir Valley">
+            </div>
+
+            <!-- Navigation Arrows -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <!-- Trek Info Overlay -->
+        <div class="slideshow-overlay">
+            <h1>14 Days Explorer Tour</h1>
+            <div class="detail-hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <strong>Duration:</strong> 14 Days
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-map-signs"></i>
+                    <strong>Route:</strong> Kashmir - Gurez - Ladakh
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-car-side"></i>
+                    <strong>Transport:</strong> 4x4 SUV
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-sun"></i>
+                    <strong>Best Season:</strong> May-Sep
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content Layout -->
+    <div class="detail-layout">
+        <!-- Left Column: Tabs & Content -->
+        <div class="detail-content">
+            <div class="detail-tabs">
+                <button class="detail-tab-btn active" onclick="openDetailTab(event, 'overview')">Overview</button>
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'itinerary')">Itinerary</button>
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'inclusions')">Inclusions</button>
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'pricing')">Pricing</button>
+            </div>
+            <!-- Tab: Overview -->
+            <div id="overview" class="detail-tab-content active">
+                <h2>The Ultimate Himalayan Odyssey</h2>
+                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
+                    For the true explorer, this 14-day grand tour offers an unparalleled journey across the diverse
+                    landscapes of the Himalayas. From the lush green valleys of Kashmir to the remote, untouched beauty
+                    of Gurez Valley, and finally ascending to the high-altitude desert of Ladakh. This isn't just a
+                    sightseeing trip; it's an expedition through culture, geology, and history.
+                </p>
+                <h3>Brief History & Significance</h3>
+                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
+                    <strong>Gurez Valley:</strong> Historically part of the ancient Silk Route, Gurez is home to the
+                    Dard Shin tribe, whose ancestors are believed to be the original Aryans. The valley is dominated by
+                    the majestic Habba Khatoon peak.
+                    <strong>Ladakh:</strong> Often called "Little Tibet," its history is intertwined with Buddhism and
+                    trade. Monasteries perched on cliffs date back over a thousand years.
+                </p>
+                <h3>Tour Highlights</h3>
+                <ul style="list-style: disc; margin-left: 20px; color: #ccc; line-height: 1.8;">
+                    <li>Explore the offbeat and pristine Gurez Valley</li>
+                    <li>Drive across Zojila Pass, the gateway to Ladakh</li>
+                    <li>Visit the "Moonland" landscapes of Lamayuru</li>
+                    <li>Witness the changing colors of Pangong Tso Lake</li>
+                    <li>Experience the culture of the Dard tribes</li>
+                    <li>Cross Khardung La, one of the world's highest motorable passes</li>
+                </ul>
+            </div>
+
+
+
+            <!-- Tab: Itinerary -->
+            <div id="itinerary" class="detail-tab-content">
+                <h2>Day-by-Day Itinerary</h2>
+                <br>
+
+                <div class="itinerary-step">
+                    <h3>Day 1: Arrival in Srinagar</h3>
+                    <p>Arrival at Srinagar. Shikara ride on Dal Lake. Overnight in Houseboat.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 2: Srinagar Local Sightseeing</h3>
+                    <p>Visit Mughal Gardens and Shankaracharya Temple. Explore the old city markets. Overnight in Hotel.
+                    </p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 3: Srinagar to Gurez Valley</h3>
+                    <p>Drive to Gurez via Razdan Pass (11,672 ft). Ensure permits are checked at checkpoints. Enjoy the
+                        breathtaking views of the Kishan Ganga River. Overnight in Dawar, Gurez.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 4: Gurez Valley Exploration</h3>
+                    <p>Visit Tulail Valley and Sheikhpura. See the Habba Khatoon peak and spring. Interact with the
+                        local Dard community. Overnight in Gurez.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 5: Gurez to Srinagar</h3>
+                    <p>Drive back to Srinagar from Gurez. Relax in the evening. Overnight in Srinagar.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 6: Srinagar to Kargil via Sonamarg</h3>
+                    <p>Depart for Kargil. Pass through Sonamarg and cross the treacherous Zojila Pass. Visit the Drass
+                        War Memorial. Overnight in Kargil.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 7: Kargil to Leh</h3>
+                    <p>Drive to Leh. En route visit Mulbekh Monastery, Lamayuru ("Moonland"), Magnetic Hill, and Pathar
+                        Sahib Gurudwara. Arrive in Leh.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 8: Leh Local Sightseeing</h3>
+                    <p>Acclimatization day. Visit Leh Palace, Shanti Stupa, and Hall of Fame.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 9: Leh to Nubra Valley</h3>
+                    <p>Drive via Khardung La (18,380 ft). Visit Diskit Monastery and Hunder Sand Dunes. Double-humped
+                        camel ride. Overnight in Nubra.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 10: Nubra to Pangong Lake</h3>
+                    <p>Drive to Pangong Tso via Shyok river route. Witness the mesmerizing blue lake. Overnight in camps
+                        near the lake.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 11: Pangong Lake to Leh</h3>
+                    <p>Witness sunrise at the lake. Drive back to Leh via Chang La Pass. Visit Hemis and Thiksey
+                        monasteries on the way.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 12: Leh to Jispa/Sarchu (or Tso Moriri Option)</h3>
+                    <p>Depending on preference, start the journey towards Manali or visit Tso Moriri. *For this
+                        itinerary, we assume a return to Srinagar via flight or road, so this day is a free day in Leh
+                        for shopping.*</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 13: Free Day / Reserve Day</h3>
+                    <p>Buffer day for weather contingencies or relaxation.</p>
+                </div>
+                <div class="itinerary-step">
+                    <h3>Day 14: Departure</h3>
+                    <p>Transfer to Leh Airport (IXL) for flight back home.</p>
+                </div>
+
+            </div>
+
+            <!-- Tab: Inclusions -->
+            <div id="inclusions" class="detail-tab-content">
+                <div style="display: flex; gap: 40px;">
+                    <div style="flex: 1;">
+                        <h3 style="color: #2ecc71;">What's Included</h3>
+                        <ul class="features-list">
+                            <li>All accommodation (Hotels/Camps/Houseboat)</li>
+                            <li>Breakfast and Dinner</li>
+                            <li>Exclusive SUV (Innova/Scorpio/Xylo) for all transfers</li>
+                            <li>Inner Line Permits for Ladakh & Gurez</li>
+                            <li>Oxygen Cylinder for emergencies</li>
+                            <li>Driver allowances and Tolls</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1;">
+                        <h3 style="color: #e74c3c;">What's Not Included</h3>
+                        <ul style="list-style: none; color: #ccc;">
+                            <li style="margin-bottom: 10px;">❌ Flights</li>
+                            <li style="margin-bottom: 10px;">❌ Lunch</li>
+                            <li style="margin-bottom: 10px;">❌ Monastery Entry Fees</li>
+                            <li style="margin-bottom: 10px;">❌ Camel Rides / Activities</li>
+                            <li style="margin-bottom: 10px;">❌ Travel Insurance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Pricing -->
+            <div id="pricing" class="detail-tab-content">
+                <h2>Package Pricing</h2>
+                <p style="color: #ccc; margin-bottom: 20px;">Experience the best of two regions with our comprehensive
+                    packages.</p>
+
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: #222; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid #333;">
+                        <h3>Explorer Standard</h3>
+                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
+                            $900 <span style="font-size: 1rem; color: #888;">/ person</span></div>
+                        <p style="font-size: 0.9rem; color: #ccc;">Standard Hotels & Camps</p>
+                        <a href="https://wa.me/919622494350?text=Interested in 14 Days Explorer Standard Package"
+                            class="btn" style="width: 100%; margin-top: 15px; text-align: center;">Book Standard</a>
+                    </div>
+
+                    <div
+                        style="background: #2a2a2a; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid var(--accent-color);">
+                        <h3>Explorer Premium</h3>
+                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
+                            $1300 <span style="font-size: 1rem; color: #888;">/ person</span></div>
+                        <p style="font-size: 0.9rem; color: #ccc;">Premium Hotels & Glamping</p>
+                        <a href="https://wa.me/919622494350?text=Interested in 14 Days Explorer Premium Package"
+                            class="btn" style="width: 100%; margin-top: 15px; text-align: center;">Book Premium</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <p style="color: #888;">* Prices are per person for a minimum of 4 pax (for cost-effective
+                        transport).</p>
+                    <a href="pricing.html#14day" style="color: var(--accent-color); text-decoration: underline;">View
+                        Full Pricing Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Sidebar (Desktop Only) -->
+        <div class="detail-sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Why Travel with Us?</h3>
+                <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
+                    <li style="margin-bottom: 10px;">✅ Expert Terrain Knowledge</li>
+                    <li style="margin-bottom: 10px;">✅ High Altitude Support</li>
+                    <li style="margin-bottom: 10px;">✅ Oxygen Equipped Vehicles</li>
+                    <li style="margin-bottom: 10px;">✅ Cultural Interactions</li>
+                    <li style="margin-bottom: 10px;">✅ 24/7 Ground Support</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Route Map</h3>
+                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
+                    <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="js/main.js"></script>
+
+
+    <script>
+        // Tab switching function
+        function openDetailTab(event, tabName) {
+            const contents = document.querySelectorAll('.detail-tab-content');
+            const btns = document.querySelectorAll('.detail-tab-btn');
+
+            contents.forEach(c => c.classList.remove('active'));
+            btns.forEach(b => b.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Slideshow functionality
+        let slideIndex = 1;
+        let slideTimer;
+        const slideshowContainer = document.getElementById('slideshow');
+
+        showSlides(slideIndex);
+        startSlideshow();
+
+        // Next/previous controls
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Main function to display slides
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+
+            slides[slideIndex - 1].classList.add("active");
+        }
+
+        // Auto-rotation
+        function startSlideshow() {
+            slideTimer = setInterval(function () {
+                changeSlide(1);
+            }, 3000);
+        }
+
+        // Pause auto-rotation
+        function stopSlideshow() {
+            clearInterval(slideTimer);
+        }
+
+        // Event listeners for pause on hover
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('mouseenter', stopSlideshow);
+            slideshowContainer.addEventListener('mouseleave', startSlideshow);
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Brand Section -->
+            <div class="footer-logo">
+                <div class="footer-brand-section">
+                    <img src="assets/logo.jpg" alt="Snowman Adventures" class="footer-logo-img">
+                    <span class="footer-company-name">Snowman Adventures</span>
+                </div>
+                <p class="footer-tagline">Experience the untold beauty of Kashmir with expert guides and premium
+                    equipment. Your adventure awaits!</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="adventures.html">Adventures</a>
+                    <a href="tour-packages.html">Tour Packages</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+
+            <!-- Connect With Us -->
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Snowman Adventures. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+919622494350?text=I'm interested in 14 Days Explorer Tour" class="whatsapp-float"
+        target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Book Now</span>
+    </a>
+
+</body>
+
+</html>

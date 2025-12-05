@@ -199,4 +199,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Lightbox Logic ---
+    window.openLightbox = function (imageSrc) {
+        const modal = document.getElementById('lightbox-modal');
+        const modalImg = document.getElementById('lightbox-img');
+
+        if (modal && modalImg) {
+            modal.classList.add('active');
+            modalImg.src = imageSrc;
+            document.body.style.overflow = "hidden"; // Prevent scrolling
+        }
+    };
+
+    window.closeLightbox = function () {
+        const modal = document.getElementById('lightbox-modal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = "auto"; // Restore scrolling
+        }
+    };
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (event) {
+        if (event.key === "Escape") {
+            window.closeLightbox();
+        }
+    });
+
+    // Close on click outside image
+    document.addEventListener('click', function (event) {
+        const modal = document.getElementById('lightbox-modal');
+        if (event.target === modal) {
+            window.closeLightbox();
+        }
+    });
 });

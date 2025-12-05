@@ -9,86 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .page-header {
-            padding: 150px 50px 50px;
-            background: #111;
-            text-align: center;
-        }
 
-        .pricing-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 50px;
-            flex-wrap: wrap;
-        }
-
-        .pricing-card {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 10px;
-            padding: 40px;
-            width: 300px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-color);
-        }
-
-        .price-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #888;
-        }
-
-        .price-amount {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-
-        .features-list {
-            text-align: left;
-            margin-bottom: 30px;
-        }
-
-        .features-list li {
-            margin-bottom: 10px;
-            color: #ccc;
-        }
-
-        .features-list li::before {
-            content: '✓';
-            color: var(--accent-color);
-            margin-right: 10px;
-        }
-
-        .book-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: white;
-            color: black;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .pricing-card.featured {
-            background: #222;
-            border-color: var(--accent-color);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured .book-btn {
-            background: var(--accent-color);
-            color: white;
-        }
-    </style>
 </head>
 
 <body>
@@ -121,33 +42,34 @@
     </div>
 
     <div class="pricing-container">
+        <!-- General / Trekking Pricing -->
         <div class="pricing-card">
-            <h3 class="price-title">Standard</h3>
+            <h3 class="price-title">Trek Standard</h3>
             <div class="price-amount">$500</div>
             <ul class="features-list">
-                <li>Basic Accommodation</li>
-                <li>All Meals Included</li>
-                <li>Local Guide</li>
+                <li>Basic Tents</li>
+                <li>All Meals</li>
+                <li>Trek Leader</li>
                 <li>Group Transport</li>
             </ul>
             <a href="https://wa.me/919622494350" class="book-btn">Book Now</a>
         </div>
 
         <div class="pricing-card featured">
-            <h3 class="price-title">Premium</h3>
+            <h3 class="price-title">Trek Premium</h3>
             <div class="price-amount">$800</div>
             <ul class="features-list">
-                <li>Luxury Camping/Hotels</li>
+                <li>Luxury Dome Tents</li>
                 <li>Gourmet Meals</li>
                 <li>Expert Trek Leader</li>
                 <li>Private Transport</li>
-                <li>Photography Service</li>
+                <li>Photography</li>
             </ul>
             <a href="https://wa.me/919622494350" class="book-btn">Book Now</a>
         </div>
 
         <div class="pricing-card">
-            <h3 class="price-title">Custom</h3>
+            <h3 class="price-title">Custom Trek</h3>
             <div class="price-amount">Variable</div>
             <ul class="features-list">
                 <li>Tailored Itinerary</li>
@@ -156,6 +78,79 @@
                 <li>Special Requests</li>
             </ul>
             <a href="contact.html" class="book-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Tour Packages Pricing -->
+    <div class="page-header" style="padding-top: 50px; background: #111;">
+        <h2>Tour Packages Pricing</h2>
+        <p>Comprehensive packages for leisure and exploration</p>
+    </div>
+
+    <div class="pricing-container" id="7day">
+        <div class="pricing-card">
+            <h3 class="price-title">7 Days Standard</h3>
+            <div class="price-amount">$350</div>
+            <ul class="features-list">
+                <li>3-Star Hotels</li>
+                <li>Standard Houseboat</li>
+                <li>Breakfast & Dinner</li>
+                <li>Private Cab (Sedan)</li>
+            </ul>
+            <a href="https://wa.me/919622494350?text=Booking 7 Days Standard" class="book-btn">Book Standard</a>
+        </div>
+
+        <div class="pricing-card featured">
+            <h3 class="price-title">7 Days Premium</h3>
+            <div class="price-amount">$550</div>
+            <ul class="features-list">
+                <li>4-Star Hotels</li>
+                <li>Luxury Houseboat</li>
+                <li>Breakfast & Dinner</li>
+                <li>Private Cab (Innova)</li>
+                <li>Welcome Drink</li>
+            </ul>
+            <a href="https://wa.me/919622494350?text=Booking 7 Days Premium" class="book-btn">Book Premium</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3 class="price-title">7 Days Luxury</h3>
+            <div class="price-amount">$800</div>
+            <ul class="features-list">
+                <li>5-Star Properties</li>
+                <li>Super Luxury Houseboat</li>
+                <li>All Meals</li>
+                <li>Private Luxury SUV</li>
+            </ul>
+            <a href="https://wa.me/919622494350?text=Booking 7 Days Luxury" class="book-btn">Book Luxury</a>
+        </div>
+    </div>
+
+    <div class="pricing-container" id="14day" style="background: #111;">
+        <div class="pricing-card">
+            <h3 class="price-title">14 Days Explorer</h3>
+            <div class="price-amount">$900</div>
+            <ul class="features-list">
+                <li>Standard Hotels/Camps</li>
+                <li>Breakfast & Dinner</li>
+                <li>SUV for 14 Days</li>
+                <li>Inner Line Permits</li>
+            </ul>
+            <a href="https://wa.me/919622494350?text=Booking 14 Days Explorer Standard" class="book-btn">Book
+                Standard</a>
+        </div>
+
+        <div class="pricing-card featured">
+            <h3 class="price-title">14 Days Premium</h3>
+            <div class="price-amount">$1300</div>
+            <ul class="features-list">
+                <li>Premium Hotels/Glamping</li>
+                <li>Breakfast & Dinner</li>
+                <li>Premium SUV (Innova/Xylo)</li>
+                <li>Inner Line Permits</li>
+                <li>Oxygen Support</li>
+            </ul>
+            <a href="https://wa.me/919622494350?text=Booking 14 Days Explorer Premium" class="book-btn">Book Premium</a>
         </div>
     </div>
 
