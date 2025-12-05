@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Detail - Snowman Adventures</title>
+    <title>Kousarnag Lake Trek - Snowman Adventures</title>
+    <meta name="description"
+        content="Experience the legendary Kousarnag Lake Trek - 5 Days through 7 pristine alpine lakes, high mountain passes, and stunning Himalayan landscapes.">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
@@ -116,14 +118,6 @@
             text-align: center;
         }
 
-        .detail-info-section h1 {
-            font-size: 3rem;
-            margin-bottom: 25px;
-            color: #ffffff;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
         .detail-hero-stats {
             display: flex;
             justify-content: center;
@@ -170,25 +164,16 @@
                 padding: 8px 14px;
             }
 
-            /* Ensure sidebar is visible and layout is good */
             .detail-layout {
                 grid-template-columns: 2fr 1fr;
-                /* Keep side-by-side for larger tablets */
                 gap: 30px;
             }
 
-            /* Adjust for portrait mode if needed */
             @media (max-width: 1024px) and (orientation: portrait) {
                 .detail-layout {
                     grid-template-columns: 1fr;
                 }
 
-                .detail-sidebar {
-                    display: none;
-                    /* Optional: hide sidebar on portrait tablet if it's too squeezed, or move to bottom */
-                }
-
-                /* Actually let's keep sidebar but maybe stack it? */
                 .detail-sidebar {
                     display: block;
                     margin-top: 30px;
@@ -206,7 +191,6 @@
                 display: block;
             }
 
-            /* Slideshow mobile adjustments */
             .detail-slideshow {
                 height: 50vh;
             }
@@ -226,16 +210,12 @@
                 justify-content: flex-start;
                 padding-bottom: 5px;
                 -webkit-overflow-scrolling: touch;
-                /* Hide scrollbar for cleaner look */
                 scrollbar-width: none;
-                /* Firefox */
                 -ms-overflow-style: none;
-                /* IE/Edge */
             }
 
             .detail-hero-stats::-webkit-scrollbar {
                 display: none;
-                /* Chrome/Safari */
             }
 
             .stat-item {
@@ -251,7 +231,6 @@
                 font-size: 18px;
             }
 
-            /* Reduce tab spacing to hint at scrolling */
             .detail-tabs {
                 gap: 3px !important;
             }
@@ -293,19 +272,19 @@
         <div class="slideshow-container">
             <div class="slide fade">
                 <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Trek Image 1">
+                    alt="Kousarnag Lake Trek">
             </div>
             <div class="slide fade">
                 <img src="https://images.pexels.com/photos/1183021/pexels-photo-1183021.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Trek Image 2">
+                    alt="Alpine Lakes Kashmir">
             </div>
             <div class="slide fade">
                 <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Trek Image 3">
+                    alt="Mountain Meadows">
             </div>
             <div class="slide fade">
                 <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Trek Image 4">
+                    alt="Himalayan Landscape">
             </div>
 
             <!-- Navigation Arrows -->
@@ -315,11 +294,11 @@
 
         <!-- Trek Info Overlay -->
         <div class="slideshow-overlay">
-            <h1 id="adv-title">Adventure Detail</h1>
+            <h1>Kousarnag Lake Trek</h1>
             <div class="detail-hero-stats">
                 <div class="stat-item">
                     <i class="fas fa-calendar-alt"></i>
-                    <strong>Duration:</strong> 8 Days
+                    <strong>Duration:</strong> 5 Days
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-mountain"></i>
@@ -327,7 +306,7 @@
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-arrow-up"></i>
-                    <strong>Max Altitude:</strong> 13,800 ft
+                    <strong>Max Altitude:</strong> 13,000 ft
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-sun"></i>
@@ -354,16 +333,19 @@
                 <h2>Brief History</h2>
                 <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
                     The KGL route was historically used by nomadic Bakarwal shepherds migrating with their flocks across
-                    the high passes.
-                    Over the last two decades, it has become one of India’s most celebrated alpine trekking routes due
-                    to its extraordinary chain of glacier lakes.
+                    the high passes. Over the last two decades, it has become one of India's most celebrated alpine
+                    trekking routes due to its extraordinary chain of glacier lakes. The trail connects ancient shepherd
+                    paths that have been used for centuries, offering trekkers a glimpse into the traditional pastoral
+                    lifestyle of Kashmir.
                 </p>
-                <h3>Highlights</h3>
+                <h3>What It Is Famous For</h3>
                 <ul style="list-style: disc; margin-left: 20px; color: #ccc; line-height: 1.8;">
-                    <li>Seven major alpine lakes.</li>
-                    <li>High mountain passes.</li>
-                    <li>Meadows stretching for miles.</li>
-                    <li>Experience the warm hospitality of local shepherds.</li>
+                    <li>Seven major alpine lakes including Vishansar, Krishansar, Gadsar, Satsar, and twin
+                        Gangbal-Nandkol</li>
+                    <li>High mountain passes offering panoramic Himalayan views</li>
+                    <li>Meadows stretching for miles with vibrant wildflowers</li>
+                    <li>Considered the signature trek of Kashmir and one of India's top 5 treks</li>
+                    <li>Diverse landscapes from pine forests to alpine meadows to rocky terrain</li>
                 </ul>
 
                 <!-- Route Map (Mobile Only) -->
@@ -390,36 +372,44 @@
                 <h2>Day-by-Day Itinerary</h2>
                 <br>
                 <div class="itinerary-step">
-                    <h3>Day 1: Arrival in Srinagar</h3>
-                    <p>Pickup from airport, transfer to houseboat. Briefing and gear check.</p>
+                    <h3>Day 1: Arrive in Srinagar</h3>
+                    <p>Check-in at hotel, team briefing, equipment check, and trek preparation. Explore local markets if
+                        time permits.</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 2: Drive to Sonmarg and trek to Nichnai</h3>
-                    <p>Scenic drive to Sonmarg. Forest trails to wide valleys and camp at Nichnai..</p>
+                    <h3>Day 2: Srinagar → Sonamarg → Nichnai (11 km trek)</h3>
+                    <p>Drive to Sonamarg (2,800 m). Begin trek through forest trails transitioning to wide valleys. Camp
+                        at Nichnai meadows surrounded by towering peaks.</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 3: Nichnai to Vishansar via Nichnai Pass</h3>
-                    <p>Ascend to the pass; descend to the stunning Vishansar lake basin.</p>
+                    <h3>Day 3: Nichnai → Vishansar via Nichnai Pass (12 km)</h3>
+                    <p>Ascend to Nichnai Pass (4,080 m) with stunning views. Descend to the stunning Vishansar lake
+                        basin, camping beside the crystal-clear alpine lake.</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 4:Explore Vishansar & Krishansar</h3>
-                    <p>Rest day for exploration and acclimatization.</p>
+                    <h3>Day 4: Explore Vishansar & Krishansar</h3>
+                    <p>Rest day for exploration and acclimatization. Visit nearby Krishansar lake, enjoy photography,
+                        and prepare for the challenging days ahead.</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 5:Vishansar to Gadsar via Gadsar Pass</h3>
-                    <p>Climb the highest point (13,800 ft); camp near Gadsar.</p>
+                    <h3>Day 5: Vishansar → Gadsar via Gadsar Pass (15 km)</h3>
+                    <p>Climb to the trek's highest point at Gadsar Pass (13,000 ft). Descend to the turquoise Gadsar
+                        lake, known as the "Lake of Flowers." Camp near the pristine waters.</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 6:Gadsar to Satsar</h3>
-                    <p>Cross flowering meadows and several water crossings.</p>
+                    <h3>Day 6: Gadsar → Satsar (12 km)</h3>
+                    <p>Cross flowering meadows and navigate several water crossings. Reach Satsar, a cluster of seven
+                        interconnected lakes. Camp in the valley.</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 7:Satsar to Gangbal & Nandkol via Zaj Pass</h3>
-                    <p>Reach the twin Gangbal lakes below Mount Harmukh.</p>
+                    <h3>Day 7: Satsar → Gangbal & Nandkol via Zaj Pass (9 km)</h3>
+                    <p>Cross Zaj Pass and reach the magnificent twin Gangbal and Nandkol lakes situated below the sacred
+                        Mount Harmukh (5,142 m).</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 8:Gangbal to Naranag to Srinagar</h3>
-                    <p>Steep descent, drive to Srinagar, final stay.</p>
+                    <h3>Day 8: Gangbal → Naranag → Srinagar (13 km trek + drive)</h3>
+                    <p>Steep descent through pine forests to Naranag village. Drive back to Srinagar for final night
+                        stay and celebration.</p>
                 </div>
             </div>
 
@@ -429,20 +419,23 @@
                     <div style="flex: 1;">
                         <h3 style="color: #2ecc71;">What's Included</h3>
                         <ul class="features-list">
-                            <li>All accommodation during the trek.</li>
-                            <li>All meals (Veg/Non-Veg).</li>
-                            <li>Professional Trek Leader & Guide.</li>
-                            <li>First Aid & Oxygen Cylinder.</li>
-                            <li>Permits and Camping Charges.</li>
+                            <li>All accommodation during the trek</li>
+                            <li>All meals (Veg/Non-Veg)</li>
+                            <li>Professional Trek Leader & Guide</li>
+                            <li>First Aid & Oxygen Cylinder</li>
+                            <li>Permits and Camping Charges</li>
+                            <li>Camping equipment (tents, sleeping bags)</li>
+                            <li>Transport from Srinagar to trek start and back</li>
                         </ul>
                     </div>
                     <div style="flex: 1;">
                         <h3 style="color: #e74c3c;">What's Not Included</h3>
                         <ul style="list-style: none; color: #ccc;">
-                            <li style="margin-bottom: 10px;">❌ Personal gear and clothing.</li>
-                            <li style="margin-bottom: 10px;">❌ Airfare to/from Srinagar.</li>
-                            <li style="margin-bottom: 10px;">❌ Personal expenses/tips.</li>
-                            <li style="margin-bottom: 10px;">❌ Insurance.</li>
+                            <li style="margin-bottom: 10px;">❌ Personal gear and clothing</li>
+                            <li style="margin-bottom: 10px;">❌ Airfare to/from Srinagar</li>
+                            <li style="margin-bottom: 10px;">❌ Personal expenses/tips</li>
+                            <li style="margin-bottom: 10px;">❌ Travel insurance</li>
+                            <li style="margin-bottom: 10px;">❌ Any meals in Srinagar</li>
                         </ul>
                     </div>
                 </div>
@@ -455,36 +448,49 @@
                         <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
                         <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
                         <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                        <li style="margin-bottom: 10px;">✅ Small Group Sizes (Max 12 people)</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Tab: Booking -->
             <div id="booking" class="detail-tab-content">
-                <h2>Upcoming Batches</h2>
+                <h2>Upcoming Batches - 2025</h2>
                 <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; margin-top: 20px;">
                     <div
                         style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
                         <span>July 15 - July 22</span>
                         <span style="color: #2ecc71;">Available</span>
-                        <a href="https://wa.me/919622494350"
+                        <a href="https://wa.me/919622494350?text=I'm interested in Kousarnag Lake Trek - July 15-22"
                             style="color: var(--accent-color); font-weight: bold;">Book</a>
                     </div>
                     <div
                         style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
                         <span>Aug 01 - Aug 08</span>
                         <span style="color: #f1c40f;">Filling Fast</span>
-                        <a href="https://wa.me/919622494350"
+                        <a href="https://wa.me/919622494350?text=I'm interested in Kousarnag Lake Trek - Aug 01-08"
                             style="color: var(--accent-color); font-weight: bold;">Book</a>
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 10px 0;">
                         <span>Aug 15 - Aug 22</span>
                         <span style="color: #2ecc71;">Available</span>
-                        <a href="https://wa.me/919622494350"
+                        <a href="https://wa.me/919622494350?text=I'm interested in Kousarnag Lake Trek - Aug 15-22"
                             style="color: var(--accent-color); font-weight: bold;">Book</a>
                     </div>
                 </div>
 
+                <div
+                    style="margin-top: 30px; padding: 20px; background: rgba(231, 76, 60, 0.1); border-left: 4px solid var(--accent-color); border-radius: 8px;">
+                    <h3 style="margin-top: 0;">Custom Dates Available</h3>
+                    <p style="color: #ccc; line-height: 1.6;">
+                        Planning a private group trek? We can arrange custom dates for groups of 6 or more.
+                        Contact us to discuss your preferred dates and customized itinerary.
+                    </p>
+                    <a href="https://wa.me/919622494350?text=I'd like to inquire about custom dates for Kousarnag Lake Trek"
+                        style="display: inline-block; margin-top: 15px; padding: 12px 24px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                        Inquire About Custom Dates
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -497,6 +503,7 @@
                     <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
                     <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
                     <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                    <li style="margin-bottom: 10px;">✅ Small Group Sizes</li>
                 </ul>
             </div>
 
@@ -517,7 +524,6 @@
             </div>
         </div>
 
-
     </div>
 
     <script src="js/main.js"></script>
@@ -534,11 +540,6 @@
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
         }
-
-        // Dynamic Title from URL parameter
-        const params = new URLSearchParams(window.location.search);
-        const name = params.get('name') || 'Adventure Detail';
-        document.getElementById('adv-title').innerText = name;
 
         // Slideshow functionality
         let slideIndex = 1;
@@ -633,7 +634,8 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/+919622494350" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/+919622494350?text=I'm interested in Kousarnag Lake Trek" class="whatsapp-float"
+        target="_blank">
         <i class="fab fa-whatsapp"></i>
         <span>Book Now</span>
     </a>
