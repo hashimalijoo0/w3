@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragliding - Snowman Adventures</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .detail-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/1666021/pexels-photo-1666021.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        .detail-hero h1 { font-size: 3.5rem; margin-bottom: 20px; text-transform: uppercase; text-shadow: 2px 2px 5px black; }
+        .location-badge { font-size: 1.5rem; background: rgba(0,0,0,0.6); padding: 10px 25px; border-radius: 50px; border: 1px solid var(--accent-color); }
+        .content-section { max-width: 1000px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+        .content-section h2 { font-size: 2.5rem; margin-bottom: 30px; }
+        .content-section p { color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+            <span class="brand-text">Snowman Adventures</span>
+        </a>
+        <nav>
+            <div class="burger-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="detail-hero">
+        <h1>Paragliding</h1>
+        <div class='location-badge'><i class='fas fa-map-marker-alt'></i> Dara, Srinagar</div>
+    </div>
+
+    <div class="content-section">
+        
+    <h2>Paragliding in Dara</h2>
+    <p>Soar high above the Zabarwan range and witness the majestic Dal Lake from the sky. Our paragliding flights from Dara offer an unmatched bird's eye view of Srinagar valley.</p>
+    
+    <div class="pricing-grid" style="display: flex; justify-content: center; gap: 30px; margin-top: 40px;">
+        <div class="pricing-card featured" style="max-width: 400px; padding: 40px; background: #1a1a1a; border-radius: 10px; border: 1px solid var(--accent-color);">
+            <h3 style="color: white; margin-bottom: 10px;">Standard Flight</h3>
+            <div class="price-tag" style="font-size: 2.5rem; color: var(--accent-color); font-weight: bold; margin-bottom: 20px;">₹2,000 <span style="font-size: 1rem; color: #888;">/ person</span></div>
+            <ul class="features-list" style="text-align: left; margin-bottom: 25px; color: #ccc; list-style: none;">
+                <li style="margin-bottom: 10px;">✅ Flight Duration: 15-20 mins</li>
+                <li style="margin-bottom: 10px;">✅ GoProm Video Included</li>
+                <li style="margin-bottom: 10px;">✅ Expert Pilot</li>
+                <li style="margin-bottom: 10px;">✅ Transport to Take-off Point</li>
+            </ul>
+            <a href="https://wa.me/919622494350?text=I'm interested in Paragliding at Dara" class="btn" style="display: block; width: 100%; text-align: center;">Book Now</a>
+        </div>
+    </div>
+
+    </div>
+
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="footer-brand-section">
+                    <img src="assets/logo.jpg" alt="Snowman Adventures" class="footer-logo-img">
+                    <span class="footer-company-name">Snowman Adventures</span>
+                </div>
+                <p class="footer-tagline">Experience the untold beauty of Kashmir with expert guides and premium equipment.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="adventures.html">Adventures</a>
+                    <a href="tour-packages.html">Tour Packages</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Snowman Adventures. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

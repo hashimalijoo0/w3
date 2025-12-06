@@ -325,7 +325,9 @@
                 <button class="detail-tab-btn active" onclick="openDetailTab(event, 'overview')">Overview</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'itinerary')">Itinerary</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'inclusions')">Inclusions</button>
-                <button class="detail-tab-btn" onclick="openDetailTab(event, 'booking')">Booking & Dates</button>
+                
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'packages')">Packages</button>
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'booking')">Dates & Availability</button>
             </div>
 
             <!-- Tab: Overview -->
@@ -453,6 +455,59 @@
                 </div>
             </div>
 
+            
+            <!-- Tab: Packages -->
+            <div id="packages" class="detail-tab-content">
+                <h2>Select Your Package</h2>
+                <div class="pricing-grid" style="margin-top: 20px; gap: 20px; justify-content: center;">
+                    
+                    <!-- Basic Package -->
+                    <div class="pricing-card" style="padding: 25px; min-width: 250px;">
+                        <h3 style="color: #ccc; margin-bottom: 10px;">Basic</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹18,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Standard Dome Tents</li>
+                            <li>Veg Meals (Breakfast/Dinner)</li>
+                            <li>Certified Trek Leader</li>
+                            <li>Basic First Aid</li>
+                            <li>Sleeping Bags & Mats</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Basic Package for this trek" class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Basic</a>
+                    </div>
+
+                    <!-- Premium Package -->
+                    <div class="pricing-card featured" style="padding: 25px; min-width: 250px; border-color: var(--accent-color);">
+                        <div style="position: absolute; top: 0; right: 0; background: var(--accent-color); color: white; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 0 10px 0 10px;">POPULAR</div>
+                        <h3 style="color: white; margin-bottom: 10px;">Premium</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹24,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Premium Walk-in Tents</li>
+                            <li>All Meals (Non-Veg options)</li>
+                            <li>Expert Guide & Support Staff</li>
+                            <li>Oxygen Cylinders</li>
+                            <li>Offloading (1 Bag)</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Premium Package for this trek" class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Premium</a>
+                    </div>
+
+                    <!-- Luxury Package -->
+                    <div class="pricing-card" style="padding: 25px; min-width: 250px;">
+                        <h3 style="color: #f1c40f; margin-bottom: 10px;">Luxury</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹32,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Hotel Stay (Before/After)</li>
+                            <li>Glamping Tents</li>
+                            <li>Gourmet Meals</li>
+                            <li>Personal Porter</li>
+                            <li>Airport Transfers</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Luxury Package for this trek" class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Luxury</a>
+                    </div>
+
+                </div>
+            </div>
+
+
             <!-- Tab: Booking -->
             <div id="booking" class="detail-tab-content">
                 <h2>Upcoming Batches - 2025</h2>
@@ -461,21 +516,18 @@
                         style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
                         <span>July 15 - July 22</span>
                         <span style="color: #2ecc71;">Available</span>
-                        <a href="https://wa.me/919622494350?text=I'm interested in Kashmir Great Lakes Trek - July 15-22"
-                            style="color: var(--accent-color); font-weight: bold;">Book</a>
+                        
                     </div>
                     <div
                         style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
                         <span>Aug 01 - Aug 08</span>
                         <span style="color: #f1c40f;">Filling Fast</span>
-                        <a href="https://wa.me/919622494350?text=I'm interested in Kashmir Great Lakes Trek - Aug 01-08"
-                            style="color: var(--accent-color); font-weight: bold;">Book</a>
+                        
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 10px 0;">
                         <span>Aug 15 - Aug 22</span>
                         <span style="color: #2ecc71;">Available</span>
-                        <a href="https://wa.me/919622494350?text=I'm interested in Kashmir Great Lakes Trek - Aug 15-22"
-                            style="color: var(--accent-color); font-weight: bold;">Book</a>
+                        
                     </div>
                 </div>
 

@@ -1021,6 +1021,11 @@ body.no-scroll {
     left: 0 !important;
 }
 
+/* Utility Class for JS Hiding */
+.mobile-only-content {
+    display: none;
+}
+
 /* Enhanced mobile nav menu */
 @media (max-width: 768px) {
     .nav-links {
@@ -1041,6 +1046,10 @@ body.no-scroll {
 @media (max-width: 768px) {
     .detail-hero {
         padding: 120px 20px 40px;
+    }
+
+    .mobile-only-content {
+        display: block;
     }
 
     .detail-hero h1 {
@@ -1165,6 +1174,27 @@ body.no-scroll {
     background-color: rgba(231, 76, 60, 0.8);
 }
 
+/* --- Detail Hero Stats --- */
+.detail-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: #f0f0f0;
+}
+
+.stat-item i {
+    color: var(--accent-color);
+}
+
 /* --- Team Grid --- */
 .team-grid {
     display: grid;
@@ -1241,3 +1271,9 @@ body.no-scroll {
     pointer-events: none;
     transition: opacity 0.5s ease;
 }
+/* Accordion Styles */
+.accordion { background-color: #222; color: #fff; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 1.1rem; transition: 0.4s; border-bottom: 1px solid #444; display: flex; justify-content: space-between; align-items: center; }
+.accordion:hover, .accordion.active { background-color: #333; }
+.accordion:after { content: '\002B'; color: #777; font-weight: bold; float: right; margin-left: 5px; }
+.accordion.active:after { content: '\2212'; }
+.panel { padding: 0 18px; background-color: #1a1a1a; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; }
