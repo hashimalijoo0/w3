@@ -1277,3 +1277,7 @@ body.no-scroll {
 .accordion:after { content: '\002B'; color: #777; font-weight: bold; float: right; margin-left: 5px; }
 .accordion.active:after { content: '\2212'; }
 .panel { padding: 0 18px; background-color: #1a1a1a; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; }
+
+
+/* Desktop Layout Fix (Global Base) */
+.detail-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; max-width: 1200px; margin: 40px auto; padding: 0 20px; }
