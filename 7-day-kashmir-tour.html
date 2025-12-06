@@ -6,12 +6,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7 Days Kashmir Tour - Snowman Adventures</title>
     <meta name="description"
-        content="Experience the best of Kashmir in 7 days. Visit Srinagar, Gulmarg, Pahalgam, and Sonamarg with our curated tour package.">
+        content="7-day tour takes you through the most iconic destinations of Kashmir. Explore the stunning landscapes, rich history, and vibrant culture of this beautiful region. Book your Kashmir tour now!">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Slideshow Styles */
+        .detail-slideshow {
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
 
+        .slideshow-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* Navigation Arrows */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(231, 76, 60, 0.8);
+        }
+
+        /* Slideshow Overlay */
+        .slideshow-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);
+            padding: 40px 20px;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .slideshow-overlay h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* 7-day Kashmir Tour Info Section */
+        .detail-info-section {
+            background: #1a1a1a;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .detail-hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 10px 18px;
+            border-radius: 6px;
+            color: white;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item i {
+            margin-right: 6px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .stat-item strong {
+            color: white;
+            margin-right: 4px;
+        }
+
+        /* Tablet / iPad Pro Styles */
+        @media (min-width: 769px) and (max-width: 1366px) {
+            .detail-slideshow {
+                height: 50vh;
+            }
+
+            .slideshow-overlay h1 {
+                font-size: 2.5rem;
+            }
+
+            .detail-hero-stats {
+                gap: 15px;
+            }
+
+            .stat-item {
+                font-size: 0.8rem;
+                padding: 8px 14px;
+            }
+
+            .detail-layout {
+                grid-template-columns: 2fr 1fr;
+                gap: 30px;
+            }
+
+            @media (max-width: 1024px) and (orientation: portrait) {
+                .detail-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .detail-sidebar {
+                    display: block;
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        /* Mobile-only content */
+        .mobile-only-content {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-only-content {
+                display: block;
+            }
+
+            .detail-slideshow {
+                height: 50vh;
+            }
+
+            .slideshow-overlay {
+                padding: 30px 15px;
+            }
+
+            .slideshow-overlay h1 {
+                font-size: 2rem;
+            }
+
+            .detail-hero-stats {
+                gap: 10px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 5px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .detail-hero-stats::-webkit-scrollbar {
+                display: none;
+            }
+
+            .stat-item {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+
+            .prev,
+            .next {
+                padding: 12px 16px;
+                font-size: 18px;
+            }
+
+            .detail-tabs {
+                gap: 3px !important;
+            }
+
+            .detail-tab-btn {
+                padding: 12px 18px !important;
+                font-size: 0.9rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -42,20 +271,20 @@
     <div class="detail-slideshow" id="slideshow">
         <div class="slideshow-container">
             <div class="slide fade">
-                <img src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Dal Lake Srinagar">
-            </div>
-            <div class="slide fade">
-                <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Gulmarg Gondola">
+                <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Gangbal-Nandkol Trek">
             </div>
             <div class="slide fade">
                 <img src="https://images.pexels.com/photos/1183021/pexels-photo-1183021.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Pahalgam Valley">
+                    alt="Alpine Lakes Kashmir">
+            </div>
+            <div class="slide fade">
+                <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Mountain Meadows">
             </div>
             <div class="slide fade">
                 <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Sonamarg Glacier">
+                    alt="Himalayan Landscape">
             </div>
 
             <!-- Navigation Arrows -->
@@ -63,7 +292,7 @@
             <a class="next" onclick="changeSlide(1)">&#10095;</a>
         </div>
 
-        <!-- Trek Info Overlay -->
+        <!-- 7-day Kashmir Tour Info Overlay -->
         <div class="slideshow-overlay">
             <h1>7 Days Kashmir Tour</h1>
             <div class="detail-hero-stats">
@@ -76,7 +305,7 @@
                     <strong>Theme:</strong> Leisure & Nature
                 </div>
                 <div class="stat-item">
-                    <i class="fas fa-car-side"></i>
+                    <i class="fas fa-arrow-up"></i>
                     <strong>Transport:</strong> Private Cab
                 </div>
                 <div class="stat-item">
@@ -96,47 +325,56 @@
                 <button class="detail-tab-btn active" onclick="openDetailTab(event, 'overview')">Overview</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'itinerary')">Itinerary</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'inclusions')">Inclusions</button>
-                <button class="detail-tab-btn" onclick="openDetailTab(event, 'pricing')">Pricing</button>
+
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'packages')">Packages</button>
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'booking')">Dates & Availability</button>
             </div>
+
             <!-- Tab: Overview -->
             <div id="overview" class="detail-tab-content active">
                 <h2>Experience Paradise on Earth</h2>
-                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
-                    This comprehensive 7-day tour takes you through the most iconic destinations of Kashmir. Starting
-                    from the floating gardens of Srinagar, you'll travel to the "Meadow of Flowers" in Gulmarg, explore
-                    the pristine valleys of Pahalgam, and witness the golden peaks of Sonamarg. This itinerary is
-                    designed to give you a perfect blend of leisure, adventure, and cultural immersion. Only Snowman
-                    Adventures offers this curated experience with premium hospitality.
-                </p>
-                <h3>Brief History & Significance</h3>
-                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
-                    <strong>Srinagar:</strong> The summer capital, founded by Emperor Ashoka, is famous for its historic
-                    Mughal Gardens and the Dal Lake.
-                    <strong>Gulmarg:</strong> Originally called 'Gaurimarg' by shepherds, it's a world-renowned ski
-                    resort and home to the world's highest golf course.
-                    <strong>Pahalgam:</strong> The 'Valley of Shepherds' serves as the base for the Amarnath Yatra and
-                    offers breathtaking scenery.
-                </p>
-                <h3>Tour Highlights</h3>
-                <ul style="list-style: disc; margin-left: 20px; color: #ccc; line-height: 1.8;">
-                    <li>Shikara Ride on the iconic Dal Lake during sunset</li>
-                    <li>Gondola Ride in Gulmarg - one of the highest cable cars in the world</li>
-                    <li>Saffron fields of Pampore (in season)</li>
-                    <li>Pony ride to Baisaran Valley ("Mini Switzerland")</li>
-                    <li>Thajiwas Glacier visit in Sonamarg</li>
-                    <li>Stay in a traditional Kashmiri Houseboat</li>
-                </ul>
-                <div class="mobile-only-content">
-                    <h3 style="margin-top: 30px;">Route Map</h3>
-                    <div class="map-container" onclick="openLightbox('assets/maps/kashmir_trek_map.png')">
-                        <img src="assets/maps/kashmir_trek_map.png" alt="Route Map" class="trek-map-preview"
-                            style="width: 100%; border-radius: 8px;">
-                        <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">This comprehensive 7-day tour takes you
+                    through the most iconic destinations of Kashmir. Starting from the floating gardens of Srinagar,
+                    you'll travel to the "Meadow of Flowers" in Gulmarg, explore the pristine valleys of Pahalgam, and
+                    witness the golden peaks of Sonamarg. This itinerary is designed to give you a perfect blend of
+                    leisure, adventure, and cultural immersion. Only Snowman Adventures offers this curated experience
+                    with premium hospitality.</p>
+                <h3>Brief History & Significance</h2>
+                    <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">Srinagar: The summer capital, founded
+                        by Emperor Ashoka, is famous for its historic Mughal Gardens and the Dal Lake.
+                        Gulmarg: Originally called 'Gaurimarg' by shepherds, it's a world-renowned ski resort and home
+                        to the world's highest golf course.
+                        Pahalgam: The 'Valley of Shepherds' serves as the base for the Amarnath Yatra and offers
+                        breathtaking scenery.</p>
+                    <h3>Tour Highlights</h3>
+                    <ul style="list-style: disc; margin-left: 20px; color: #ccc; line-height: 1.8;">
+                        <li>Shikara Ride on the iconic Dal Lake during sunset</li>
+                        <li>Gondola Ride in Gulmarg - one of the highest cable cars in the world"</li>
+                        <li>Saffron fields of Pampore (in season)</li>
+                        <li>Pony ride to Baisaran Valley ("Mini Switzerland")</li>
+                        <li>Thajiwas Glacier visit in Sonamarg</li>
+                        <li>Stay in a traditional Kashmiri Houseboat</li>
+                    </ul>
+
+                    <!-- Route Map (Mobile Only) -->
+                    <div class="mobile-only-content">
+                        <h3 style="margin-top: 30px;">Route Map</h3>
+                        <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
+                            <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                            <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                        </div>
                     </div>
-                </div>
+
+                    <!-- Altitude Profile (Mobile Only) -->
+                    <div class="mobile-only-content">
+                        <h3 style="margin-top: 30px;">Altitude Profile</h3>
+                        <div class="map-container" onclick="openLightbox('assets/maps/placeholder-altitude.png')">
+                            <img src="assets/maps/placeholder-altitude.png" alt="Altitude Profile"
+                                class="trek-map-preview">
+                            <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                        </div>
+                    </div>
             </div>
-
-
 
             <!-- Tab: Itinerary -->
             <div id="itinerary" class="detail-tab-content">
@@ -156,12 +394,12 @@
                         overnight stay.</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 3: Srinagar to Pahalgam</h3>
+                    <h3>Day 3:Day 3: Srinagar to Pahalgam</h3>
                     <p>Drive to Pahalgam (90 km). En route, visit the Saffron fields of Pampore and the Avantipur ruins.
                         Check-in at your hotel in Pahalgam. Evening at leisure by the Lidder River.</p>
                 </div>
                 <div class="itinerary-step">
-                    <h3>Day 4: Pahalgam Exploration</h3>
+                    <h3>Day 4: Day 4: Pahalgam Exploration</h3>
                     <p>Full day in Pahalgam. Visit Aru Valley, Betaab Valley, and Chandanwari. You can also take a pony
                         ride to Baisaran meadows. Overnight stay in Pahalgam.</p>
                 </div>
@@ -194,6 +432,7 @@
                             <li>Breakfast and Dinner</li>
                             <li>Private cab for all transfers and sightseeing</li>
                             <li>1 Hour Shikara Ride</li>
+                            <li>Permits and Camping Charges</li>
                             <li>Toll taxes, parking, and driver allowances</li>
                             <li>Welcome drink on arrival</li>
                         </ul>
@@ -212,85 +451,143 @@
 
                 <!-- Why Trek With Us (Mobile Only) -->
                 <div class="mobile-only-content" style="margin-top: 40px;">
-                    <h3>Why Travel with Us?</h3>
+                    <h3>Why Trek with Us?</h3>
                     <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6; list-style: none;">
                         <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
                         <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
-                        <li style="margin-bottom: 10px;">✅ Premium Support</li>
-                        <li style="margin-bottom: 10px;">✅ Verified Hotels</li>
-                        <li style="margin-bottom: 10px;">✅ No Hidden Costs</li>
+                        <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
+                        <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                        <li style="margin-bottom: 10px;">✅ Small Group Sizes (Max 12 people)</li>
                     </ul>
+                </div>
+            </div>
 
+
+            <!-- Tab: Packages -->
+            <div id="packages" class="detail-tab-content">
+                <h2>Select Your Package</h2>
+                <div class="pricing-grid" style="margin-top: 20px; gap: 20px; justify-content: center;">
+
+                    <!-- Basic Package -->
+                    <div class="pricing-card" style="padding: 25px; min-width: 250px;">
+                        <h3 style="color: #ccc; margin-bottom: 10px;">Basic</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹18,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Standard Dome Tents</li>
+                            <li>Veg Meals (Breakfast/Dinner)</li>
+                            <li>Certified Trek Leader</li>
+                            <li>Basic First Aid</li>
+                            <li>Sleeping Bags & Mats</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Basic Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Basic</a>
+                    </div>
+
+                    <!-- Premium Package -->
+                    <div class="pricing-card featured"
+                        style="padding: 25px; min-width: 250px; border-color: var(--accent-color);">
+                        <div
+                            style="position: absolute; top: 0; right: 0; background: var(--accent-color); color: white; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 0 10px 0 10px;">
+                            POPULAR</div>
+                        <h3 style="color: white; margin-bottom: 10px;">Premium</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹24,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Premium Walk-in Tents</li>
+                            <li>All Meals (Non-Veg options)</li>
+                            <li>Expert Guide & Support Staff</li>
+                            <li>Oxygen Cylinders</li>
+                            <li>Offloading (1 Bag)</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Premium Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Premium</a>
+                    </div>
+
+                    <!-- Luxury Package -->
+                    <div class="pricing-card" style="padding: 25px; min-width: 250px;">
+                        <h3 style="color: #f1c40f; margin-bottom: 10px;">Luxury</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹32,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Hotel Stay (Before/After)</li>
+                            <li>Glamping Tents</li>
+                            <li>Gourmet Meals</li>
+                            <li>Personal Porter</li>
+                            <li>Airport Transfers</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Luxury Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Luxury</a>
+                    </div>
 
                 </div>
             </div>
 
-            <!-- Tab: Pricing -->
-            <div id="pricing" class="detail-tab-content">
-                <h2>Package Pricing</h2>
-                <p style="color: #ccc; margin-bottom: 20px;">We offer transparent pricing based on the category of
-                    hotels you choose.</p>
 
-                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <!-- Tab: Booking -->
+            <div id="booking" class="detail-tab-content">
+                <h2>Upcoming Batches - 2025</h2>
+                <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; margin-top: 20px;">
                     <div
-                        style="background: #222; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid #333;">
-                        <h3>Standard</h3>
-                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
-                            $350 <span style="font-size: 1rem; color: #888;">/ person</span></div>
-                        <p style="font-size: 0.9rem; color: #ccc;">3-Star Hotels + Standard Houseboat</p>
-                        <a href="https://wa.me/919622494350?text=Interested in 7 Days Standard Package" class="btn"
-                            style="width: 100%; margin-top: 15px; text-align: center;">Book Standard</a>
+                        style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
+                        <span>July 15 - July 22</span>
+                        <span style="color: #2ecc71;">Available</span>
+
                     </div>
-
                     <div
-                        style="background: #2a2a2a; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid var(--accent-color);">
-                        <h3>Premium</h3>
-                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
-                            $550 <span style="font-size: 1rem; color: #888;">/ person</span></div>
-                        <p style="font-size: 0.9rem; color: #ccc;">4-Star Hotels + Luxury Houseboat</p>
-                        <a href="https://wa.me/919622494350?text=Interested in 7 Days Premium Package" class="btn"
-                            style="width: 100%; margin-top: 15px; text-align: center;">Book Premium</a>
+                        style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
+                        <span>Aug 01 - Aug 08</span>
+                        <span style="color: #f1c40f;">Filling Fast</span>
+
                     </div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                        <span>Aug 15 - Aug 22</span>
+                        <span style="color: #2ecc71;">Available</span>
 
-                    <div
-                        style="background: #222; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid #333;">
-                        <h3>Luxury</h3>
-                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
-                            $800 <span style="font-size: 1rem; color: #888;">/ person</span></div>
-                        <p style="font-size: 0.9rem; color: #ccc;">5-Star Properties</p>
-                        <a href="https://wa.me/919622494350?text=Interested in 7 Days Luxury Package" class="btn"
-                            style="width: 100%; margin-top: 15px; text-align: center;">Book Luxury</a>
                     </div>
                 </div>
 
-                <p style="color: #888;">* Prices are per person for a minimum of 2 pax.</p>
-                <a href="contact.html" style="color: var(--accent-color); text-decoration: underline;">Contact us for
-                    more details</a>
+                <div
+                    style="margin-top: 30px; padding: 20px; background: rgba(231, 76, 60, 0.1); border-left: 4px solid var(--accent-color); border-radius: 8px;">
+                    <h3 style="margin-top: 0;">Custom Dates Available</h3>
+                    <p style="color: #ccc; line-height: 1.6;">
+                        Planning a private group trek? We can arrange custom dates for groups of 6 or more.
+                        Contact us to discuss your preferred dates and customized itinerary.
+                    </p>
+                    <a href="https://wa.me/919622494350?text=I'd like to inquire about custom dates for Gangbal-Nandkol Trek"
+                        style="display: inline-block; margin-top: 15px; padding: 12px 24px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                        Inquire About Custom Dates
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Right Column: Sidebar (Desktop Only) -->
-    <div class="detail-sidebar">
-        <div class="sidebar-widget">
-            <h3 class="sidebar-title">Why Travel with Us?</h3>
-            <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
-                <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
-                <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
-                <li style="margin-bottom: 10px;">✅ Premium Consierge</li>
-                <li style="margin-bottom: 10px;">✅ Verified Hotels</li>
-                <li style="margin-bottom: 10px;">✅ No Hidden Costs</li>
-            </ul>
-        </div>
+        <!-- Right Column: Sidebar (Desktop Only) -->
+        <div class="detail-sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Why Trek with Us?</h3>
+                <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
+                    <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
+                    <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
+                    <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
+                    <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                    <li style="margin-bottom: 10px;">✅ Small Group Sizes</li>
+                </ul>
+            </div>
 
-        <div class="sidebar-widget">
-            <h3 class="sidebar-title">Route Map</h3>
-            <div class="map-container" onclick="openLightbox('assets/maps/kashmir_trek_map.png')">
-                <img src="assets/maps/kashmir_trek_map.png" alt="Route Map" class="trek-map-preview">
-                <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Route Map</h3>
+                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
+                    <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Altitude Profile</h3>
+                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-altitude.png')">
+                    <img src="assets/maps/placeholder-altitude.png" alt="Altitude Profile" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                </div>
             </div>
         </div>
-    </div>
 
     </div>
 
@@ -410,7 +707,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/+919622494350?text=I'm interested in 7 Days Kashmir Tour" class="whatsapp-float"
+    <a href="https://wa.me/+919622494350?text=I'm interested in Gangbal-Nandkol Trek" class="whatsapp-float"
         target="_blank">
         <i class="fab fa-whatsapp"></i>
         <span>Book Now</span>
