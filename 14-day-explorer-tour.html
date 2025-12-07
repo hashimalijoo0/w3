@@ -4,14 +4,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>14 Days Explorer Tour - Snowman Adventures</title>
+    <title>14 Days Kashmir Tour - Snowman Adventures</title>
     <meta name="description"
-        content="The ultimate 14-day adventure through Kashmir and Ladakh. Explore Gurez Valley, Srinagar, Leh, Pangong Lake, and high altitude passes.">
+        content="14-day tour takes you through the most iconic destinations of Kashmir. Explore the stunning landscapes, rich history, and vibrant culture of this beautiful region. Book your Kashmir tour now!">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Slideshow Styles */
+        .detail-slideshow {
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
 
+        .slideshow-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* Navigation Arrows */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(231, 76, 60, 0.8);
+        }
+
+        /* Slideshow Overlay */
+        .slideshow-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);
+            padding: 40px 20px;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .slideshow-overlay h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* 14-day Kashmir Tour Info Section */
+        .detail-info-section {
+            background: #1a1a1a;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .detail-hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 10px 18px;
+            border-radius: 6px;
+            color: white;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item i {
+            margin-right: 6px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .stat-item strong {
+            color: white;
+            margin-right: 4px;
+        }
+
+        /* Tablet / iPad Pro Styles */
+        @media (min-width: 769px) and (max-width: 1366px) {
+            .detail-slideshow {
+                height: 50vh;
+            }
+
+            .slideshow-overlay h1 {
+                font-size: 2.5rem;
+            }
+
+            .detail-hero-stats {
+                gap: 15px;
+            }
+
+            .stat-item {
+                font-size: 0.8rem;
+                padding: 8px 14px;
+            }
+
+            .detail-layout {
+                grid-template-columns: 2fr 1fr;
+                gap: 30px;
+            }
+
+            @media (max-width: 1024px) and (orientation: portrait) {
+                .detail-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .detail-sidebar {
+                    display: block;
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        /* Mobile-only content */
+        .mobile-only-content {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-only-content {
+                display: block;
+            }
+
+            .detail-slideshow {
+                height: 50vh;
+            }
+
+            .slideshow-overlay {
+                padding: 30px 15px;
+            }
+
+            .slideshow-overlay h1 {
+                font-size: 2rem;
+            }
+
+            .detail-hero-stats {
+                gap: 10px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 5px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .detail-hero-stats::-webkit-scrollbar {
+                display: none;
+            }
+
+            .stat-item {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+
+            .prev,
+            .next {
+                padding: 12px 16px;
+                font-size: 18px;
+            }
+
+            .detail-tabs {
+                gap: 3px !important;
+            }
+
+            .detail-tab-btn {
+                padding: 12px 18px !important;
+                font-size: 0.9rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -42,20 +271,20 @@
     <div class="detail-slideshow" id="slideshow">
         <div class="slideshow-container">
             <div class="slide fade">
-                <img src="https://images.pexels.com/photos/2104882/pexels-photo-2104882.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Ladakh Landscapes">
+                <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Gangbal-Nandkol Trek">
             </div>
             <div class="slide fade">
-                <img src="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Gurez Valley">
+                <img src="https://images.pexels.com/photos/1183021/pexels-photo-1183021.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Alpine Lakes Kashmir">
             </div>
             <div class="slide fade">
-                <img src="https://images.pexels.com/photos/2350366/pexels-photo-2350366.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Pangong Lake">
+                <img src="https://images.pexels.com/photos/1544947/pexels-photo-1544947.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Mountain Meadows">
             </div>
             <div class="slide fade">
                 <img src="https://images.pexels.com/photos/1662298/pexels-photo-1662298.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt="Kashmir Valley">
+                    alt="Himalayan Landscape">
             </div>
 
             <!-- Navigation Arrows -->
@@ -63,25 +292,25 @@
             <a class="next" onclick="changeSlide(1)">&#10095;</a>
         </div>
 
-        <!-- Trek Info Overlay -->
+        <!-- 14-day Kashmir Tour Info Overlay -->
         <div class="slideshow-overlay">
-            <h1>14 Days Explorer Tour</h1>
+            <h1>14 Days Kashmir Tour</h1>
             <div class="detail-hero-stats">
                 <div class="stat-item">
                     <i class="fas fa-calendar-alt"></i>
                     <strong>Duration:</strong> 14 Days
                 </div>
                 <div class="stat-item">
-                    <i class="fas fa-map-signs"></i>
-                    <strong>Route:</strong> Kashmir - Gurez - Ladakh
+                    <i class="fas fa-mountain"></i>
+                    <strong>Theme:</strong> Leisure & Nature
                 </div>
                 <div class="stat-item">
-                    <i class="fas fa-car-side"></i>
-                    <strong>Transport:</strong> 4x4 SUV
+                    <i class="fas fa-arrow-up"></i>
+                    <strong>Transport:</strong> Private Cab
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-sun"></i>
-                    <strong>Best Season:</strong> May-Sep
+                    <strong>Best Season:</strong> All Year
                 </div>
             </div>
         </div>
@@ -96,45 +325,70 @@
                 <button class="detail-tab-btn active" onclick="openDetailTab(event, 'overview')">Overview</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'itinerary')">Itinerary</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'inclusions')">Inclusions</button>
-                <button class="detail-tab-btn" onclick="openDetailTab(event, 'pricing')">Pricing</button>
+
+                <button class="detail-tab-btn" onclick="openDetailTab(event, 'packages')">Packages</button>
+
             </div>
+
             <!-- Tab: Overview -->
             <div id="overview" class="detail-tab-content active">
-                <h2>The Ultimate Himalayan Odyssey</h2>
-                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
-                    For the true explorer, this 14-day grand tour offers an unparalleled journey across the diverse
-                    landscapes of the Himalayas. From the lush green valleys of Kashmir to the remote, untouched beauty
-                    of Gurez Valley, and finally ascending to the high-altitude desert of Ladakh. This isn't just a
-                    sightseeing trip; it's an expedition through culture, geology, and history.
-                </p>
-                <h3>Brief History & Significance</h3>
-                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">
-                    <strong>Gurez Valley:</strong> Historically part of the ancient Silk Route, Gurez is home to the
-                    Dard Shin tribe, whose ancestors are believed to be the original Aryans. The valley is dominated by
-                    the majestic Habba Khatoon peak.
-                    <strong>Ladakh:</strong> Often called "Little Tibet," its history is intertwined with Buddhism and
-                    trade. Monasteries perched on cliffs date back over a thousand years.
-                </p>
-                <h3>Tour Highlights</h3>
-                <ul style="list-style: disc; margin-left: 20px; color: #ccc; line-height: 1.8;">
-                    <li>Explore the offbeat and pristine Gurez Valley</li>
-                    <li>Drive across Zojila Pass, the gateway to Ladakh</li>
-                    <li>Visit the "Moonland" landscapes of Lamayuru</li>
-                    <li>Witness the changing colors of Pangong Tso Lake</li>
-                    <li>Experience the culture of the Dard tribes</li>
-                    <li>Cross Khardung La, one of the world's highest motorable passes</li>
-                </ul>
-                <div class="mobile-only-content">
-                    <h3 style="margin-top: 30px;">Route Map</h3>
-                    <div class="map-container" onclick="openLightbox('assets/maps/kashmir_trek_map.png')">
-                        <img src="assets/maps/kashmir_trek_map.png" alt="Route Map" class="trek-map-preview"
-                            style="width: 100%; border-radius: 8px;">
-                        <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                <h2>Experience Paradise on Earth</h2>
+                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">This immersive 14-day expedition takes
+                    you across the breathtaking landscapes of Kashmir and Ladakh—two of the world’s most spectacular
+                    Himalayan regions. Beginning in the serene lakes and Mughal gardens of Srinagar, you journey through
+                    the roaring Aharbal Waterfall, the botanical charm of Kokernag, and the lush meadows of Pahalgam and
+                    Gulmarg. The adventure deepens as you explore the remote beauty of Gurez Valley before crossing the
+                    legendary Zoji La into Kargil and moving onward to the high-altitude wonders of Leh, Nubra, and
+                    Pangong. Designed for travellers seeking nature, culture, and adventure in one seamless journey,
+                    this itinerary offers a complete Himalayan experience crafted exclusively by Snowman Adventures with
+                    premium hospitality and expert guidance.</p>
+                <h3>Brief History & Significance</h2>
+                    <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">Srinagar: Known for its ancient
+                        heritage, Srinagar was shaped by the Mughal emperors, who built the world-famous Mughal Gardens
+                        along the Dal Lake. Its houseboats and waterways preserve centuries of Kashmiri culture.
+                        Aharbal & Kokernag: Aharbal, called the Niagara of Kashmir, and Kokernag, known for its fresh
+                        springs, were significant rest points for travellers moving between Kashmir’s southern ranges.
+                        Pahalgam: Meaning the “Valley of Shepherds,” it has been a historic pastureland and the starting
+                        point of the sacred Amarnath Yatra.
+                        Gulmarg: Originally called Gaurimarg, this meadow served as a summer retreat for kings and later
+                        became a world-class ski destination and home to one of the highest cable cars on Earth.
+                        Gurez: A hidden Himalayan valley once part of the ancient Silk Route, guarded by the iconic
+                        Habba Khatoon Peak.
+                        Kargil & Leh: Kargil stands as a symbol of India’s bravery, while Leh preserves centuries-old
+                        Buddhist culture through monasteries, stupas, and the legacy of the Silk Route.
+                        Nubra & Pangong: Nubra’s desert landscape and Pangong’s high-altitude lake have long been
+                        considered sacred and strategically important, offering landscapes found nowhere else in the
+                        world.</p>
+                    <h3>Tour Highlights</h3>
+                    <ul style="list-style: disc; margin-left: 20px; color: #ccc; line-height: 1.8;">
+                        <li>Experience a sunset Shikara ride on the iconic Dal Lake</li>
+                        <li>Witness the power of Aharbal Waterfall and the beauty of Kokernag’s springs</li>
+                        <li>Enjoy the Gulmarg Gondola ride—one of the highest cable cars in the world</li>
+                        <li>Explore the desert dunes of Nubra Valley and ride the double-humped camels
+                        </li>
+                        <li>Spend a magical night beside the shimmering blue waters of Pangong Lake</li>
+
+                    </ul>
+
+                    <!-- Route Map (Mobile Only) -->
+                    <div class="mobile-only-content">
+                        <h3 style="margin-top: 30px;">Route Map</h3>
+                        <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
+                            <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                            <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                        </div>
                     </div>
-                </div>
+
+                    <!-- Altitude Profile (Mobile Only) -->
+                    <div class="mobile-only-content">
+                        <h3 style="margin-top: 30px;">Altitude Profile</h3>
+                        <div class="map-container" onclick="openLightbox('assets/maps/placeholder-altitude.png')">
+                            <img src="assets/maps/placeholder-altitude.png" alt="Altitude Profile"
+                                class="trek-map-preview">
+                            <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                        </div>
+                    </div>
             </div>
-
-
 
             <!-- Tab: Itinerary -->
             <div id="itinerary" class="detail-tab-content">
@@ -142,70 +396,93 @@
                 <br>
 
                 <div class="itinerary-step">
-                    <h3>Day 1: Arrival in Srinagar</h3>
-                    <p>Arrival at Srinagar. Shikara ride on Dal Lake. Overnight in Houseboat.</p>
+                    <h3>Day 1: Arrival in Srinagar & Shikara Ride</h3>
+                    <p>Arrive at Srinagar Airport. Meet our representative and transfer to your houseboat. In the
+                        evening, enjoy a relaxing 1-hour Shikara ride on Dal Lake. Dinner and overnight stay in
+                        Houseboat.</p>
                 </div>
+
                 <div class="itinerary-step">
-                    <h3>Day 2: Srinagar Local Sightseeing</h3>
-                    <p>Visit Mughal Gardens and Shankaracharya Temple. Explore the old city markets. Overnight in Hotel.
+                    <h3>Day 2: Srinagar to Aharbal Waterfall (Day Trip)</h3>
+                    <p>Drive to Aharbal, known as the “Niagara of Kashmir.” Spend time at the viewpoints and explore the
+                        forest trails. Return to Srinagar by evening. Overnight stay in Srinagar.</p>
+                </div>
+
+                <div class="itinerary-step">
+                    <h3>Day 3: Srinagar to Kokernag, Daksum & Pahalgam</h3>
+                    <p>Drive to Kokernag and visit the botanical garden and freshwater springs. Continue to Daksum
+                        Valley and enjoy the pine forests and mountain streams. Proceed to Pahalgam for check-in.
+                        Evening at leisure by the Lidder River.</p>
+                </div>
+
+                <div class="itinerary-step">
+                    <h3>Day 4: Pahalgam – Aru, Betaab & Chandanwari Tour</h3>
+                    <p>Full day sightseeing in Pahalgam. Visit Aru Valley, Betaab Valley, and Chandanwari. Enjoy scenic
+                        meadows, river views, and photography stops. Overnight stay in Pahalgam.</p>
+                </div>
+
+                <div class="itinerary-step">
+                    <h3>Day 5: Pahalgam – Baisaran (Mini Switzerland)</h3>
+                    <p>Take a pony ride or small trek to Baisaran Valley, popularly known as Mini Switzerland. Enjoy
+                        panoramic mountain views and lush meadows. Dinner and overnight stay in Pahalgam.</p>
+                </div>
+
+                <div class="itinerary-step">
+                    <h3>Day 6: Pahalgam to Gulmarg</h3>
+                    <p>Drive from Pahalgam to Gulmarg. Explore the meadows, Golf Course, and Maharaja Palace. Enjoy a
+                        peaceful evening in Gulmarg. Dinner and overnight stay in Gulmarg.</p>
+                </div>
+
+                <div class="itinerary-step">
+                    <h3>Day 7: Gulmarg Gondola Ride & Drung Waterfall → Srinagar</h3>
+                    <p>Enjoy the world-famous Gondola ride up to Phase 1 and Phase 2. Afterward, visit the beautiful
+                        Drung Waterfall near Tangmarg. Return to Srinagar for dinner and overnight stay.</p>
+                </div>
+
+                <div class="itinerary-step">
+                    <h3>Day 8: Srinagar to Gurez Valley</h3>
+                    <p>Start early and drive to Gurez Valley via the scenic Razdan Pass. Check into your hotel or
+                        homestay in Dawar. Visit the iconic Habba Khatoon Peak in the evening. Dinner and overnight stay
+                        in Gurez.</p>
+                </div>
+
+                <div class="itinerary-step">
+                    <h3>Day 9: Gurez – Tulail Valley Tour → Sonamarg</h3>
+                    <p>Drive deeper into Tulail Valley, passing through untouched Himalayan villages and landscapes.
+                        Return to Dawar, then continue your journey to Sonamarg. Dinner and overnight stay in Sonamarg.
                     </p>
                 </div>
+
                 <div class="itinerary-step">
-                    <h3>Day 3: Srinagar to Gurez Valley</h3>
-                    <p>Drive to Gurez via Razdan Pass (11,672 ft). Ensure permits are checked at checkpoints. Enjoy the
-                        breathtaking views of the Kishan Ganga River. Overnight in Dawar, Gurez.</p>
+                    <h3>Day 10: Sonamarg to Kargil (via Zoji La & Drass)</h3>
+                    <p>Drive across the mighty Zoji La Pass. Visit Zero Point for snow activities. Continue to Drass and
+                        explore the Kargil War Memorial. Proceed to Kargil for dinner and overnight stay.</p>
                 </div>
+
                 <div class="itinerary-step">
-                    <h3>Day 4: Gurez Valley Exploration</h3>
-                    <p>Visit Tulail Valley and Sheikhpura. See the Habba Khatoon peak and spring. Interact with the
-                        local Dard community. Overnight in Gurez.</p>
+                    <h3>Day 11: Kargil to Leh (Sightseeing En Route)</h3>
+                    <p>Drive to Leh with stops at Lamayuru Moonland, Magnetic Hill, Sangam (Indus–Zanskar Confluence),
+                        and Gurudwara Pathar Sahib. Visit the Hall of Fame Museum before reaching Leh. Dinner and
+                        overnight in Leh.</p>
                 </div>
+
                 <div class="itinerary-step">
-                    <h3>Day 5: Gurez to Srinagar</h3>
-                    <p>Drive back to Srinagar from Gurez. Relax in the evening. Overnight in Srinagar.</p>
+                    <h3>Day 12: Leh to Nubra Valley (via Khardung La Pass)</h3>
+                    <p>Drive over Khardung La, one of the highest motorable passes in the world. Visit Diskit Monastery
+                        and explore the Hunder Sand Dunes. Enjoy a camel ride on double-humped Bactrian camels. Dinner
+                        and overnight stay in Nubra.</p>
                 </div>
+
                 <div class="itinerary-step">
-                    <h3>Day 6: Srinagar to Kargil via Sonamarg</h3>
-                    <p>Depart for Kargil. Pass through Sonamarg and cross the treacherous Zojila Pass. Visit the Drass
-                        War Memorial. Overnight in Kargil.</p>
+                    <h3>Day 13: Nubra to Pangong Lake (via Shyok Route)</h3>
+                    <p>Drive to Pangong Lake through the scenic Shyok Valley. Arrive at the lake and enjoy its changing
+                        shades of blue. Dinner and overnight stay in a Pangong lakeside camp.</p>
                 </div>
+
                 <div class="itinerary-step">
-                    <h3>Day 7: Kargil to Leh</h3>
-                    <p>Drive to Leh. En route visit Mulbekh Monastery, Lamayuru ("Moonland"), Magnetic Hill, and Pathar
-                        Sahib Gurudwara. Arrive in Leh.</p>
-                </div>
-                <div class="itinerary-step">
-                    <h3>Day 8: Leh Local Sightseeing</h3>
-                    <p>Acclimatization day. Visit Leh Palace, Shanti Stupa, and Hall of Fame.</p>
-                </div>
-                <div class="itinerary-step">
-                    <h3>Day 9: Leh to Nubra Valley</h3>
-                    <p>Drive via Khardung La (18,380 ft). Visit Diskit Monastery and Hunder Sand Dunes. Double-humped
-                        camel ride. Overnight in Nubra.</p>
-                </div>
-                <div class="itinerary-step">
-                    <h3>Day 10: Nubra to Pangong Lake</h3>
-                    <p>Drive to Pangong Tso via Shyok river route. Witness the mesmerizing blue lake. Overnight in camps
-                        near the lake.</p>
-                </div>
-                <div class="itinerary-step">
-                    <h3>Day 11: Pangong Lake to Leh</h3>
-                    <p>Witness sunrise at the lake. Drive back to Leh via Chang La Pass. Visit Hemis and Thiksey
-                        monasteries on the way.</p>
-                </div>
-                <div class="itinerary-step">
-                    <h3>Day 12: Leh to Jispa/Sarchu (or Tso Moriri Option)</h3>
-                    <p>Depending on preference, start the journey towards Manali or visit Tso Moriri. *For this
-                        itinerary, we assume a return to Srinagar via flight or road, so this day is a free day in Leh
-                        for shopping.*</p>
-                </div>
-                <div class="itinerary-step">
-                    <h3>Day 13: Free Day / Reserve Day</h3>
-                    <p>Buffer day for weather contingencies or relaxation.</p>
-                </div>
-                <div class="itinerary-step">
-                    <h3>Day 14: Departure</h3>
-                    <p>Transfer to Leh Airport (IXL) for flight back home.</p>
+                    <h3>Day 14: Pangong Lake to Leh – Departure</h3>
+                    <p>Witness a beautiful sunrise at Pangong Lake. Drive back to Leh via Chang La Pass. Transfer to Leh
+                        Airport for your onward flight, completing your 14-day Kashmir to Ladakh journey.</p>
                 </div>
 
             </div>
@@ -216,98 +493,166 @@
                     <div style="flex: 1;">
                         <h3 style="color: #2ecc71;">What's Included</h3>
                         <ul class="features-list">
-                            <li>All accommodation (Hotels/Camps/Houseboat)</li>
+                            <li>Accommodation (Hotels/Houseboat) on twin sharing</li>
                             <li>Breakfast and Dinner</li>
-                            <li>Exclusive SUV (Innova/Scorpio/Xylo) for all transfers</li>
-                            <li>Inner Line Permits for Ladakh & Gurez</li>
-                            <li>Oxygen Cylinder for emergencies</li>
-                            <li>Driver allowances and Tolls</li>
+                            <li>Private cab for all transfers and sightseeing</li>
+                            <li>1 Hour Shikara Ride</li>
+                            <li>Permits and Camping Charges</li>
+                            <li>Toll taxes, parking, and driver allowances</li>
+                            <li>Welcome drink on arrival</li>
                         </ul>
                     </div>
                     <div style="flex: 1;">
                         <h3 style="color: #e74c3c;">What's Not Included</h3>
                         <ul style="list-style: none; color: #ccc;">
-                            <li style="margin-bottom: 10px;">❌ Flights</li>
+                            <li style="margin-bottom: 10px;">❌ Airfare/Train fare</li>
                             <li style="margin-bottom: 10px;">❌ Lunch</li>
-                            <li style="margin-bottom: 10px;">❌ Monastery Entry Fees</li>
-                            <li style="margin-bottom: 10px;">❌ Camel Rides / Activities</li>
-                            <li style="margin-bottom: 10px;">❌ Travel Insurance</li>
+                            <li style="margin-bottom: 10px;">❌ Gondola Tickets / Entry Fees</li>
+                            <li style="margin-bottom: 10px;">❌ Pony Rides / Sledging</li>
+                            <li style="margin-bottom: 10px;">❌ Personal expenses</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Why Trek With Us (Mobile Only) -->
                 <div class="mobile-only-content" style="margin-top: 40px;">
-                    <h3>Why Travel with Us?</h3>
+                    <h3>Why Trek with Us?</h3>
                     <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6; list-style: none;">
-                        <li style="margin-bottom: 10px;">✅ Expert Terrain Knowledge</li>
-                        <li style="margin-bottom: 10px;">✅ High Altitude Support</li>
-                        <li style="margin-bottom: 10px;">✅ Oxygen Equipped Vehicles</li>
-                        <li style="margin-bottom: 10px;">✅ Cultural Interactions</li>
-                        <li style="margin-bottom: 10px;">✅ 24/7 Ground Support</li>
+                        <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
+                        <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
+                        <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
+                        <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                        <li style="margin-bottom: 10px;">✅ Small Group Sizes (Max 12 people)</li>
                     </ul>
+                </div>
+            </div>
 
+
+            <!-- Tab: Packages -->
+            <div id="packages" class="detail-tab-content">
+                <h2>Select Your Package</h2>
+                <div class="pricing-grid" style="margin-top: 20px; gap: 20px; justify-content: center;">
+
+                    <!-- Basic Package -->
+                    <div class="pricing-card" style="padding: 25px; min-width: 250px;">
+                        <h3 style="color: #ccc; margin-bottom: 10px;">Basic</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹18,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Standard Dome Tents</li>
+                            <li>Veg Meals (Breakfast/Dinner)</li>
+                            <li>Certified Trek Leader</li>
+                            <li>Basic First Aid</li>
+                            <li>Sleeping Bags & Mats</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Basic Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Basic</a>
+                    </div>
+
+                    <!-- Premium Package -->
+                    <div class="pricing-card featured"
+                        style="padding: 25px; min-width: 250px; border-color: var(--accent-color);">
+                        <div
+                            style="position: absolute; top: 0; right: 0; background: var(--accent-color); color: white; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 0 10px 0 10px;">
+                            POPULAR</div>
+                        <h3 style="color: white; margin-bottom: 10px;">Premium</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹24,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Premium Walk-in Tents</li>
+                            <li>All Meals (Non-Veg options)</li>
+                            <li>Expert Guide & Support Staff</li>
+                            <li>Oxygen Cylinders</li>
+                            <li>Offloading (1 Bag)</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Premium Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Premium</a>
+                    </div>
+
+                    <!-- Luxury Package -->
+                    <div class="pricing-card" style="padding: 25px; min-width: 250px;">
+                        <h3 style="color: #f1c40f; margin-bottom: 10px;">Luxury</h3>
+                        <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹32,500</div>
+                        <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
+                            <li>Hotel Stay (Before/After)</li>
+                            <li>Glamping Tents</li>
+                            <li>Gourmet Meals</li>
+                            <li>Personal Porter</li>
+                            <li>Airport Transfers</li>
+                        </ul>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Luxury Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Luxury</a>
+                    </div>
 
                 </div>
             </div>
 
-            <!-- Tab: Pricing -->
-            <div id="pricing" class="detail-tab-content">
-                <h2>Package Pricing</h2>
-                <p style="color: #ccc; margin-bottom: 20px;">Experience the best of two regions with our comprehensive
-                    packages.</p>
 
-                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <!-- Tab: Booking -->
+            <div id="booking" class="detail-tab-content">
+                <h2>Upcoming Batches - 2025</h2>
+                <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; margin-top: 20px;">
                     <div
-                        style="background: #222; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid #333;">
-                        <h3>Explorer Standard</h3>
-                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
-                            $900 <span style="font-size: 1rem; color: #888;">/ person</span></div>
-                        <p style="font-size: 0.9rem; color: #ccc;">Standard Hotels & Camps</p>
-                        <a href="https://wa.me/919622494350?text=Interested in 14 Days Explorer Standard Package"
-                            class="btn" style="width: 100%; margin-top: 15px; text-align: center;">Book Standard</a>
+                        style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
+                        <span>July 15 - July 22</span>
+                        <span style="color: #2ecc71;">Available</span>
+
                     </div>
-
                     <div
-                        style="background: #2a2a2a; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid var(--accent-color);">
-                        <h3>Explorer Premium</h3>
-                        <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent-color); margin: 10px 0;">
-                            $1300 <span style="font-size: 1rem; color: #888;">/ person</span></div>
-                        <p style="font-size: 0.9rem; color: #ccc;">Premium Hotels & Glamping</p>
-                        <a href="https://wa.me/919622494350?text=Interested in 14 Days Explorer Premium Package"
-                            class="btn" style="width: 100%; margin-top: 15px; text-align: center;">Book Premium</a>
+                        style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
+                        <span>Aug 01 - Aug 08</span>
+                        <span style="color: #f1c40f;">Filling Fast</span>
+
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                        <span>Aug 15 - Aug 22</span>
+                        <span style="color: #2ecc71;">Available</span>
+
                     </div>
                 </div>
 
-                <p style="color: #888;">* Prices are per person for a minimum of 4 pax (for cost-effective transport).
-                </p>
-                <a href="contact.html" style="color: var(--accent-color); text-decoration: underline;">Contact us for
-                    more details</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Right Column: Sidebar (Desktop Only) -->
-    <div class="detail-sidebar">
-        <div class="sidebar-widget">
-            <h3 class="sidebar-title">Why Travel with Us?</h3>
-            <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
-                <li style="margin-bottom: 10px;">✅ Expert Terrain Knowledge</li>
-                <li style="margin-bottom: 10px;">✅ High Altitude Support</li>
-                <li style="margin-bottom: 10px;">✅ Oxygen Equipped Vehicles</li>
-                <li style="margin-bottom: 10px;">✅ Cultural Interactions</li>
-                <li style="margin-bottom: 10px;">✅ 24/7 Ground Support</li>
-            </ul>
-        </div>
-
-        <div class="sidebar-widget">
-            <h3 class="sidebar-title">Route Map</h3>
-            <div class="map-container" onclick="openLightbox('assets/maps/kashmir_trek_map.png')">
-                <img src="assets/maps/kashmir_trek_map.png" alt="Route Map" class="trek-map-preview">
-                <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                <div
+                    style="margin-top: 30px; padding: 20px; background: rgba(231, 76, 60, 0.1); border-left: 4px solid var(--accent-color); border-radius: 8px;">
+                    <h3 style="margin-top: 0;">Custom Dates Available</h3>
+                    <p style="color: #ccc; line-height: 1.6;">
+                        Planning a private group trek? We can arrange custom dates for groups of 6 or more.
+                        Contact us to discuss your preferred dates and customized itinerary.
+                    </p>
+                    <a href="https://wa.me/919622494350?text=I'd like to inquire about custom dates for Gangbal-Nandkol Trek"
+                        style="display: inline-block; margin-top: 15px; padding: 12px 24px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                        Inquire About Custom Dates
+                    </a>
+                </div>
             </div>
         </div>
 
-    </div>
+        <!-- Right Column: Sidebar (Desktop Only) -->
+        <div class="detail-sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Why Trek with Us?</h3>
+                <ul style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
+                    <li style="margin-bottom: 10px;">✅ 100% Safety Record</li>
+                    <li style="margin-bottom: 10px;">✅ Certified Local Guides</li>
+                    <li style="margin-bottom: 10px;">✅ Premium Equipment</li>
+                    <li style="margin-bottom: 10px;">✅ Eco-friendly Practices</li>
+                    <li style="margin-bottom: 10px;">✅ Small Group Sizes</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Route Map</h3>
+                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
+                    <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Altitude Profile</h3>
+                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-altitude.png')">
+                    <img src="assets/maps/placeholder-altitude.png" alt="Altitude Profile" class="trek-map-preview">
+                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -427,7 +772,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/+919622494350?text=I'm interested in 14 Days Explorer Tour" class="whatsapp-float"
+    <a href="https://wa.me/+919622494350?text=I'm interested in Gangbal-Nandkol Trek" class="whatsapp-float"
         target="_blank">
         <i class="fab fa-whatsapp"></i>
         <span>Book Now</span>
