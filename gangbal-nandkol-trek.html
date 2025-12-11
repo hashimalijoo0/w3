@@ -325,7 +325,7 @@
                 <button class="detail-tab-btn active" onclick="openDetailTab(event, 'overview')">Overview</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'itinerary')">Itinerary</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'inclusions')">Inclusions</button>
-                
+
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'packages')">Packages</button>
                 <button class="detail-tab-btn" onclick="openDetailTab(event, 'booking')">Dates & Availability</button>
             </div>
@@ -333,7 +333,8 @@
             <!-- Tab: Overview -->
             <div id="overview" class="detail-tab-content active">
                 <h2>Brief History</h2>
-                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">Gangbal has been a sacred pilgrimage lake for Kashmiri Pandits for centuries, considered the abode of
+                <p style="line-height: 1.8; margin-bottom: 20px; color: #ccc;">Gangbal has been a sacred pilgrimage lake
+                    for Kashmiri Pandits for centuries, considered the abode of
                     Lord Shiva. The trail through Naranag was once a vital trade path linking Kashmir with Harmukh's
                     northern tribes. The ancient Naranag temple ruins at the base add historical significance to this
                     spiritual trek.</p>
@@ -350,18 +351,18 @@
                 <div class="mobile-only-content">
                     <h3 style="margin-top: 30px;">Route Map</h3>
                     <div class="map-container" onclick="openLightbox('assets/maps/placeholder-map.png')">
-                    <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
-                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
-                </div>
+                        <img src="assets/maps/placeholder-map.png" alt="Route Map" class="trek-map-preview">
+                        <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                    </div>
                 </div>
 
                 <!-- Altitude Profile (Mobile Only) -->
                 <div class="mobile-only-content">
                     <h3 style="margin-top: 30px;">Altitude Profile</h3>
-                    <div class="map-container" onclick="openLightbox('assets/maps/placeholder-altitude.png')">
-                    <img src="assets/maps/placeholder-altitude.png" alt="Altitude Profile" class="trek-map-preview">
-                    <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
-                </div>
+                    <div class="map-container" onclick="openLightbox('assets/Elevation/gangbal.jpg')">
+                        <img src="assets/Elevation/gangbal.jpg" alt="Altitude Profile" class="trek-map-preview">
+                        <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
+                    </div>
                 </div>
             </div>
 
@@ -369,24 +370,26 @@
             <div id="itinerary" class="detail-tab-content">
                 <h2>Day-by-Day Itinerary</h2>
                 <br>
-                
+
                 <div class="itinerary-step">
                     <h3>Day 1: Arrive in Srinagar</h3>
                     <p>Check-in and trek preparation.</p>
                 </div>
                 <div class="itinerary-step">
                     <h3>Day 2: Srinagar → Naranag → Trunkhol (10 km trek)</h3>
-                    <p>Drive to Naranag. Visit ancient temple ruins. Long forest climb through pine and fir forests into meadows. Camp at Trunkhol.</p>
+                    <p>Drive to Naranag. Visit ancient temple ruins. Long forest climb through pine and fir forests into
+                        meadows. Camp at Trunkhol.</p>
                 </div>
                 <div class="itinerary-step">
                     <h3>Day 3: Trunkhol → Gangbal & Nandkol (7 km)</h3>
-                    <p>Ascend to reach the beautiful twin lakes situated under the towering Harmukh peak. Camp beside the sacred waters.</p>
+                    <p>Ascend to reach the beautiful twin lakes situated under the towering Harmukh peak. Camp beside
+                        the sacred waters.</p>
                 </div>
                 <div class="itinerary-step">
                     <h3>Day 4: Gangbal → Naranag → Srinagar</h3>
                     <p>Descend to Naranag, drive back to Srinagar.</p>
                 </div>
-            
+
             </div>
 
             <!-- Tab: Inclusions -->
@@ -429,12 +432,12 @@
                 </div>
             </div>
 
-            
+
             <!-- Tab: Packages -->
             <div id="packages" class="detail-tab-content">
                 <h2>Select Your Package</h2>
                 <div class="pricing-grid" style="margin-top: 20px; gap: 20px; justify-content: center;">
-                    
+
                     <!-- Basic Package -->
                     <div class="pricing-card" style="padding: 25px; min-width: 250px;">
                         <h3 style="color: #ccc; margin-bottom: 10px;">Basic</h3>
@@ -446,12 +449,16 @@
                             <li>Basic First Aid</li>
                             <li>Sleeping Bags & Mats</li>
                         </ul>
-                        <a href="https://wa.me/919622494350?text=I'm interested in the Basic Package for this trek" class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Basic</a>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Basic Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Basic</a>
                     </div>
 
                     <!-- Premium Package -->
-                    <div class="pricing-card featured" style="padding: 25px; min-width: 250px; border-color: var(--accent-color);">
-                        <div style="position: absolute; top: 0; right: 0; background: var(--accent-color); color: white; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 0 10px 0 10px;">POPULAR</div>
+                    <div class="pricing-card featured"
+                        style="padding: 25px; min-width: 250px; border-color: var(--accent-color);">
+                        <div
+                            style="position: absolute; top: 0; right: 0; background: var(--accent-color); color: white; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 0 10px 0 10px;">
+                            POPULAR</div>
                         <h3 style="color: white; margin-bottom: 10px;">Premium</h3>
                         <div class="price-tag" style="font-size: 1.8rem; margin-bottom: 20px;">₹24,500</div>
                         <ul class="features-list" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem;">
@@ -461,7 +468,8 @@
                             <li>Oxygen Cylinders</li>
                             <li>Offloading (1 Bag)</li>
                         </ul>
-                        <a href="https://wa.me/919622494350?text=I'm interested in the Premium Package for this trek" class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Premium</a>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Premium Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Premium</a>
                     </div>
 
                     <!-- Luxury Package -->
@@ -475,7 +483,8 @@
                             <li>Personal Porter</li>
                             <li>Airport Transfers</li>
                         </ul>
-                        <a href="https://wa.me/919622494350?text=I'm interested in the Luxury Package for this trek" class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Luxury</a>
+                        <a href="https://wa.me/919622494350?text=I'm interested in the Luxury Package for this trek"
+                            class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">Book Luxury</a>
                     </div>
 
                 </div>
@@ -490,18 +499,18 @@
                         style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
                         <span>July 15 - July 22</span>
                         <span style="color: #2ecc71;">Available</span>
-                        
+
                     </div>
                     <div
                         style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
                         <span>Aug 01 - Aug 08</span>
                         <span style="color: #f1c40f;">Filling Fast</span>
-                        
+
                     </div>
                     <div style="display: flex; justify-content: space-between; padding: 10px 0;">
                         <span>Aug 15 - Aug 22</span>
                         <span style="color: #2ecc71;">Available</span>
-                        
+
                     </div>
                 </div>
 
@@ -543,8 +552,8 @@
 
             <div class="sidebar-widget">
                 <h3 class="sidebar-title">Altitude Profile</h3>
-                <div class="map-container" onclick="openLightbox('assets/maps/placeholder-altitude.png')">
-                    <img src="assets/maps/placeholder-altitude.png" alt="Altitude Profile" class="trek-map-preview">
+                <div class="map-container" onclick="openLightbox('assets/Elevation/gangbal.jpg')">
+                    <img src="assets/Elevation/gangbal.jpg" alt="Altitude Profile" class="trek-map-preview">
                     <div class="map-overlay"><i class="fas fa-search-plus"></i> Click to Enlarge</div>
                 </div>
             </div>
@@ -552,7 +561,7 @@
 
     </div>
 
-    
+
     <!-- Lightbox Modal -->
     <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
         <span class="close-lightbox">&times;</span>
