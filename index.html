@@ -2,13 +2,18 @@
 <html lang="en">
 
 <head>
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://images.pexels.com">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snowman Adventures – Kashmir</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -40,7 +45,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+        <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata">
             <source src="assets/trek.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -59,27 +64,27 @@
     <!-- Popular Destinations Row -->
     <section class="adventures-row">
         <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Gulmarg'">
-            <img src="assets\index\Gulmarg.jpg" alt="Gulmarg" class="adventure-img">
+            <img src="assets\index\Gulmarg.jpg" alt="Gulmarg" class="adventure-img" loading="lazy">
             <div class="adventure-overlay"></div>
             <div class="adventure-label">Gulmarg</div>
         </div>
         <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Pahalgam'">
-            <img src="assets\index\Pahalgam.jpg" alt="Pahalgam" class="adventure-img">
+            <img src="assets\index\Pahalgam.jpg" alt="Pahalgam" class="adventure-img" loading="lazy">
             <div class="adventure-overlay"></div>
             <div class="adventure-label">Pahalgam</div>
         </div>
         <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Sonamarg'">
-            <img src="assets\index\Sonmarg.jpg" alt="Sonamarg" class="adventure-img">
+            <img src="assets\index\Sonmarg.jpg" alt="Sonamarg" class="adventure-img" loading="lazy">
             <div class="adventure-overlay"></div>
             <div class="adventure-label">Sonamarg</div>
         </div>
         <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Aharbal'">
-            <img src="assets\index\aharbal.jpg" alt="Aharbal" class="adventure-img">
+            <img src="assets\index\aharbal.jpg" alt="Aharbal" class="adventure-img" loading="lazy">
             <div class="adventure-overlay"></div>
             <div class="adventure-label">Aharbal</div>
         </div>
         <div class="adventure-card" onclick="window.location.href='location-details.html?loc=Gurez'">
-            <img src="assets\index\gurez.jpg" alt="Gurez" class="adventure-img">
+            <img src="assets\index\gurez.jpg" alt="Gurez" class="adventure-img" loading="lazy">
             <div class="adventure-overlay"></div>
             <div class="adventure-label">Gurez</div>
         </div>
