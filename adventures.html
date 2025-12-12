@@ -63,10 +63,41 @@
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8));
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .activity-header:hover::before {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75));
+        }
+
+        .activity-header h2,
+        .dropdown-icon {
+            position: relative;
+            z-index: 2;
+        }
+
+        .activity-header.trekking-header {
+            background-image: url('assets/ice climibing/Trek.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         .activity-header:hover {
-            background: #222;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
         }
 
         .activity-header h2 {
@@ -326,8 +357,8 @@
 
         <!-- Trekking Section with Dropdown -->
         <div class="activity-section">
-            <div class="activity-header" onclick="toggleDropdown('trekking')">
-                <h2>🥾 Trekking</h2>
+            <div class="activity-header trekking-header" onclick="toggleDropdown('trekking')">
+                <h2>Trekking</h2>
                 <span class="dropdown-icon" id="trekking-icon">▼</span>
             </div>
             <div class="activity-dropdown" id="trekking-dropdown">
