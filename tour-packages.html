@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Packages - Snowman Adventures</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -64,6 +67,62 @@
             width: 100px;
             flex-shrink: 0;
         }
+
+        /* Custom Wizard Styles */
+        .range-container {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .range-numbers {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding: 0 2px;
+        }
+
+        .range-num {
+            color: #555;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 30px;
+            text-align: center;
+            user-select: none;
+        }
+
+        .range-num.active {
+            color: var(--accent-color);
+            font-weight: bold;
+            transform: scale(1.3);
+            text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page-header {
+                padding-top: 100px;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .tab-btn {
+                flex: 1 1 auto;
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .custom-wizard-container {
+                padding: 20px !important;
+            }
+
+            .destination-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
     </style>
 </head>
 
@@ -84,6 +143,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="adventures.html">Adventures</a></li>
                 <li><a href="tour-packages.html" class="active">Tour Packages</a></li>
+
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -100,13 +160,15 @@
         <div class="tabs">
             <button class="tab-btn active" onclick="openTab(event, '7days')">7 Days Kashmir</button>
             <button class="tab-btn" onclick="openTab(event, '14days')">14 Days Explorer</button>
+            <button class="tab-btn" onclick="openTab(event, 'custom')"><i class="fas fa-magic"
+                    style="margin-right: 8px;"></i> Customise Package</button>
         </div>
 
         <div id="7days" class="tab-content active" style="text-align: center;">
             <div style="background: #1a1a1a; padding: 30px; border-radius: 10px; border: 1px solid #333;">
                 <h2 style="color: white; margin-bottom: 15px;">7 Days Kashmir Tour</h2>
                 <p style="color: #ccc; margin-bottom: 25px;">
-                    Srinagar • Gulmarg • Pahalgam • Sonamarg
+                    Srinagar &bull; Gulmarg &bull; Pahalgam &bull; Sonamarg
                 </p>
                 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
                     <div class="stat-item" style="border: 1px solid #444; padding: 10px 20px; border-radius: 5px;">
@@ -126,7 +188,7 @@
             <div style="background: #1a1a1a; padding: 30px; border-radius: 10px; border: 1px solid #333;">
                 <h2 style="color: white; margin-bottom: 15px;">14 Days Explorer Tour</h2>
                 <p style="color: #ccc; margin-bottom: 25px;">
-                    Kashmir • Gurez Valley • Ladakh • Pangong Lake
+                    Kashmir &bull; Gurez Valley &bull; Ladakh &bull; Pangong Lake
                 </p>
                 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
                     <div class="stat-item" style="border: 1px solid #444; padding: 10px 20px; border-radius: 5px;">
@@ -139,6 +201,189 @@
                     </div>
                 </div>
                 <a href="14-day-explorer-tour.html" class="btn">View Full Itinerary & Details</a>
+            </div>
+        </div>
+
+        <!-- Custom Package Wizard (Moved from Footer) -->
+        <div id="custom" class="tab-content" style="text-align: left;">
+            <div class="custom-wizard-container"
+                style="background: #1a1a1a; padding: 30px; border-radius: 10px; border: 1px solid #333; position: relative;">
+
+                <!-- Wizard Header -->
+                <div class="wizard-header" style="text-align: center; margin-bottom: 30px;">
+                    <h2 style="color: white; margin-bottom: 10px;">Build Your Dream Kashmir Trip</h2>
+                    <p id="wizardSub" style="color: #888;">Step 1 of 4: Select Duration</p>
+                    <div class="progress-bar"
+                        style="height: 4px; background: #333; margin-top: 15px; border-radius: 2px;">
+                        <div id="progressFill"
+                            style="height: 100%; background: var(--accent-color); width: 25%; transition: width 0.3s;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Duration -->
+                <div class="wizard-step" id="step1">
+                    <h3 style="color: var(--accent-color); margin-bottom: 20px; text-align: center;">1. How long is your
+                        trip?</h3>
+                    <div class="range-container">
+                        <input type="range" id="durationRange" min="7" max="14" value="7"
+                            style="width: 100%; accent-color: var(--accent-color); height: 8px; border-radius: 5px; cursor: pointer;">
+
+                        <!-- Visual Numbers -->
+                        <div class="range-numbers" id="rangeNumbers">
+                            <div class="range-num active" onclick="setDuration(7)">7</div>
+                            <div class="range-num" onclick="setDuration(8)">8</div>
+                            <div class="range-num" onclick="setDuration(9)">9</div>
+                            <div class="range-num" onclick="setDuration(10)">10</div>
+                            <div class="range-num" onclick="setDuration(11)">11</div>
+                            <div class="range-num" onclick="setDuration(12)">12</div>
+                            <div class="range-num" onclick="setDuration(13)">13</div>
+                            <div class="range-num" onclick="setDuration(14)">14</div>
+                        </div>
+
+                        <p style="text-align: center; color: #888; margin-top: 20px;">
+                            Selected: <span id="durationValue"
+                                style="color: var(--accent-color); font-weight: bold; font-size: 1.2rem;">7 Days</span>
+                            <span style="font-size: 0.9rem; margin-left:10px">(Total <span
+                                    id="targetNightsDisplay">6</span> Nights)</span>
+                        </p>
+                    </div>
+                    <div style="text-align: right; margin-top: 30px;">
+                        <button class="btn" onclick="nextStep(2)">Next: Select Destinations &#8594;</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Select Destinations -->
+                <div class="wizard-step" id="step2" style="display: none;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 20px;">2. Where do you want to go?
+                    </h3>
+                    <p style="color: #888; margin-bottom: 20px; font-size: 0.9rem;">Select all the places you
+                        wish to stay overnight.</p>
+
+                    <div class="destination-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="dest" value="Srinagar" checked disabled>
+                            <span class="custom-checkbox">Srinagar (Base)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="dest" value="Gulmarg">
+                            <span class="custom-checkbox">Gulmarg</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="dest" value="Pahalgam">
+                            <span class="custom-checkbox">Pahalgam</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="dest" value="Sonamarg">
+                            <span class="custom-checkbox">Sonamarg</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="dest" value="Yusmarg">
+                            <span class="custom-checkbox">Yusmarg</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="dest" value="Doodhpathri">
+                            <span class="custom-checkbox">Doodhpathri</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="dest" value="Gurez">
+                            <span class="custom-checkbox">Gurez Valley</span>
+                        </label>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <button class="btn" style="background: #333;" onclick="nextStep(1)">&#8592;
+                            Back</button>
+                        <button class="btn" onclick="nextStep(3)">Next: Allocate Nights &#8594;</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Allocation -->
+                <div class="wizard-step" id="step3" style="display: none;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="color: var(--accent-color); margin: 0;">3. Allocate Your Nights</h3>
+                        <div id="nightBudget"
+                            style="background: #333; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; color: #fff;">
+                            Remaining: <span id="nightsLeft"
+                                style="color: var(--accent-color); font-weight: bold;">6</span>
+                        </div>
+                    </div>
+
+                    <div id="allocationContainer" class="destination-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                        <!-- JS Will Inject Counters Here -->
+                    </div>
+
+                    <div id="allocMsg" style="color: #e74c3c; margin-bottom: 20px; text-align: center; display: none;">
+                        <i class="fas fa-exclamation-circle"></i> Please allocate exactly <span
+                            id="targetNights">6</span> nights.
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <button class="btn" style="background: #333;" onclick="nextStep(2)">&#8592;
+                            Back</button>
+                        <button class="btn" id="btnToStep4" onclick="nextStep(4)">Next: Finalize
+                            &#8594;</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Finalize -->
+                <div class="wizard-step" id="step4" style="display: none;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 20px;">4. Final Preferences</h3>
+
+                    <!-- Hotel -->
+                    <h4 style="color: white; margin-bottom: 15px;">Choose Hotel Category</h4>
+                    <div class="hotel-options" style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
+                        <label class="radio-card">
+                            <input type="radio" name="hotel" value="3star" checked>
+                            <div class="card-content">
+                                <i class="fas fa-star" style="color: #CD7F32;"></i>
+                                <span>3 Star (Standard)</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="hotel" value="4star">
+                            <div class="card-content">
+                                <i class="fas fa-star" style="color: silver;"></i>
+                                <span>4 Star (Premium)</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="hotel" value="5star">
+                            <div class="card-content">
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <span>5 Star (Luxury)</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Month -->
+                    <h4 style="color: white; margin-bottom: 15px;">Travel Month</h4>
+                    <select id="travelMonth"
+                        style="width: 100%; padding: 12px; background: #222; border: 1px solid #444; color: white; border-radius: 5px; margin-bottom: 40px;">
+                        <option value="OffPeak">January - March (Winter)</option>
+                        <option value="Peak">April - June (Summer Peak)</option>
+                        <option value="Mid">July - October (Autumn)</option>
+                        <option value="OffPeak">November - December (Winter)</option>
+                    </select>
+
+                    <div
+                        style="background: #222; padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #444;">
+                        <span style="display: block; color: #888; font-size: 0.9rem; margin-bottom: 5px;">Estimated
+                            Price Per Person</span>
+                        <span id="totalPrice"
+                            style="font-size: 2.5rem; color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 20px;">&#8377;0</span>
+
+                        <div style="display: flex; gap: 10px; justify-content: center;">
+                            <button class="btn" style="background: #333;" onclick="nextStep(3)">&#8592;
+                                Back</button>
+                            <button onclick="bookCustomPackage()" class="btn">Book via WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -156,6 +401,254 @@
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
         }
+
+        // --- Custom Package Wizard Logic ---
+
+        // Base Rates (Approximations)
+        const RATES = {
+            transportPerDay: 3500, // Sedan/SUV avg per day shared
+            hotels: {
+                '3star': 2500, // Per night per person (twin share approx)
+                '4star': 4500,
+                '5star': 9000
+            },
+            seasonMultiplier: {
+                'OffPeak': 0.85,
+                'Mid': 1.0,
+                'Peak': 1.25
+            }
+        };
+
+        const durationRange = document.getElementById('durationRange');
+        const durationValue = document.getElementById('durationValue');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const hotelInputs = document.getElementsByName('hotel');
+        const seasonInput = document.getElementById('travelMonth');
+        const nightsLeftEl = document.getElementById('nightsLeft');
+        const allocMsg = document.getElementById('allocMsg');
+        const targetNightsEl = document.getElementById('targetNights');
+        const targetNightsDisplay = document.getElementById('targetNightsDisplay');
+        const destInputs = document.getElementsByName('dest');
+        const allocContainer = document.getElementById('allocationContainer');
+        const wizardSub = document.getElementById('wizardSub');
+        const progressFill = document.getElementById('progressFill');
+
+        // Globals for Allocation
+        let totalNights = 6;
+        let allocated = 0;
+        let currentStep = 1;
+
+        // Init
+        updateDuration();
+
+        // Event Listeners
+        durationRange.addEventListener('input', updateDuration);
+        seasonInput.addEventListener('change', updateCalculation);
+        hotelInputs.forEach(input => input.addEventListener('change', updateCalculation));
+
+        function setDuration(val) {
+            durationRange.value = val;
+            updateDuration();
+        }
+
+        function updateDuration() {
+            const days = parseInt(durationRange.value);
+            totalNights = days - 1;
+            durationValue.textContent = `${days} Days`;
+            targetNightsEl.textContent = totalNights;
+            targetNightsDisplay.textContent = totalNights;
+
+            // Update visual numbers
+            document.querySelectorAll('.range-num').forEach(el => {
+                if (parseInt(el.innerText) === days) el.classList.add('active');
+                else el.classList.remove('active');
+            });
+        }
+
+        function nextStep(step) {
+            // Validation Logic
+            if (step === 3 && currentStep === 2) {
+                // Moving from Dest -> Alloc
+                // Must select at least 1 destination
+                let checked = false;
+                destInputs.forEach(d => { if (d.checked) checked = true; });
+                if (!checked) {
+                    alert("Please select at least one destination.");
+                    return;
+                }
+                generateAllocationInputs();
+            }
+
+            if (step === 4 && currentStep === 3) {
+                // Moving from Alloc -> Final
+                // Must have exact allocation
+                validateAllocation(); // refresh
+                if (allocated !== totalNights) {
+                    showError(true);
+                    return; // Blocking
+                }
+            }
+
+            // Transition
+            document.querySelectorAll('.wizard-step').forEach(s => s.style.display = 'none');
+            document.getElementById(`step${step}`).style.display = 'block';
+
+            // Update Progress
+            currentStep = step;
+            const titles = ["Select Duration", "Select Destinations", "Allocate Nights", "Finalize"];
+            wizardSub.textContent = `Step ${step} of 4: ${titles[step - 1]}`;
+            progressFill.style.width = `${step * 25}%`;
+
+            // If Final Step, Calculate
+            if (step === 4) {
+                updateCalculation();
+            }
+        }
+
+        function generateAllocationInputs() {
+            allocContainer.innerHTML = '';
+            // Reset allocated count for logic re-run
+            allocated = 0;
+
+            // Create inputs for ONLY checked destinations
+            destInputs.forEach(d => {
+                if (d.checked) {
+                    const dest = d.value;
+                    const html = `
+                        <div class="alloc-card">
+                            <span class="dest-name">${dest}</span>
+                            <div class="counter-control">
+                                <button class="counter-btn" onclick="adjustNight('${dest}', -1)">-</button>
+                                <input type="number" class="night-input" id="night-${dest}" value="0" readonly>
+                                <button class="counter-btn" onclick="adjustNight('${dest}', 1)">+</button>
+                            </div>
+                        </div>
+                    `;
+                    allocContainer.innerHTML += html;
+                }
+            });
+            validateAllocation();
+        }
+
+        function adjustNight(dest, change) {
+            const input = document.getElementById(`night-${dest}`);
+            let val = parseInt(input.value);
+
+            // Prevent negative
+            if (val + change < 0) return;
+
+            // Check budget constraint for ADDING
+            if (change > 0 && allocated >= totalNights) {
+                showError(true);
+                return;
+            }
+
+            val += change;
+            input.value = val;
+
+            validateAllocation();
+        }
+
+        function validateAllocation() {
+            allocated = 0;
+            const inputs = document.querySelectorAll('.night-input');
+            if (inputs.length === 0) return;
+
+            inputs.forEach(inp => {
+                allocated += parseInt(inp.value);
+            });
+
+            const remaining = totalNights - allocated;
+            nightsLeftEl.textContent = remaining;
+
+            // UI Feedback
+            const btn = document.getElementById('btnToStep4');
+            const bg = document.getElementById('nightBudget');
+
+            if (remaining === 0) {
+                bg.style.background = 'rgba(46, 204, 113, 0.2)';
+                showError(false);
+                btn.style.opacity = '1';
+                btn.disabled = false;
+            } else {
+                // Invalid state
+                if (remaining < 0) bg.style.background = 'rgba(231, 76, 60, 0.2)';
+                else bg.style.background = '#333';
+
+                // Non-blocking visually, but nextStep blocks it. 
+                // Let's dim the button to hint
+                btn.style.opacity = '0.5';
+            }
+        }
+
+        function showError(show) {
+            allocMsg.style.display = show ? 'block' : 'none';
+        }
+
+        function updateCalculation() {
+            // 1. Get Values
+            const days = parseInt(durationRange.value);
+            const nights = days - 1; // Used for hotel calc, simplified matched to total allocation
+
+            // Hotel Category
+            let hotelCategory = '3star';
+            for (let radio of hotelInputs) {
+                if (radio.checked) {
+                    hotelCategory = radio.value;
+                    break;
+                }
+            }
+
+            // Season
+            const season = seasonInput.value;
+            const multiplier = RATES.seasonMultiplier[season];
+
+            // 2. Calculate Base Cost
+            const transportCost = (RATES.transportPerDay * days) / 2;
+            const hotelRate = RATES.hotels[hotelCategory];
+            const hotelCost = hotelRate * nights;
+
+            // 3. Apply Multiplier & Total
+            let total = (transportCost + hotelCost) * multiplier;
+            total = Math.ceil(total / 500) * 500;
+
+            totalPriceEl.textContent = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(total);
+        }
+
+        function bookCustomPackage() {
+            const days = durationRange.value;
+            let hotel = '3 Star';
+            for (let radio of hotelInputs) {
+                if (radio.checked) {
+                    hotel = radio.nextElementSibling.innerText.trim();
+                    break;
+                }
+            }
+
+            // Collect Destinations & Nights
+            let destSummary = [];
+            document.querySelectorAll('.night-input').forEach(inp => {
+                const nights = parseInt(inp.value);
+                if (nights > 0) {
+                    const dest = inp.id.replace('night-', '');
+                    destSummary.push(`${dest} (${nights}N)`);
+                }
+            });
+
+            const month = seasonInput.options[seasonInput.selectedIndex].text;
+            const price = totalPriceEl.textContent;
+
+            const msg = `Hi, I built a custom package on your website:%0A%0A` +
+                `*Duration:* ${days} Days (${totalNights} Nights)%0A` +
+                `*Itinerary:* ${destSummary.join(', ')}%0A` +
+                `*Hotel:* ${hotel}%0A` +
+                `*Season:* ${month}%0A` +
+                `*Est. Price:* ${price}%0A%0A` +
+                `Please confirm availability.`;
+
+            window.open(`https://wa.me/919622494350?text=${msg}`, '_blank');
+        }
+
     </script>
 
     <!-- Footer -->
@@ -186,15 +679,16 @@
             <!-- Connect With Us -->
             <div class="footer-section">
                 <h3>Connect With Us</h3>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms & Conditions</a>
-                </div>
-                <div class="social-icons">
+                <div class="social-icons" style="margin-bottom: 20px;">
                     <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i
                             class="fab fa-whatsapp"></i></a>
                     <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/snowmanadventuress/" target="_blank" class="social-icon"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
                 </div>
             </div>
         </div>

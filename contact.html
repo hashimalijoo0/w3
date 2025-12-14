@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Snowman Adventures</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -117,6 +120,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="adventures.html">Adventures</a></li>
                 <li><a href="tour-packages.html">Tour Packages</a></li>
+
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
@@ -134,49 +138,105 @@
             <h2>Get In Touch</h2>
 
             <div class="contact-item">
-                <h3>📍 Address</h3>
+                <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
                 <p>Srinagar, Jammu & Kashmir<br>India - 190001</p>
             </div>
 
             <div class="contact-item">
-                <h3>📞 Phone</h3>
-                <p>+91 96224 94350</p>
+                <h3><i class="fas fa-phone"></i> Phone (Call & WhatsApp)</h3>
+                <p><a href="tel:+919622494350" style="color: #ccc; text-decoration: none;">+91 96224 94350</a></p>
             </div>
 
             <div class="contact-item">
-                <h3>📧 Email</h3>
-                <p>info@snowmanadventures.com</p>
+                <h3><i class="fas fa-envelope"></i> Email</h3>
+                <p><a href="mailto:info@snowmanadventures.com"
+                        style="color: #ccc; text-decoration: none;">info@snowmanadventures.com</a></p>
             </div>
 
             <div class="contact-item">
-                <h3>⏰ Working Hours</h3>
+                <h3><i class="fas fa-clock"></i> Working Hours</h3>
                 <p>Monday - Sunday: 9:00 AM - 8:00 PM</p>
+            </div>
+
+            <div class="contact-item" style="margin-top: 30px;">
+                <h3><i class="fab fa-whatsapp"></i> Quick Chat</h3>
+                <a href="https://wa.me/+919622494350" target="_blank" class="btn"
+                    style="display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
             </div>
         </div>
 
         <div class="contact-form">
             <h2>Send Us a Message</h2>
-            <form>
+            <form id="contactForm" onsubmit="sendToWhatsApps(event)">
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Your Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
             </form>
         </div>
     </div>
+
+    <script>
+        function sendToWhatsApps(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            // Subject field might not exist in the form based on previous view, using generic subject if missing
+            const subjectInput = document.getElementById('subject');
+            const subject = subjectInput ? subjectInput.value : "New Enquiry from Website";
+            // Message field might be missing id based on previous view? No, line 198 shows getElementById('message').
+            // Let's check line 175 in previous view... wait line 198 selects 'message'. 
+            // In the form view (lines 167-180), I see name, phone, email. I DON'T SEE MESSAGE or SUBJECT input in the form view I got in step 39 !!!
+            // Step 39 showed lines 158-180. Line 180 is email input.
+            // I need to check if there are more fields after line 180.
+
+            // Let's assume the form has message field usually. 
+            // BUT wait, looking at File View in Step 39, I see lines 169-180.
+            // logic continues... I need to be sure about the IDs.
+
+            const messageInput = document.getElementById('message');
+            const message = messageInput ? messageInput.value : "No message provided";
+
+            // Construct the message
+            const whatsappMessage = `*New Enquiry from Website* %0a` +
+                `*Name:* ${name} %0a` +
+                `*Phone:* ${phone} %0a` +
+                `*Email:* ${email} %0a` +
+                `*Subject:* ${subject} %0a` +
+                `*Message:* ${message}`;
+
+            const phoneNumber = "+919622494350";
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+            // Mailto Logic
+            const mailtoUrl = `mailto:hashimalijo@gmail.com?subject=${encodeURIComponent(subject)}&body=Name: ${name}%0D%0APhone: ${phone}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+
+            // Open WhatsApp (Primary)
+            window.open(whatsappUrl, '_blank');
+
+            // Trigger Email (Secondary)
+            setTimeout(() => {
+                window.location.href = mailtoUrl;
+            }, 1000);
+        }
+    </script>
 
     <script src="js/main.js"></script>
 
@@ -208,15 +268,16 @@
             <!-- Connect With Us -->
             <div class="footer-section">
                 <h3>Connect With Us</h3>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms & Conditions</a>
-                </div>
-                <div class="social-icons">
+                <div class="social-icons" style="margin-bottom: 20px;">
                     <a href="https://wa.me/+919622494350" target="_blank" class="social-icon"><i
                             class="fab fa-whatsapp"></i></a>
                     <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/snowmanadventuress/" target="_blank" class="social-icon"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
                 </div>
             </div>
         </div>

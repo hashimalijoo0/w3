@@ -1,114 +1,63 @@
-# Image Optimization Script
-# This script compresses images using PowerShell's built-in .NET libraries
+# PowerShell script to optimize images in standard web formats
+# Requires .NET System.Drawing
 
-param(
-    [string]$SourcePath = "c:\Users\hashi\w3\assets",
-    [string]$BackupPath = "c:\Users\hashi\w3\assets_backup",
-    [int]$Quality = 75
-)
-
-# Create backup directory
-if (-not (Test-Path $BackupPath)) {
-    New-Item -ItemType Directory -Path $BackupPath -Force | Out-Null
-    Write-Host "Created backup directory: $BackupPath" -ForegroundColor Green
-}
-
-# Load required assemblies
 Add-Type -AssemblyName System.Drawing
 
+$assetsPath = "$PSScriptRoot\assets"
+$quality = 85
+
 function Optimize-Image {
-    param(
-        [string]$ImagePath,
-        [int]$Quality = 75
+    param (
+        [string]$filePath
     )
-    
+
     try {
-        $file = Get-Item $ImagePath
-        $originalSize = $file.Length / 1MB
+        $image = [System.Drawing.Image]::FromFile($filePath)
         
-        # Skip if already small
-        if ($originalSize -lt 0.5) {
-            Write-Host "Skipping $($file.Name) - already optimized ($([math]::Round($originalSize, 2)) MB)" -ForegroundColor Yellow
-            return
+        # Check if resize is needed (max width 1920)
+        $newWidth = $image.Width
+        $newHeight = $image.Height
+        $wasResized = $false
+
+        if ($image.Width -gt 1920) {
+            $ratio = 1920 / $image.Width
+            $newWidth = 1920
+            $newHeight = [int]($image.Height * $ratio)
+            $wasResized = $true
         }
-        
-        # Create backup
-        $backupFile = Join-Path $BackupPath $file.Name
-        if (-not (Test-Path $backupFile)) {
-            Copy-Item $ImagePath $backupFile -Force
-        }
-        
-        # Load image
-        $img = [System.Drawing.Image]::FromFile($ImagePath)
-        
-        # Calculate new dimensions (max 1920px width for large images)
-        $maxWidth = 1920
-        $newWidth = $img.Width
-        $newHeight = $img.Height
-        
-        if ($img.Width -gt $maxWidth) {
-            $ratio = $maxWidth / $img.Width
-            $newWidth = $maxWidth
-            $newHeight = [int]($img.Height * $ratio)
-        }
-        
+
         # Create new bitmap
-        $newImg = New-Object System.Drawing.Bitmap($newWidth, $newHeight)
-        $graphics = [System.Drawing.Graphics]::FromImage($newImg)
-        $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-        $graphics.DrawImage($img, 0, 0, $newWidth, $newHeight)
-        
-        # Set up encoder parameters for quality
-        $encoder = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
+        $bmp = New-Object System.Drawing.Bitmap($newWidth, $newHeight)
+        $graph = [System.Drawing.Graphics]::FromImage($bmp)
+        $graph.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
+        $graph.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+        $graph.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
+        $graph.DrawImage($image, 0, 0, $newWidth, $newHeight)
+
+        # Copmpression Encoder
+        $codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq "image/jpeg" }
         $encoderParams = New-Object System.Drawing.Imaging.EncoderParameters(1)
-        $encoderParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, $Quality)
-        
-        # Dispose original image before saving
-        $img.Dispose()
-        
-        # Save optimized image
-        $newImg.Save($ImagePath, $encoder, $encoderParams)
-        
-        # Cleanup
-        $graphics.Dispose()
-        $newImg.Dispose()
-        
-        $newSize = (Get-Item $ImagePath).Length / 1MB
-        $savings = (($originalSize - $newSize) / $originalSize) * 100
-        
-        Write-Host "Optimized: $($file.Name)" -ForegroundColor Green
-        Write-Host "  Before: $([math]::Round($originalSize, 2)) MB" -ForegroundColor Cyan
-        Write-Host "  After:  $([math]::Round($newSize, 2)) MB" -ForegroundColor Cyan
-        Write-Host "  Saved:  $([math]::Round($savings, 1))%" -ForegroundColor Green
-        
-    } catch {
-        Write-Host "Error processing $ImagePath : $_" -ForegroundColor Red
+        $encoderParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, $quality)
+
+        $image.Dispose() # Release original file
+
+        # Save back to file
+        $bmp.Save($filePath, $codec, $encoderParams)
+        $bmp.Dispose()
+        $graph.Dispose()
+
+        Write-Host "Optimized: $filePath"
+    }
+    catch {
+        Write-Host "Failed to optimize: $filePath - $_"
     }
 }
 
-# Get all images
-$images = Get-ChildItem -Path $SourcePath -Recurse -Include *.jpg,*.jpeg,*.png -File
-
-Write-Host "`nFound $($images.Count) images to process`n" -ForegroundColor Yellow
-
-$totalBefore = 0
-$totalAfter = 0
-
-foreach ($image in $images) {
-    $sizeBefore = $image.Length
-    Optimize-Image -ImagePath $image.FullName -Quality $Quality
-    $sizeAfter = (Get-Item $image.FullName).Length
-    
-    $totalBefore += $sizeBefore
-    $totalAfter += $sizeAfter
+# Find all JPG/JPEG/PNG images
+Get-ChildItem -Path $assetsPath -Recurse -Include *.jpg, *.jpeg, *.png | ForEach-Object {
+    $sizeKB = $_.Length / 1KB
+    if ($sizeKB -gt 500) {
+        Write-Host "Optimizing large file: $($_.Name) ($([math]::round($sizeKB)) KB)"
+        Optimize-Image -filePath $_.FullName
+    }
 }
-
-$totalSavings = (($totalBefore - $totalAfter) / $totalBefore) * 100
-
-Write-Host "`n========================================" -ForegroundColor Yellow
-Write-Host "OPTIMIZATION COMPLETE" -ForegroundColor Green
-Write-Host "========================================" -ForegroundColor Yellow
-Write-Host "Total size before: $([math]::Round($totalBefore / 1MB, 2)) MB" -ForegroundColor Cyan
-Write-Host "Total size after:  $([math]::Round($totalAfter / 1MB, 2)) MB" -ForegroundColor Cyan
-Write-Host "Total savings:     $([math]::Round($totalSavings, 1))%" -ForegroundColor Green
-Write-Host "Backup location:   $BackupPath" -ForegroundColor Yellow
