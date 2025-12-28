@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo & Self-Drive Support | Snowman Adventures Kashmir</title>
+    <meta name="description"
+        content="Professional safety backup and local intelligence for solo travelers and self-drive explorers in Kashmir & Ladakh. Don't travel blind, travel with local backup.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .support-hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('assets/solo-support-hero.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .support-hero-content h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .support-hero-content p {
+            font-size: 1.5rem;
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .strategy-intro {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .strategy-intro h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .strategy-intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .package-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.2);
+        }
+
+        .package-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .package-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .package-card ul li {
+            margin-bottom: 12px;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .package-card ul li i {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .mindset-section {
+            background: #0a0a0a;
+            padding: 80px 20px;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .mindset-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .mindset-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .mindset-text p {
+            color: #888;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .quote-box {
+            background: #111;
+            padding: 30px;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .quote-box p {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #eee;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .support-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .mindset-container {
+                grid-template-columns: 1fr;
+            }
+
+            .support-hero {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="brand-container">
+            <img loading="lazy" src="assets/logo.jpg" alt="Snowman Adventures Logo" class="hero-logo">
+            <span class="brand-text">Snowman Adventures</span>
+        </a>
+        <nav>
+            <div class="burger-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Adventures</a></li>
+                <li><a href="tour-packages.html">Tour Packages</a></li>
+                <li><a href="solo-self-drive-support.html" class="active">Solo Support</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="support-hero">
+        <div class="support-hero-content">
+            <h1>Travel Solo, Not Blind</h1>
+            <p>Local intelligence, safety backup, and expert guidance for the independent explorer in Kashmir & Ladakh.
+            </p>
+        </div>
+    </section>
+
+    <section class="strategy-intro">
+        <h2>Local Competence > Influencer Confidence</h2>
+        <p>The mountains don't care if you booked a tour or not. They care if you're prepared. We believe in your
+            independence, but we also know the value of a local safety net in the Himalayas. We don't sell travel; we
+            sell competence and assurance.</p>
+    </section>
+
+    <section class="package-grid">
+        <!-- Offer 1 -->
+        <div class="package-card">
+            <div>
+                <h3>Solo Travel Safety Support</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 24/7 Local Emergency Contact</li>
+                    <li><i class="fas fa-check-circle"></i> Route & Weather Advisory</li>
+                    <li><i class="fas fa-check-circle"></i> Permit & Documentation Guidance</li>
+                    <li><i class="fas fa-check-circle"></i> Honest No-Go Warnings</li>
+                    <li><i class="fas fa-check-circle"></i> Local Do's & Don'ts</li>
+                </ul>
+            </div>
+            <a href="https://wa.me/919622494350?text=I'm interested in the Solo Travel Safety Support package."
+                class="btn" style="text-align: center;">Get Support</a>
+        </div>
+
+        <!-- Offer 2 -->
+        <div class="package-card">
+            <div>
+                <h3>Self-Drive Backup Plan</h3>
+                <ul>
+                    <li><i class="fas fa-car-crash"></i> Road Condition Updates</li>
+                    <li><i class="fas fa-car-crash"></i> Recovery Contact Assistance</li>
+                    <li><i class="fas fa-car-crash"></i> Regional Police Contacts</li>
+                    <li><i class="fas fa-car-crash"></i> High-Pass Safety Briefings</li>
+                    <li><i class="fas fa-car-crash"></i> Mechanical Help Support</li>
+                </ul>
+            </div>
+            <a href="https://wa.me/919622494350?text=I'm interested in the Self-Drive Kashmir Backup Plan." class="btn"
+                style="text-align: center;">Get Backup</a>
+        </div>
+
+        <!-- Offer 3 -->
+        <div class="package-card">
+            <div>
+                <h3>DIY Trek Consultation</h3>
+                <ul>
+                    <li><i class="fas fa-map-marked-alt"></i> 1-Hour Video Consultation</li>
+                    <li><i class="fas fa-map-marked-alt"></i> Route Map Analysis</li>
+                    <li><i class="fas fa-map-marked-alt"></i> Personalized Risk Points</li>
+                    <li><i class="fas fa-map-marked-alt"></i> Gear & Packing Review</li>
+                    <li><i class="fas fa-map-marked-alt"></i> Local Permit Clarity</li>
+                </ul>
+            </div>
+            <a href="https://wa.me/919622494350?text=I'm interested in the DIY Trek Consultation." class="btn"
+                style="text-align: center;">Book Consult</a>
+        </div>
+    </section>
+
+    <section class="mindset-section">
+        <div class="mindset-container">
+            <div class="mindset-text">
+                <h2>Why Local Intelligence Matters</h2>
+                <p>Influencers show you the best 10 minutes of a journey—the perfect sunset and the easy roads. They
+                    frequently omit the failures, the closures, and the risks.</p>
+                <p>We show you the reality. Our goal is to empower your independent journey with the wisdom of operators
+                    who have survived these mountains for decades.</p>
+                <div class="quote-box">
+                    <p>"Mountains are neutral. They don't recognize your social media following—only your competence and
+                        your backup."</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <h3 style="margin-bottom: 20px;">Ready to Explore Kashmir?</h3>
+                <p style="color: #666; margin-bottom: 30px;">Talk to a local before you go. Ensure your freedom is safe.
+                </p>
+                <a href="https://wa.me/919622494350?text=Hi, I'm planning a solo/self-drive trip and would like local advice."
+                    class="btn">Contact an Expert</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="adventures.html">Adventures</a></li>
+                        <li><a href="tour-packages.html">Tour Packages</a></li>
+                        <li><a href="solo-self-drive-support.html">Solo Support</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us On</h3>
+                    <div class="social-links">
+                        <a href="https://wa.me/+919622494350" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/snowmanadventuress/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 97977 98424</p>
+                        <p><i class="fas fa-phone"></i> +91 96224 94350</p>
+                        <p><i class="far fa-clock"></i> 9.00 AM to 9.00 PM</p>
+                        <p>Srinagar, Kashmir</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p>&copy; 2024 Snowman Adventures. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919622494350?text=Hi, I'm travelling solo and need some local advice." class="whatsapp-float"
+        target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Solo Help</span>
+    </a>
+
+</body>
+
+</html>
