@@ -241,8 +241,9 @@ nav ul li a.active::after {
 .why-us {
     position: relative;
     padding: 100px 0;
-    background: url('../assets/dark-mountain-bg.png') no-repeat center center/cover;
-    background-attachment: fixed;
+    background: url('../assets/dark-mountain-bg.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll;
     text-align: center;
     color: #fff;
     width: 100%;
@@ -297,7 +298,9 @@ nav ul li a.active::after {
 
     .why-us {
         padding: 80px 20px;
-        background: url('../assets/paragliding/pg.jpg') no-repeat center center/cover;
+        background: url('../assets/About/Picture 185.jpg') no-repeat center center;
+        background-size: cover;
+        background-position: center;
         background-attachment: scroll;
     }
 
@@ -856,9 +859,19 @@ footer {
         text-align: center;
     }
 
+    .footer-col:last-child {
+        text-align: center;
+    }
+
     .footer-col h3::after {
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .footer-col:last-child h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
     }
 
     .footer-col ul li a {
@@ -870,6 +883,11 @@ footer {
     }
 
     .contact-info p {
+        justify-content: center;
+    }
+
+    /* Override specificity for last column contact info */
+    .footer-col:last-child .contact-info p {
         justify-content: center;
     }
 
